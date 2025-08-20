@@ -48,7 +48,6 @@ export default function AboutPage() {
             <p className="u-text--muted u-align-text--center">
               To spread awareness and adoption of Ubuntu and FOSS across India.
             </p>
-            <p></p>
           </div>
         </div>
 
