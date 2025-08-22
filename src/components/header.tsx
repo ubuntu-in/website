@@ -54,7 +54,12 @@ export function Header() {
 
         <div className="flex flex-1 items-center justify-between space-x-2 md:hidden">
           <Link href="/" className="flex items-center space-x-2">
-            <Sprout className="h-6 w-6 text-primary" />
+            <Image
+              src="/logos/ubuntu-in-logo.png"
+              alt="Ubuntu India Logo"
+              width={32}
+              height={32}
+            />
             <span className="font-bold">Ubuntu India</span>
           </Link>
 
