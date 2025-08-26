@@ -1,9 +1,8 @@
-
 "use client";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, Sprout } from "lucide-react";
+import { Menu } from "lucide-react";
 import { useState } from "react";
 
 import { cn } from "@/lib/utils";
@@ -25,68 +24,80 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-14 items-center">
-        <div className="mr-4 hidden md:flex">
-          <Link href="/" className="!pl-5 mr-6 flex items-center space-x-2">
+      <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
+        {/* Logo Section */}
+        <div className="flex items-center">
+          <Link
+            href="/"
+            className="flex items-center space-x-2.5 text-primary transition-transform hover:scale-105 focus:outline-none"
+          >
             <Image
               src="/logos/ubuntu-in-logo.png"
               alt="Ubuntu India Logo"
-              width={32}
-              height={32}
+              width={36}
+              height={36}
+              className="rounded-md shadow-sm"
             />
-            <span className="font-bold">Ubuntu India</span>
+            <span className="font-bold tracking-tight text-foreground">
+              Ubuntu India
+            </span>
           </Link>
-          <nav className="flex items-center space-x-6 text-sm font-medium">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={cn(
-                  "transition-colors hover:text-primary",
-                  pathname === link.href ? "text-primary" : "text-foreground/60"
-                )}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
         </div>
 
-        <div className="flex flex-1 items-center justify-between space-x-2 md:hidden">
-          <Link href="/" className="flex items-center space-x-2">
-            <Image
-              src="/logos/ubuntu-in-logo.png"
-              alt="Ubuntu India Logo"
-              width={32}
-              height={32}
-            />
-            <span className="font-bold">Ubuntu India</span>
-          </Link>
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex items-center space-x-8">
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={cn(
+                "relative px-1 py-2 text-sm font-medium transition-all duration-200 hover:text-primary",
+                pathname === link.href
+                  ? "text-primary"
+                  : "text-foreground/70 hover:text-foreground"
+              )}
+            >
+              {link.label}
+              {pathname === link.href && (
+                <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary rounded-full" />
+              )}
+            </Link>
+          ))}
+        </nav>
 
+        {/* Mobile Menu Trigger */}
+        <div className="md:hidden flex items-center">
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon">
-                <Menu className="h-5 w-5" />
-                <span className="sr-only">Toggle Menu</span>
+              <Button
+                variant="ghost"
+                size="icon"
+                className="text-foreground/70 hover:text-primary focus-visible:ring-2 focus-visible:ring-primary"
+                aria-label="Toggle menu"
+              >
+                <Menu className="h-6 w-6" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="pr-0">
-              <nav className="flex flex-col gap-6 text-lg font-medium mt-8">
-                {navLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    onClick={() => setIsOpen(false)}
-                    className={cn(
-                      "transition-colors hover:text-primary",
-                      pathname === link.href ? "text-primary" : "text-foreground/80",
-                      "px-4 py-2"
-                    )}
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-              </nav>
+            <SheetContent side="right" className="w-[280px] sm:w-[320px] p-6">
+              <div className="flex flex-col space-y-8 pt-8">
+                <nav className="flex flex-col space-y-4 text-base font-medium">
+                  {navLinks.map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      onClick={() => setIsOpen(false)}
+                      className={cn(
+                        "px-4 py-2 rounded-md transition-all duration-150 hover:bg-accent hover:text-accent-foreground",
+                        pathname === link.href
+                          ? "bg-primary/10 text-primary font-semibold"
+                          : "text-foreground/80"
+                      )}
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </nav>
+              </div>
             </SheetContent>
           </Sheet>
         </div>
