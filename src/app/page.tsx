@@ -6,7 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 export default function Home() {
   return (
     <div className="flex flex-col min-h-dvh">
-      <section className="w-full py-20 md:py-32 lg:py-40 bg-card">
+      <section className="w-full py-20 md:py-32 lg:py-40 bg-card flex items-center justify-center">
         <div className="container px-4 md:px-6">
           <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 xl:gap-16 items-center">
             <div className="flex flex-col justify-center space-y-4">
@@ -55,7 +55,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="w-full py-12 md:py-24">
+      <section className="w-full py-12 md:py-24 flex items-center justify-center">
         <div className="container px-4 md:px-6">
           <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-3">
             <Card className="hover:shadow-xl transition-shadow duration-300">
