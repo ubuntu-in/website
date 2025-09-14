@@ -60,7 +60,7 @@ const tierData = {
     values: [
       "XL", "XL", true, true, true, true, true, 5, true, true, true,
       "A Keynote (30min) + A Workshop (60min)", "L", "3min",
-      "Handout on attendee check-in + At booth", true,
+      "Handout on attendee check-in", true,
     ],
   },
   Gold: {
