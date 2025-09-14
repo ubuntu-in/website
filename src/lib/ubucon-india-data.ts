@@ -41,6 +41,7 @@ const benefitTexts: string[] = [
   "Logo on Video banner",
   "Logo on Video sponsor information scene",
   "Logo on T-Shirt (or other swag)",
+  "Event pass (lunch, coffee, access to all areas)",
   "Recognition posting on social media",
   "Recognition posting on blog",
   "Mention during opening and closing session",
@@ -48,7 +49,7 @@ const benefitTexts: string[] = [
   "Sponsor booth",
   "Promotion video during breaks",
   "Distribute Promotional Material",
-  "Promotional Email to all Attendees"
+  "Promotional Email to all Attendees",
 ];
 
 const tierData = {
@@ -57,7 +58,7 @@ const tierData = {
     priceUSD: "$10,000",
     slots: 1,
     values: [
-      "XL", "XL", true, true, true, true, true, true, true, true,
+      "XL", "XL", true, true, true, true, true, 5, true, true, true,
       "A Keynote (30min) + A Workshop (60min)", "L", "3min",
       "Handout on attendee check-in + At booth", true,
     ],
@@ -67,7 +68,7 @@ const tierData = {
     priceUSD: "$6,000",
     slots: 2,
     values: [
-      "L", "L", true, true, true, true, true, true, true, true,
+      "L", "L", true, true, true, true, true, 5, true, true, true,
       "A Talk (20min) or A Workshop (60min)", "M", "2min",
       "Handout on attendee check-in", true,
     ],
@@ -77,7 +78,7 @@ const tierData = {
     priceUSD: "$3,500",
     slots: 6,
     values: [
-      "M", "M", true, false, false, true, false, true, false, true,
+      "M", "M", true, false, false, true, false, 3, true, false, true,
       "A Talk (20min)", "S", "1min", "Handout on attendee check-in (Add-on)", true,
     ],
   },
@@ -86,7 +87,7 @@ const tierData = {
     priceUSD: "$1,600",
     slots: "inf",
     values: [
-      "S", "S", false, false, false, true, false, true, false, true,
+      "S", "S", false, false, false, true, false, 2, true, false, true,
       "A Lightning talk (5min)", "S (Add-on)", false, false, false,
     ],
   },
@@ -95,7 +96,7 @@ const tierData = {
     priceUSD: "$500 - $800",
     slots: "inf",
     values: [
-      "S", "XS", false, false, false, true, false, true, false, true,
+      "S", "XS", false, false, false, true, false, 1, true, false, true,
       false, false, false, false, false,
     ],
   },
@@ -105,7 +106,7 @@ const tierData = {
     priceUSD: "$200 - $800",
     slots: "inf",
     values: [
-      "S", "XS", false, false, false, true, false, true, false, true,
+      "S", "XS", false, false, false, true, false, 1, true, false, true,
       false, false, false, false, false,
     ],
   }
@@ -190,7 +191,7 @@ export const ubucon2025: Event =
   tracks: tracks,
   talkFormats: [
       { id: 1 , name: 'Talk', length: '20 minutes' },
-      { id: 2, name: 'Talk', length: '30+ minutes' },
+      { id: 2, name: 'Talk', length: '30-40 minutes' },
       { id: 3,  name: 'Lightning Talk', length: '5 minutes' },
       { id: 4, name: 'Workshop', length: '60 minutes' },
       { id: 5,  name: 'Workshop', length: '90 minutes' },
