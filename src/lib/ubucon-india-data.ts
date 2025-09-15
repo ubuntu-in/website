@@ -48,7 +48,7 @@ const benefitTexts: string[] = [
   "Sponsored session",
   "Sponsor booth",
   "Promotion video during breaks",
-  "Distribute Promotional Material",
+  "Distribution of Sponsor Handouts at registration",
   "Promotional Email to all Attendees",
 ];
 
@@ -60,7 +60,7 @@ const tierData = {
     values: [
       "XL", "XL", true, true, true, true, true, 5, true, true, true,
       "A Keynote (30min) + A Workshop (60min)", "L", "3min",
-      "Handout on attendee check-in", true,
+      true, true,
     ],
   },
   Gold: {
@@ -70,7 +70,7 @@ const tierData = {
     values: [
       "L", "L", true, true, true, true, true, 5, true, true, true,
       "A Talk (20min) or A Workshop (60min)", "M", "2min",
-      "Handout on attendee check-in", true,
+      true, true,
     ],
   },
   Silver: {
@@ -79,7 +79,7 @@ const tierData = {
     slots: 6,
     values: [
       "M", "M", true, false, false, true, false, 3, true, false, true,
-      "A Talk (20min)", "S", "1min", "Handout on attendee check-in (Add-on)", true,
+      "A Talk (20min)", "S", "1min", "(Add-on)", true,
     ],
   },
   Bronze: {
