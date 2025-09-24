@@ -154,17 +154,17 @@ export const aLaCarteSponsorships: SponsorShipTier[] = [
 ];
 
 const termsAndConditions = [
-    "All sponsorship fees are exclusive of applicable taxes.",
-    "INR pricing is exclusively available for businesses with a primary office registered in India.",
-    "Sponsored sessions are subject to approval by the content team. Sessions must focus on relevant Open Source topics, comply with the Code of Conduct, and must not be sales pitches.",
-    "Startup pricing is limited to companies that are five years old or less, have 30 or fewer employees, and use Ubuntu internally.",
-    "All listed add-ons are available at an additional cost and are not included in the base package price.",
-    "The 'Promotional Email' benefit can be replaced with a list of attendees (names, affiliation, email) who have explicitly opted-in to share their data.",
-    "Sponsorship is not confirmed until payment is received in full, and all benefits are non-transferable.",
-    "Sponsor materials (logos, branding, etc.) must be provided in the required format by the specified deadline.",
-    "The event organizers reserve the right to refuse any sponsorship application at their discretion.",
-    "In the event of conference cancellation, a full refund of the sponsorship fee will be provided.",
-    "Sponsors are responsible for their own travel and accommodation expenses."
+  "All sponsorship fees are exclusive of applicable taxes.",
+  "INR pricing is exclusively available for businesses with a primary office registered in India.",
+  "Sponsored sessions are subject to approval by the content team. Sessions must focus on relevant Open Source topics, comply with the Code of Conduct, and must not be sales pitches.",
+  "Startup pricing is limited to companies that are five years old or less, have 30 or fewer employees, and use Ubuntu internally.",
+  "All listed add-ons are available at an additional cost and are not included in the base package price.",
+  "The 'Promotional Email' benefit can be replaced with a list of attendees (names, affiliation, email) who have explicitly opted-in to share their data.",
+  "Sponsorship is not confirmed until payment is received in full, and all benefits are non-transferable.",
+  "Sponsor materials (logos, branding, etc.) must be provided in the required format by the specified deadline.",
+  "The event organizers reserve the right to refuse any sponsorship application at their discretion.",
+  "In the event of conference cancellation, a full refund of the sponsorship fee will be provided.",
+  "Sponsors are responsible for their own travel and accommodation expenses."
 ];
 
 
@@ -181,7 +181,8 @@ export const ubucon2025: Event =
   pastSponsors: [sponsors.canonical, sponsors.fossunited, sponsors.onlyoffice],
   speakers: [],
   prospectusUrl: '/prospects/sponsorship-prospectus-ubucon-india.pdf',
-  ticketPrice: 'TBD',
+  ticketPrice: 'Student: ₹200, Professional: ₹500, Supporter: ₹2000',
+  ticketUrl: "https://konfhub.com/ubucon-india-2025",
   cfpUrl: 'https://events.canonical.com/event/136/abstracts/',
   imageUrl: '/assets/iisc.jpg',
   imageHint: 'tech conference',
@@ -190,10 +191,10 @@ export const ubucon2025: Event =
   sponsorTncs: termsAndConditions,
   tracks: tracks,
   talkFormats: [
-      { id: 1 , name: 'Talk', length: '20 minutes' },
-      { id: 2, name: 'Talk', length: '30-40 minutes' },
-      { id: 3,  name: 'Lightning Talk', length: '5 minutes' },
-      { id: 4, name: 'Workshop', length: '60 minutes' },
-      { id: 5,  name: 'Workshop', length: '90 minutes' },
+    { id: 1, name: 'Talk', length: '20 minutes' },
+    { id: 2, name: 'Talk', length: '30-40 minutes' },
+    { id: 3, name: 'Lightning Talk', length: '5 minutes' },
+    { id: 4, name: 'Workshop', length: '60 minutes' },
+    { id: 5, name: 'Workshop', length: '90 minutes' },
   ],
 }
