@@ -24,8 +24,8 @@ const tracks: Track[] = [
     description: 'Discover Ubuntu Core, Raspberry Pi, robotics, automotive, and other embedded use cases for the edge and IoT deployments.'
   },
   {
-    name: 'Community & Open Source',
-    description: 'Celebrate FOSS values with talks on building communities, LoCos, contribution pathways, advocacy, diversity, inclusion, and licensing.'
+    name: 'Documentation, Community & Open Source',
+    description: 'Celebrate FOSS values with talks on writing documentation of open source projects, building communities, LoCos, contribution pathways, advocacy, diversity, inclusion, and licensing.'
   },
   {
     name: 'AI & Machine Learning',
