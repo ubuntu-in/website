@@ -103,6 +103,11 @@ export default async function IndividualEventPage({
             <CardContent className="border-t pt-4">
                  <div className="flex flex-col space-y-2">
                     <Button asChild variant="ghost" className="justify-start">
+                        <Link href={`/events/${event.id}/talks`}>
+                            <Code className="mr-2 h-5 w-5" /> View All Talks
+                        </Link>
+                    </Button>
+                    <Button asChild variant="ghost" className="justify-start">
                         <Link href={`/events/${event.id}/speakers`}>
                             <Users className="mr-2 h-5 w-5" /> View Speakers
                         </Link>

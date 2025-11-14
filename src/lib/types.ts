@@ -64,4 +64,26 @@ export type Event = {
   sponsorTncs?: string[];
   sponsorShipTiers?: SponsorShipTier[];
   alaCarteSponsorships?: SponsorShipTier[];
+  talks?: Talk[];
+};
+
+export type Author = {
+  name: string;
+  affiliation: string;
+  imageUrl?: string;
+};
+
+export type Talk = {
+  id: string;
+  title: string;
+  description: string;
+  authors: Author[];
+  duration?: string;
+  type?: string;
+  indicoUrl?: string;
+};
+
+export type EventTalks = {
+  eventId: string;
+  talks: Talk[];
 };

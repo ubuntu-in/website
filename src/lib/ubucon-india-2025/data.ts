@@ -1,4 +1,5 @@
-import type { Sponsor, Track, Event, SponsorShipTier } from './types';
+import type { Sponsor, Track, Event, SponsorShipTier } from '../types';
+import { ubuconIndia2025Talks } from './talks';
 
 const sponsors: Record<string, Sponsor> = {
   canonical: { name: 'Canonical', url: 'https://canonical.com/', logoUrl: '/logos/canonical.svg', logoHint: 'canonical logo' },
@@ -197,4 +198,5 @@ export const ubucon2025: Event =
     { id: 4, name: 'Workshop', length: '60 minutes' },
     { id: 5, name: 'Workshop', length: '90 minutes' },
   ],
+  talks: ubuconIndia2025Talks,
 }
