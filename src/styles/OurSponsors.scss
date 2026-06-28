@@ -1,0 +1,268 @@
+// ─────────────────────────────────────────────────────────────────────────────
+// oursponsors.scss
+// All styles for the Our Sponsors page.
+// Hover colour-reveal is handled entirely in CSS (no inline onMouseEnter).
+// ─────────────────────────────────────────────────────────────────────────────
+
+// ── Local tokens ─────────────────────────────────────────────────────────────
+$os-brand:            var(--vf-color-brand);
+$os-accent:           var(--vf-color-accent);
+$os-bg-subtle:        #fcfcfc;
+$os-bg-tint-orange:   rgba(233, 84, 32, 0.04);
+$os-border-default:   #eaeaea;
+$os-border-subtle:    #e0e0e0;
+$os-border-orange:    rgba(233, 84, 32, 0.1);
+$os-text-muted:       #555;
+$os-text-faint:       #888;
+
+// Tier accent colours
+$os-gold:             #c9960c;
+$os-gold-bg:          rgba(201, 150, 12, 0.07);
+$os-principal:        var(--vf-color-accent);
+$os-principal-bg:     rgba(119, 41, 83, 0.06);
+
+$os-card-radius:      8px;
+
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 1. Hero
+// ─────────────────────────────────────────────────────────────────────────────
+
+.os-hero {
+  background-color: $os-bg-subtle;
+  border-bottom: 1px solid $os-border-default;
+  padding: 4rem 0 3.5rem;
+
+  &__eyebrow {
+    display: inline-block;
+    margin-bottom: 1rem;
+    padding: 0.2rem 0.6rem;
+    background-color: rgba(119, 41, 83, 0.08);
+    border: 1px solid rgba(119, 41, 83, 0.15);
+    border-radius: 3px;
+    color: $os-accent;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  &__title {
+    color: $os-accent;
+    font-size: 2.75rem;
+    font-weight: 700;
+    line-height: 1.15;
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+  }
+
+  &__lead {
+    color: $os-text-muted;
+    font-size: 1.125rem;
+    max-width: 52ch;
+    margin: 0;
+  }
+}
+
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 2. Shared tier header (label + heading + sub used in every section)
+// ─────────────────────────────────────────────────────────────────────────────
+
+.os-tier-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+
+  &__label {
+    display: inline-block;
+    margin-bottom: 0.75rem;
+    padding: 0.2rem 0.75rem;
+    border-radius: 3px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+
+    &--principal {
+      background-color: $os-principal-bg;
+      color: $os-accent;
+      border: 1px solid rgba(119, 41, 83, 0.2);
+    }
+
+    &--gold {
+      background-color: $os-gold-bg;
+      color: $os-gold;
+      border: 1px solid rgba(201, 150, 12, 0.25);
+    }
+  }
+
+  &__heading {
+    color: $os-accent;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+  }
+
+  &__sub {
+    color: $os-text-muted;
+    font-size: 0.9375rem;
+    max-width: 56ch;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+}
+
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 3. Principal Sponsor section
+// ─────────────────────────────────────────────────────────────────────────────
+
+.os-principal-section {
+  background-color: #ffffff;
+}
+
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 4. Gold Sponsors section
+// ─────────────────────────────────────────────────────────────────────────────
+
+.os-gold-section {
+  background-color: $os-bg-tint-orange;
+  border-top: 1px solid $os-border-orange;
+  border-bottom: 1px solid $os-border-orange;
+  padding: 3.5rem 0;
+}
+
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 5. Logo grid layouts
+// ─────────────────────────────────────────────────────────────────────────────
+
+.os-logos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+
+  // Principal: single large centred card
+  &--principal {
+    gap: 0;
+  }
+
+  // Gold: row of medium cards
+  &--gold {
+    gap: 1.5rem;
+  }
+}
+
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 6. Logo card
+// ─────────────────────────────────────────────────────────────────────────────
+
+.os-logo-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  background-color: #ffffff;
+  border: 1px solid $os-border-default;
+  border-radius: $os-card-radius;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  cursor: default;
+  transition: box-shadow 0.18s ease, border-color 0.18s ease;
+
+  // Size variants
+  &--lg {
+    width: 300px;
+    height: 130px;
+    padding: 1.75rem 2rem;
+  }
+
+  &--md {
+    width: 220px;
+    height: 100px;
+    padding: 1.25rem 1.5rem;
+  }
+
+  // Hover: lift + reveal logo colour
+  &:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    border-color: $os-border-subtle;
+
+    .os-logo-card__img {
+      filter: none;
+      opacity: 1;
+    }
+
+    .os-logo-card__name {
+      opacity: 1;
+    }
+  }
+
+  // ── Logo image ────────────────────────────────────────────────────────────
+
+  &__img {
+    max-width: 80%;
+    max-height: 44px;
+    object-fit: contain;
+    // Default: desaturated, slightly faded
+    filter: grayscale(100%) opacity(0.7);
+    opacity: 0.85;
+    transition: filter 0.2s ease, opacity 0.2s ease;
+
+    .os-logo-card--lg & {
+      max-height: 52px;
+    }
+  }
+
+  // ── Sponsor name (shows on hover as a subtle label) ───────────────────────
+
+  &__name {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: $os-text-faint;
+    opacity: 0;
+    transition: opacity 0.18s ease;
+  }
+}
+
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 7. Responsive overrides
+// ─────────────────────────────────────────────────────────────────────────────
+
+@media (max-width: 772px) {
+  .os-hero {
+    &__title { font-size: 2rem; }
+  }
+
+  .os-logo-card {
+    // On touch devices, always show logos in colour (no hover state)
+    &__img {
+      filter: none;
+      opacity: 1;
+    }
+
+    &__name {
+      opacity: 1;
+    }
+
+    &--lg {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      padding: 1.5rem;
+    }
+
+    &--md {
+      width: calc(50% - 0.75rem);
+      height: auto;
+      min-height: 80px;
+      padding: 1rem;
+    }
+  }
+}

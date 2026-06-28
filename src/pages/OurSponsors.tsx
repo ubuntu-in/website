@@ -1,96 +1,107 @@
-import React from 'react';
-import { SponsorTabs } from '../components/SponsorTabs';
-import { FaHandshake } from 'react-icons/fa';
+import React from "react";
+import { SponsorTabs } from "../components/SponsorTabs";
+import "../styles/OurSponsors.scss";
 
-export const OurSponsors: React.FC = () => {
-  return (
-    <main>
-      <section className="p-strip" style={{ backgroundColor: '#fcfcfc', borderBottom: '1px solid #eaeaea', padding: '3.5rem 0' }}>
-        <div className="row u-vertically-center">
-          <div className="col-8 col-medium-5">
-            <span className="p-status-label" style={{ marginBottom: '1rem', display: 'inline-block', backgroundColor: 'rgba(119, 41, 83, 0.08)', color: 'var(--vf-color-accent)', borderColor: 'rgba(119, 41, 83, 0.15)', fontWeight: 700, padding: '0.2rem 0.6rem' }}>
-              Sponsors & Partners
+// ─── Data ────────────────────────────────────────────────────────────────────
+
+const PRINCIPAL_SPONSORS = [
+  { name: "Canonical", logo: "https://logo.clearbit.com/canonical.com" },
+] as const;
+
+const GOLD_SPONSORS = [
+  { name: "Debian", logo: "https://logo.clearbit.com/debian.org" },
+  { name: "GNOME", logo: "https://logo.clearbit.com/gnome.org" },
+  { name: "GitHub", logo: "https://logo.clearbit.com/github.com" },
+] as const;
+
+// ─── Sub-components ──────────────────────────────────────────────────────────
+
+interface SponsorLogoProps {
+  name: string;
+  logo: string;
+  size?: "lg" | "md";
+}
+
+const SponsorLogo: React.FC<SponsorLogoProps> = ({
+  name,
+  logo,
+  size = "md",
+}) => (
+  <div className={`os-logo-card os-logo-card--${size}`}>
+    <img src={logo} alt={name} className="os-logo-card__img" />
+    <span className="os-logo-card__name">{name}</span>
+  </div>
+);
+
+// ─── Component ───────────────────────────────────────────────────────────────
+
+export const OurSponsors: React.FC = () => (
+  <main>
+    {/* ── Hero ──────────────────────────────────────────────────────────── */}
+    <section className="os-hero">
+      <div className="row">
+        <div className="col-12">
+          <span className="os-hero__eyebrow">Sponsors &amp; Partners</span>
+          <h1 className="os-hero__title">Our Sponsors</h1>
+          <p className="os-hero__lead">
+            Acknowledging the organizations that make UbuCon India 2026
+            possible.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    {/* ── Tab Navigation ────────────────────────────────────────────────── */}
+    <SponsorTabs />
+
+    {/* ── Section 1: Principal Sponsor ──────────────────────────────────── */}
+    <section className="p-strip os-principal-section">
+      <div className="row">
+        <div className="col-12">
+          <div className="os-tier-header">
+            <span className="os-tier-header__label os-tier-header__label--principal">
+              Principal Sponsor
             </span>
-            <h1 style={{ color: 'var(--vf-color-accent)', fontWeight: 700, fontSize: '3rem', lineHeight: '1.15', marginBottom: '0.75rem' }}>
-              Our Sponsors
-            </h1>
-            <p className="p-text--lead u-no-margin" style={{ color: '#555' }}>
-              Acknowledge the organizations supporting UbuCon India 2026.
+            <h3 className="os-tier-header__heading">Powering UbuCon India</h3>
+            <p className="os-tier-header__sub">
+              We are incredibly grateful for the leadership and support of our
+              Principal Sponsor in making UbuCon India a reality.
             </p>
           </div>
-          <div className="col-4 col-medium-1 u-align--center">
-            <FaHandshake style={{ fontSize: '5rem', color: 'var(--vf-color-brand)', opacity: 0.85, filter: 'drop-shadow(0 8px 16px rgba(233, 84, 32, 0.15))' }} />
+
+          <div className="os-logos os-logos--principal">
+            {PRINCIPAL_SPONSORS.map(({ name, logo }) => (
+              <SponsorLogo key={name} name={name} logo={logo} size="lg" />
+            ))}
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      {/* Reusable Tab Navigation */}
-      <SponsorTabs />
-
-      {/* Section 1: Principal Sponsor (White Background) */}
-      <section className="p-strip" style={{ backgroundColor: '#ffffff' }}>
-        <div className="row">
-          <div className="col-12 u-align--center">
-            <h3 style={{ color: 'var(--vf-color-accent)', fontWeight: 700, marginBottom: '1rem' }}>Principal Sponsor</h3>
-            <p className="p-text--lead" style={{ marginBottom: '2.5rem', maxWidth: '650px', marginLeft: 'auto', marginRight: 'auto' }}>
-              We are incredibly grateful for the leadership and support of our Principal Sponsor in making UbuCon India a reality.
+    {/* ── Section 2: Gold Sponsors ──────────────────────────────────────── */}
+    <section className="os-gold-section">
+      <div className="row">
+        <div className="col-12">
+          <div className="os-tier-header">
+            <span className="os-tier-header__label os-tier-header__label--gold">
+              Gold Sponsors
+            </span>
+            <h3 className="os-tier-header__heading">Fuelling the Community</h3>
+            <p className="os-tier-header__sub">
+              Our Gold sponsors contribute significantly to venue operations,
+              speaker support, and community travel grants.
             </p>
           </div>
-        </div>
-        <div className="row" style={{ display: 'flex', justifyContent: 'center', marginBottom: '2rem' }}>
-          <div className="p-card u-align--center" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '280px', height: '120px', padding: '1.5rem', backgroundColor: '#fcfcfc', borderRadius: '6px', border: '1px solid #eaeaea', boxShadow: '0 4px 12px rgba(0,0,0,0.02)' }}>
-            <img 
-              src="https://logo.clearbit.com/canonical.com" 
-              alt="Canonical" 
-              style={{ maxHeight: '50px', maxWidth: '85%', objectFit: 'contain', filter: 'grayscale(100%) opacity(0.8)', transition: 'all 0.2s ease' }} 
-              onMouseEnter={(e) => { e.currentTarget.style.filter = 'none'; }} 
-              onMouseLeave={(e) => { e.currentTarget.style.filter = 'grayscale(100%) opacity(0.8)'; }} 
-            />
-          </div>
-        </div>
-      </section>
 
-      {/* Section 2: Gold Sponsors (Light Orange Background) */}
-      <section className="p-strip" style={{ backgroundColor: 'rgba(233, 84, 32, 0.04)', borderTop: '1px solid rgba(233, 84, 32, 0.1)', borderBottom: '1px solid rgba(233, 84, 32, 0.1)' }}>
-        <div className="row">
-          <div className="col-12 u-align--center">
-            <h3 style={{ color: 'var(--vf-color-accent)', fontWeight: 700, marginBottom: '1rem' }}>Gold Sponsors</h3>
-            <p className="p-text--lead" style={{ marginBottom: '2.5rem', maxWidth: '650px', marginLeft: 'auto', marginRight: 'auto' }}>
-              Our Gold sponsors contribute significantly to our venue operations, speaker support, and community travel grants.
-            </p>
+          <div className="os-logos os-logos--gold">
+            {GOLD_SPONSORS.map(({ name, logo }) => (
+              <SponsorLogo key={name} name={name} logo={logo} size="md" />
+            ))}
           </div>
         </div>
-        <div className="row" style={{ display: 'flex', gap: '2rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-          <div className="p-card u-align--center" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '240px', height: '100px', padding: '1.25rem', backgroundColor: '#ffffff', borderRadius: '6px', border: '1px solid #eaeaea', boxShadow: '0 4px 12px rgba(0,0,0,0.02)' }}>
-            <img 
-              src="https://logo.clearbit.com/debian.org" 
-              alt="Debian" 
-              style={{ maxHeight: '40px', maxWidth: '85%', objectFit: 'contain', filter: 'grayscale(100%) opacity(0.8)', transition: 'all 0.2s ease' }} 
-              onMouseEnter={(e) => { e.currentTarget.style.filter = 'none'; }} 
-              onMouseLeave={(e) => { e.currentTarget.style.filter = 'grayscale(100%) opacity(0.8)'; }} 
-            />
-          </div>
-          <div className="p-card u-align--center" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '240px', height: '100px', padding: '1.25rem', backgroundColor: '#ffffff', borderRadius: '6px', border: '1px solid #eaeaea', boxShadow: '0 4px 12px rgba(0,0,0,0.02)' }}>
-            <img 
-              src="https://logo.clearbit.com/gnome.org" 
-              alt="GNOME" 
-              style={{ maxHeight: '40px', maxWidth: '85%', objectFit: 'contain', filter: 'grayscale(100%) opacity(0.8)', transition: 'all 0.2s ease' }} 
-              onMouseEnter={(e) => { e.currentTarget.style.filter = 'none'; }} 
-              onMouseLeave={(e) => { e.currentTarget.style.filter = 'grayscale(100%) opacity(0.8)'; }} 
-            />
-          </div>
-          <div className="p-card u-align--center" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '240px', height: '100px', padding: '1.25rem', backgroundColor: '#ffffff', borderRadius: '6px', border: '1px solid #eaeaea', boxShadow: '0 4px 12px rgba(0,0,0,0.02)' }}>
-            <img 
-              src="https://logo.clearbit.com/github.com" 
-              alt="GitHub" 
-              style={{ maxHeight: '40px', maxWidth: '85%', objectFit: 'contain', filter: 'grayscale(100%) opacity(0.8)', transition: 'all 0.2s ease' }} 
-              onMouseEnter={(e) => { e.currentTarget.style.filter = 'none'; }} 
-              onMouseLeave={(e) => { e.currentTarget.style.filter = 'grayscale(100%) opacity(0.8)'; }} 
-            />
-          </div>
-        </div>
-      </section>
-    </main>
-  );
-};
+      </div>
+    </section>
+  </main>
+);
+
 export default OurSponsors;
