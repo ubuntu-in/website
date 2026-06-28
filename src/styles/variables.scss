@@ -1,0 +1,32 @@
+// Project Colors
+$ubuntu-orange: #e95420;
+$aubergine: #772953;
+$black: #000000;
+$white: #ffffff;
+
+// Override Vanilla Framework default settings
+$color-brand: $ubuntu-orange;
+$color-accent: $aubergine;
+$color-x-dark: $black;
+$color-dark: #111111;
+$color-x-light: $white;
+
+// Override Font defaults in Vanilla Framework
+$font-base-family: "Ubuntu, -apple-system, sans-serif";
+$font-heading-family: "Ubuntu, -apple-system, sans-serif";
+
+// Override font weights in Vanilla Framework
+$font-weight-regular-text: 400;
+$font-weight-medium: 400;
+$font-weight-bold: 700;
+$font-weight-h1: 700;
+$font-weight-h2: 700;
+$font-weight-h3: 700;
+$font-weight-h4: 700;
+$font-weight-h5: 700;
+$font-weight-h6: 400;
+
+// Legacy aliases
+$primary: $ubuntu-orange;
+$secondary: $white;
+$text-color: $black;
