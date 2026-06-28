@@ -184,8 +184,8 @@ export const Home: React.FC = () => {
           <h4 style={{ color: 'var(--vf-color-brand)', fontWeight: 700, textTransform: 'uppercase', fontSize: '0.85rem', letterSpacing: '1px', marginBottom: '1rem', textAlign: 'center' }}>
             Principal Sponsor
           </h4>
-          <div className="col-4 col-medium-2" style={{ display: 'flex', justifyContent: 'center' }}>
-            <div className="p-card u-align--center" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '280px', height: '110px', padding: '1.5rem', backgroundColor: '#ffffff', borderRadius: '6px', border: '1px solid #eaeaea', boxShadow: '0 4px 12px rgba(0,0,0,0.02)' }}>
+          <div className="col-4 col-medium-2" style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+            <div className="p-card u-align--center" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', maxWidth: '280px', height: '110px', padding: '1.5rem', backgroundColor: '#ffffff', borderRadius: '6px', border: '1px solid #eaeaea', boxShadow: '0 4px 12px rgba(0,0,0,0.02)' }}>
               <img 
                 src="https://logo.clearbit.com/canonical.com" 
                 alt="Canonical" 
@@ -203,7 +203,7 @@ export const Home: React.FC = () => {
             Gold Sponsors & Partners
           </h4>
           <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap', width: '100%', maxWidth: '800px' }}>
-            <div className="p-card u-align--center" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '220px', height: '90px', padding: '1.25rem', backgroundColor: '#ffffff', borderRadius: '6px', border: '1px solid #eaeaea', boxShadow: '0 4px 12px rgba(0,0,0,0.02)' }}>
+            <div className="p-card u-align--center" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', maxWidth: '220px', height: '90px', padding: '1.25rem', backgroundColor: '#ffffff', borderRadius: '6px', border: '1px solid #eaeaea', boxShadow: '0 4px 12px rgba(0,0,0,0.02)' }}>
               <img 
                 src="https://logo.clearbit.com/debian.org" 
                 alt="Debian" 
@@ -212,7 +212,7 @@ export const Home: React.FC = () => {
                 onMouseLeave={(e) => { e.currentTarget.style.filter = 'grayscale(100%) opacity(0.8)'; }} 
               />
             </div>
-            <div className="p-card u-align--center" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '220px', height: '90px', padding: '1.25rem', backgroundColor: '#ffffff', borderRadius: '6px', border: '1px solid #eaeaea', boxShadow: '0 4px 12px rgba(0,0,0,0.02)' }}>
+            <div className="p-card u-align--center" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', maxWidth: '220px', height: '90px', padding: '1.25rem', backgroundColor: '#ffffff', borderRadius: '6px', border: '1px solid #eaeaea', boxShadow: '0 4px 12px rgba(0,0,0,0.02)' }}>
               <img 
                 src="https://logo.clearbit.com/gnome.org" 
                 alt="GNOME" 
@@ -221,7 +221,7 @@ export const Home: React.FC = () => {
                 onMouseLeave={(e) => { e.currentTarget.style.filter = 'grayscale(100%) opacity(0.8)'; }} 
               />
             </div>
-            <div className="p-card u-align--center" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '220px', height: '90px', padding: '1.25rem', backgroundColor: '#ffffff', borderRadius: '6px', border: '1px solid #eaeaea', boxShadow: '0 4px 12px rgba(0,0,0,0.02)' }}>
+            <div className="p-card u-align--center" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', maxWidth: '220px', height: '90px', padding: '1.25rem', backgroundColor: '#ffffff', borderRadius: '6px', border: '1px solid #eaeaea', boxShadow: '0 4px 12px rgba(0,0,0,0.02)' }}>
               <img 
                 src="https://logo.clearbit.com/github.com" 
                 alt="GitHub" 
