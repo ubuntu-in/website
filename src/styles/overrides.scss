@@ -1,0 +1,302 @@
+@import "./variables";
+
+:root {
+    --vf-color-brand: #{$ubuntu-orange};
+    --vf-color-accent: #{$aubergine};
+    --vf-color-text-default: #{$black};
+    --vf-color-background-default: #{$white};
+    --vf-color-link-default: #{$ubuntu-orange};
+    --vf-color-link-visited: #{$aubergine};
+    --vf-color-focus: #{$ubuntu-orange};
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: $white;
+    color: $black;
+    font-family: 'Ubuntu', -apple-system, sans-serif;
+    font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6,
+.p-heading--1, .p-heading--2, .p-heading--3, .p-heading--4, .p-heading--5, .p-heading--6 {
+    font-family: 'Ubuntu', -apple-system, sans-serif;
+    font-weight: 700;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.p-card {
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    &.is-clickable:hover,
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    }
+}
+
+.p-button--positive,
+.p-button--neutral,
+.p-button {
+    transition: all 0.2s ease-in-out;
+    &:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(233, 84, 32, 0.15);
+    }
+    &:active {
+        transform: translateY(0);
+    }
+}
+
+.p-navigation__link {
+    position: relative;
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 1rem;
+        right: 1rem;
+        height: 2px;
+        background-color: var(--vf-color-brand);
+        transform: scaleX(0);
+        transition: transform 0.2s ease;
+    }
+    &:hover::after,
+    &.is-active::after {
+        transform: scaleX(1);
+    }
+}
+
+// Canonical Suru Gradient Background
+.p-strip--suru-to-accent {
+    background: linear-gradient(135deg, #772953 0%, #2c001e 50%, #e95420 100%) !important;
+    position: relative;
+    overflow: hidden;
+    
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(circle at 80% 20%, rgba(233, 84, 32, 0.25) 0%, transparent 50%);
+        pointer-events: none;
+    }
+}
+
+// Custom Ticket component for Tickets Page
+.ticket-mockup {
+    border: 2px dashed #e95420;
+    border-radius: 8px;
+    background: #fff;
+    position: relative;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        width: 20px;
+        height: 20px;
+        background: #f7f7f7;
+        border-radius: 50%;
+        transform: translateY(-50%);
+    }
+    
+    &::before {
+        left: -11px;
+        border-right: 2px dashed #e95420;
+    }
+    
+    &::after {
+        right: -11px;
+        border-left: 2px dashed #e95420;
+    }
+}
+
+// MODERN BUTTON STYLES (Clean, distinct, high contrast)
+.btn-primary, .btn-secondary, .btn-accent, .btn-outline-primary, .btn-outline-accent, .btn-white-outline {
+    display: inline-block;
+    padding: 0.75rem 1.75rem;
+    font-size: 1rem;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    line-height: 1.5;
+    border: 2px solid transparent;
+}
+
+.btn-primary {
+    background-color: #e95420;
+    color: #ffffff !important;
+    box-shadow: 0 4px 6px rgba(233, 84, 32, 0.15);
+    
+    &:hover {
+        background-color: #d14110;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 18px rgba(233, 84, 32, 0.25);
+    }
+    
+    &:active {
+        transform: translateY(0);
+        box-shadow: 0 4px 6px rgba(233, 84, 32, 0.15);
+    }
+}
+
+.btn-accent {
+    background-color: #772953;
+    color: #ffffff !important;
+    box-shadow: 0 4px 6px rgba(119, 41, 83, 0.15);
+    
+    &:hover {
+        background-color: #5c1e3f;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 18px rgba(119, 41, 83, 0.25);
+    }
+    
+    &:active {
+        transform: translateY(0);
+    }
+}
+
+.btn-outline-primary, .btn-secondary {
+    background-color: transparent;
+    border-color: #e95420;
+    color: #e95420 !important;
+    
+    &:hover {
+        background-color: #e95420;
+        color: #ffffff !important;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 18px rgba(233, 84, 32, 0.15);
+    }
+    
+    &:active {
+        transform: translateY(0);
+    }
+}
+
+.btn-outline-accent {
+    background-color: transparent;
+    border-color: #772953;
+    color: #772953 !important;
+    
+    &:hover {
+        background-color: #772953;
+        color: #ffffff !important;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 18px rgba(119, 41, 83, 0.15);
+    }
+    
+    &:active {
+        transform: translateY(0);
+    }
+}
+
+.btn-white-outline {
+    background-color: transparent;
+    border-color: #ffffff;
+    color: #ffffff !important;
+    
+    &:hover {
+        background-color: #ffffff;
+        color: #772953 !important;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 18px rgba(255, 255, 255, 0.2);
+    }
+    
+    &:active {
+        transform: translateY(0);
+    }
+}
+
+// Open & Clear Modern Hero
+.p-strip--open-hero {
+    background-color: #ffffff !important;
+    background-image: 
+        radial-gradient(circle at 85% 10%, rgba(233, 84, 32, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 15% 90%, rgba(119, 41, 83, 0.06) 0%, transparent 45%);
+    border-bottom: 1px solid #eaeaea;
+    position: relative;
+    overflow: hidden;
+}
+
+// Grid Pattern Background with brand-colored glowing accents
+.bg-grid-glow {
+    position: relative;
+    background-color: #ffffff;
+    background-size: 32px 32px;
+    background-image: 
+        linear-gradient(to right, rgba(119, 41, 83, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(119, 41, 83, 0.03) 1px, transparent 1px);
+        
+    &::before {
+        content: '';
+        position: absolute;
+        top: 20%;
+        left: 10%;
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(circle, rgba(233, 84, 32, 0.06) 0%, transparent 70%);
+        pointer-events: none;
+        z-index: 0;
+    }
+    
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 10%;
+        right: 15%;
+        width: 350px;
+        height: 350px;
+        background: radial-gradient(circle, rgba(119, 41, 83, 0.05) 0%, transparent 70%);
+        pointer-events: none;
+        z-index: 0;
+    }
+}
+
+// Decorative dot grid pattern offset
+.avatar-container {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 1.5rem;
+    padding: 10px;
+}
+
+.avatar-dots {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60px;
+    height: 60px;
+    background-image: radial-gradient(rgba(233, 84, 32, 0.25) 1.5px, transparent 1.5px);
+    background-size: 8px 8px;
+    z-index: 1;
+    border-radius: 4px;
+    opacity: 0.8;
+}
+
+.avatar-dots--aubergine {
+    background-image: radial-gradient(rgba(119, 41, 83, 0.25) 1.5px, transparent 1.5px);
+}
+
+.avatar-img {
+    position: relative;
+    z-index: 2;
+    border-radius: 50%;
+    border: 3px solid #ffffff;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
