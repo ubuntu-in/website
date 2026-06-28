@@ -1,6 +1,6 @@
 import React from 'react';
 import { VenueTabs } from '../components/VenueTabs';
-import './Accommodations.scss';
+import '../styles/Accommodations.scss';
 import { AccommodationsHeroSection } from '../sections/accommodations/AccommodationsHeroSection';
 import { AccommodationsListSection } from '../sections/accommodations/AccommodationsListSection';
 import { AccommodationsTipsSection } from '../sections/accommodations/AccommodationsTipsSection';

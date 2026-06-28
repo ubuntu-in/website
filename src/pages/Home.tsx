@@ -1,5 +1,5 @@
 import React from 'react';
-import './Home.scss';
+import '../styles/Home.scss';
 import { HeroSection } from '../sections/home/HeroSection';
 import { CountdownSection } from '../sections/home/CountdownSection';
 import { VideoSection } from '../sections/home/VideoSection';
