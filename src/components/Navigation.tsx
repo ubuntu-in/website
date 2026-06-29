@@ -31,7 +31,7 @@ export const Navigation: React.FC = () => {
   };
 
   return (
-    <header id="navigation" className={`p-navigation is-dark ${mobileMenuOpen ? 'is-active' : ''}`} style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.1)' }}>
+    <header id="navigation" className={`p-navigation is-dark ${mobileMenuOpen ? 'has-menu-open' : ''}`} style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.1)' }}>
       <div className="p-navigation__row--25-75">
         <div className="p-navigation__banner">
           <div className="p-navigation__tagged-logo">
@@ -42,22 +42,26 @@ export const Navigation: React.FC = () => {
               <span className="p-navigation__logo-title" style={{ fontWeight: 700 }}>UbuCon India 2026</span>
             </Link>
           </div>
-          <a
-            href="#navigation"
-            className="p-navigation__toggle--open"
-            title="menu"
-            onClick={(e) => { e.preventDefault(); toggleMobileMenu(); }}
-          >
-            <i className="p-icon--menu"></i>
-          </a>
-          <a
-            href="#navigation-closed"
-            className="p-navigation__toggle--close"
-            title="close menu"
-            onClick={(e) => { e.preventDefault(); toggleMobileMenu(); }}
-          >
-            <i className="p-icon--close"></i>
-          </a>
+          {!mobileMenuOpen ? (
+            <a
+              href="#navigation"
+              className="p-navigation__toggle--open"
+              title="menu"
+              onClick={(e) => { e.preventDefault(); toggleMobileMenu(); }}
+            >
+              <i className="p-icon--menu"></i>
+            </a>
+          ) : (
+            <a
+              href="#navigation-closed"
+              className="p-navigation__toggle--close"
+              title="close menu"
+              onClick={(e) => { e.preventDefault(); toggleMobileMenu(); }}
+              style={{ display: 'block' }}
+            >
+              <i className="p-icon--close"></i>
+            </a>
+          )}
         </div>
 
         <nav className="p-navigation__nav" aria-label="Navigation">

@@ -205,7 +205,7 @@ export const Tickets: React.FC = () => {
                     checked={formData.isStudent} 
                     onChange={handleInputChange} 
                   />
-                  <span className="p-checkbox__label">I am currently a student / academic researcher</span>
+                  <span>I am currently a student / academic researcher</span>
                 </label>
               </div>
 

@@ -1,0 +1,370 @@
+
+
+// ── Local tokens (extend / override project vars here if needed) ─────────────
+$cfp-brand:          var(--vf-color-brand);       // Ubuntu orange
+$cfp-accent:         var(--vf-color-accent);       // Deep aubergine
+$cfp-bg-subtle:      #fcfcfc;
+$cfp-bg-tint:        rgba(233, 84, 32, 0.04);
+$cfp-border-subtle:  #ebebeb;
+$cfp-border-tint:    rgba(233, 84, 32, 0.1);
+$cfp-text-body:      #444;
+$cfp-text-muted:     #555;
+$cfp-text-faint:     #777;
+$cfp-info-blue:      #0067ac;
+$cfp-success-green:  #2d7a2d;
+$cfp-card-radius:    6px;
+$cfp-card-radius-sm: 4px;
+
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 1. Hero
+// ─────────────────────────────────────────────────────────────────────────────
+
+.cfp-hero {
+  background-color: $cfp-bg-subtle;
+  border-bottom: 1px solid #eaeaea;
+  padding: 4rem 0 3.5rem;
+
+  &__eyebrow {
+    display: inline-block;
+    margin-bottom: 1rem;
+    padding: 0.2rem 0.6rem;
+    background-color: rgba(119, 41, 83, 0.08);
+    border: 1px solid rgba(119, 41, 83, 0.15);
+    border-radius: 3px;
+    color: $cfp-accent;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  &__title {
+    color: $cfp-accent;
+    font-size: 2.75rem;
+    font-weight: 700;
+    line-height: 1.15;
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+  }
+
+  &__lead {
+    color: $cfp-text-muted;
+    font-size: 1.125rem;
+    max-width: 52ch;
+    margin: 0;
+  }
+}
+
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 2. Shared section helpers
+// ─────────────────────────────────────────────────────────────────────────────
+
+.cfp-section {
+  &__heading {
+    color: $cfp-accent;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+  }
+
+  &__intro {
+    font-size: 1.0625rem;
+    color: $cfp-text-body;
+    max-width: 72ch;
+    line-height: 1.65;
+    margin-top: 0;
+    margin-bottom: 2.5rem;
+  }
+}
+
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 3. Tracks section
+// ─────────────────────────────────────────────────────────────────────────────
+
+.cfp-tracks-section {
+  background-color: #ffffff;
+}
+
+.cfp-tracks {
+  &__subheading {
+    color: $cfp-brand;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 1.25rem;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+}
+
+// Track card
+.cfp-track-card {
+  padding: 1.5rem;
+  background-color: $cfp-bg-subtle;
+  border: 1px solid $cfp-border-subtle;
+  border-top: 4px solid $cfp-brand;
+  border-radius: $cfp-card-radius;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.875rem;
+  }
+
+  &__icon-wrap {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(233, 84, 32, 0.08);
+  }
+
+  &__icon {
+    font-size: 1.1rem;
+    color: $cfp-brand;
+  }
+
+  &__title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: $cfp-accent;
+    line-height: 1.2;
+  }
+
+  &__body {
+    font-size: 0.875rem;
+    color: $cfp-text-muted;
+    line-height: 1.55;
+    margin: 0;
+  }
+}
+
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 4. Speaker Benefits sidebar
+// ─────────────────────────────────────────────────────────────────────────────
+
+.cfp-benefits {
+  position: sticky;
+  top: 1.5rem;
+  padding: 1.75rem;
+  background-color: $cfp-bg-subtle;
+  border: 1px solid $cfp-border-subtle;
+  border-radius: $cfp-card-radius;
+
+  &__heading {
+    color: $cfp-accent;
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+
+  &__rule {
+    margin-bottom: 1rem;
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 0.9rem;
+    color: $cfp-text-body;
+    line-height: 1.4;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &__check {
+    flex-shrink: 0;
+    margin-top: 1px;
+    color: $cfp-brand;
+    font-weight: 700;
+  }
+}
+
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 5. Session Formats section
+// ─────────────────────────────────────────────────────────────────────────────
+
+.cfp-formats-section {
+  background-color: $cfp-bg-tint;
+  border-top: 1px solid $cfp-border-tint;
+  border-bottom: 1px solid $cfp-border-tint;
+  padding: 3.5rem 0;
+
+  // Reuse the shared heading but pull heading down into section spacing
+  .cfp-section__heading {
+    margin-bottom: 2rem;
+  }
+}
+
+.cfp-formats {
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    margin-bottom: 2.5rem;
+  }
+}
+
+// Format card
+.cfp-format-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  background-color: #ffffff;
+  border-left: 4px solid $cfp-brand;
+  border-radius: $cfp-card-radius-sm;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+
+  &__title {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-size: 1.05rem;
+    color: $cfp-accent;
+  }
+
+  &__duration {
+    display: inline-block;
+    margin-bottom: 0.75rem;
+    padding: 0.15rem 0.5rem;
+    background-color: rgba($cfp-success-green, 0.08);
+    border-radius: 3px;
+    color: $cfp-success-green;
+    font-size: 0.78rem;
+    font-weight: 700;
+  }
+
+  &__body {
+    font-size: 0.875rem;
+    color: $cfp-text-muted;
+    line-height: 1.55;
+    margin: 0;
+  }
+}
+
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 6. How-to-submit notice
+// ─────────────────────────────────────────────────────────────────────────────
+
+.cfp-submit-notice {
+  padding: 1.5rem 1.75rem;
+  background-color: #ffffff;
+  border: 1px solid rgba($cfp-info-blue, 0.2);
+  border-left: 4px solid $cfp-info-blue;
+  border-radius: $cfp-card-radius-sm;
+
+  &__heading {
+    color: $cfp-accent;
+    font-weight: 700;
+    margin: 0 0 0.6rem;
+  }
+
+  &__body {
+    font-size: 0.9375rem;
+    color: $cfp-text-body;
+    line-height: 1.6;
+    margin: 0;
+  }
+}
+
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 7. Important Dates card
+// ─────────────────────────────────────────────────────────────────────────────
+
+.cfp-dates {
+  height: 100%;
+  padding: 1.5rem 1.75rem;
+  background-color: #ffffff;
+  border-left: 4px solid $cfp-accent;
+  border-radius: $cfp-card-radius-sm;
+  box-sizing: border-box;
+
+  &__heading {
+    margin: 0 0 1rem;
+    color: $cfp-accent;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  &__table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+
+  &__row {
+    border-bottom: 1px solid #f0f0f0;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &__label {
+    padding: 0.5rem 1rem 0.5rem 0;
+    color: $cfp-text-faint;
+  }
+
+  &__value {
+    padding: 0.5rem 0;
+    color: $cfp-accent;
+    font-weight: 700;
+    text-align: right;
+  }
+}
+
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 8. Responsive overrides
+// ─────────────────────────────────────────────────────────────────────────────
+
+@media (max-width: 772px) {
+  .cfp-hero {
+    &__title { font-size: 2rem; }
+  }
+
+  .cfp-tracks__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cfp-formats__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cfp-benefits {
+    position: static;       // unstick on mobile so it flows naturally
+    margin-top: 2rem;
+  }
+
+  .cfp-dates {
+    margin-top: 1.5rem;
+    height: auto;
+  }
+}

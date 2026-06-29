@@ -1,0 +1,204 @@
+// ─────────────────────────────────────────────────────────────────────────────
+// oursponsors.scss
+// All styles for the Our Sponsors page.
+// ─────────────────────────────────────────────────────────────────────────────
+
+$os-brand:            var(--vf-color-brand);
+$os-accent:           var(--vf-color-accent);
+
+.os-hero {
+  background-color: #fcfcfc;
+  border-bottom: 1px solid #eaeaea;
+  padding: 4rem 0 3.5rem;
+
+  &__eyebrow {
+    display: inline-block;
+    margin-bottom: 1rem;
+    padding: 0.2rem 0.6rem;
+    background-color: rgba(119, 41, 83, 0.08);
+    border: 1px solid rgba(119, 41, 83, 0.15);
+    border-radius: 3px;
+    color: $os-accent;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  &__title {
+    color: $os-accent;
+    font-size: 2.75rem;
+    font-weight: 700;
+    line-height: 1.15;
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+  }
+
+  &__lead {
+    color: #555;
+    font-size: 1.125rem;
+    max-width: 52ch;
+    margin: 0 auto; // Center it
+  }
+}
+
+.os-tier-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+
+  &__label {
+    display: inline-block;
+    margin-bottom: 0.75rem;
+    padding: 0.2rem 0.75rem;
+    border-radius: 3px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+
+    &--principal {
+      background-color: rgba(119, 41, 83, 0.06);
+      color: $os-accent;
+      border: 1px solid rgba(119, 41, 83, 0.2);
+    }
+
+    &--gold {
+      background-color: rgba(201, 150, 12, 0.07);
+      color: #c9960c;
+      border: 1px solid rgba(201, 150, 12, 0.25);
+    }
+  }
+
+  &__heading {
+    color: $os-accent;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+  }
+
+  &__sub {
+    color: #555;
+    font-size: 0.9375rem;
+    max-width: 56ch;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+}
+
+.os-principal-section {
+  background-color: #ffffff;
+  padding: 4rem 0;
+}
+
+.os-gold-section {
+  background-color: rgba(233, 84, 32, 0.04);
+  border-top: 1px solid rgba(233, 84, 32, 0.1);
+  border-bottom: 1px solid rgba(233, 84, 32, 0.1);
+  padding: 4rem 0;
+}
+
+/* Flexbox Tier Layout matching Home Screen */
+.os-tier-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.os-logos-grid {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 900px;
+}
+
+.os-logos-principal {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.os-logo-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  border: 1px solid #eaeaea;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+  cursor: default;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  padding: 1.5rem;
+  width: 100%;
+
+  &--lg {
+    max-width: 300px;
+    height: 130px;
+  }
+
+  &--md {
+    max-width: 240px;
+    height: 100px;
+  }
+
+  &:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    border-color: #d0d0d0;
+    transform: translateY(-4px);
+
+    .os-logo-card__img {
+      filter: none;
+      opacity: 1;
+    }
+
+    .os-logo-card__name {
+      opacity: 1;
+    }
+  }
+
+  &__img {
+    max-height: 48px;
+    max-width: 85%;
+    object-fit: contain;
+    filter: grayscale(100%) opacity(0.8);
+    transition: all 0.2s ease;
+
+    .os-logo-card--lg & {
+      max-height: 60px;
+    }
+  }
+
+  &__name {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #888;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    margin-top: 0.75rem;
+  }
+}
+
+// Ensure responsive row behavior
+@media (max-width: 772px) {
+  .os-hero {
+    &__title { font-size: 2rem; }
+    text-align: center;
+  }
+  
+  .os-logo-card {
+    &__img {
+      filter: none;
+      opacity: 1;
+    }
+    &__name {
+      opacity: 1;
+    }
+    &--md {
+      max-width: calc(50% - 0.75rem);
+    }
+  }
+}

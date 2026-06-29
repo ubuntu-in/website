@@ -1,0 +1,262 @@
+
+// ── Local tokens ─────────────────────────────────────────────────────────────
+$dates-brand:         var(--vf-color-brand);       // Ubuntu orange
+$dates-accent:        var(--vf-color-accent);       // Deep aubergine
+$dates-bg-subtle:     #fcfcfc;
+$dates-bg-tint:       rgba(119, 41, 83, 0.04);      // Light aubergine wash
+$dates-border-default:#eaeaea;
+$dates-border-subtle: #ebebeb;
+$dates-border-tint:   rgba(119, 41, 83, 0.1);
+$dates-text-body:     #444;
+$dates-text-muted:    #555;
+$dates-text-faint:    #777;
+$dates-info-blue:     #0067ac;
+$dates-card-radius:   6px;
+$dates-card-radius-sm:4px;
+
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 1. Hero
+// ─────────────────────────────────────────────────────────────────────────────
+
+.dates-hero {
+  background-color: $dates-bg-subtle;
+  border-bottom: 1px solid $dates-border-default;
+  padding: 4rem 0 3.5rem;
+
+  &__eyebrow {
+    display: inline-block;
+    margin-bottom: 1rem;
+    padding: 0.2rem 0.6rem;
+    background-color: rgba(119, 41, 83, 0.08);
+    border: 1px solid rgba(119, 41, 83, 0.15);
+    border-radius: 3px;
+    color: $dates-accent;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  &__title {
+    color: $dates-accent;
+    font-size: 2.75rem;
+    font-weight: 700;
+    line-height: 1.15;
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+  }
+
+  &__lead {
+    color: $dates-text-muted;
+    font-size: 1.125rem;
+    max-width: 52ch;
+    margin: 0;
+  }
+}
+
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 2. Shared section heading (used in both sections)
+// ─────────────────────────────────────────────────────────────────────────────
+
+.dates-section {
+  &__heading {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    color: $dates-accent;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+  }
+
+  &__heading-icon {
+    flex-shrink: 0;
+    font-size: 1.1rem;
+    color: $dates-brand;
+  }
+}
+
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 3. Timeline section
+// ─────────────────────────────────────────────────────────────────────────────
+
+.dates-timeline-section {
+  background-color: #ffffff;
+}
+
+// Table — let Vanilla's p-table handle borders/padding,
+// we only override what's specific to this page.
+.dates-table {
+  width: 100%;
+
+  // Tighten up the status column
+  td:last-child,
+  th:last-child {
+    width: 10rem;
+    white-space: nowrap;
+  }
+}
+
+// Status badges
+.dates-badge {
+  display: inline-block;
+  padding: 0.15rem 0.55rem;
+  border-radius: 3px;
+  font-size: 0.78rem;
+  font-weight: 700;
+
+  // First upcoming milestone — green highlight
+  &--next {
+    background-color: rgba(45, 122, 45, 0.1);
+    color: #2d7a2d;
+  }
+
+  // All other upcoming milestones — neutral
+  &--upcoming {
+    background-color: #eaeaea;
+    color: $dates-text-muted;
+  }
+}
+
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 4. Planning Ahead sidebar
+// ─────────────────────────────────────────────────────────────────────────────
+
+.dates-planning {
+  position: sticky;
+  top: 1.5rem;
+  padding: 1.75rem;
+  background-color: $dates-bg-subtle;
+  border: 1px solid $dates-border-subtle;
+  border-radius: $dates-card-radius;
+
+  &__heading {
+    color: $dates-accent;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+
+  &__rule {
+    margin-bottom: 1rem;
+  }
+
+  &__body {
+    font-size: 0.9rem;
+    color: $dates-text-body;
+    line-height: 1.6;
+    margin: 0;
+  }
+}
+
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 5. Travel Grants section
+// ─────────────────────────────────────────────────────────────────────────────
+
+.dates-grants-section {
+  background-color: $dates-bg-tint;
+  border-top: 1px solid $dates-border-tint;
+  border-bottom: 1px solid $dates-border-tint;
+  padding: 3.5rem 0;
+
+  // Prevent columns from stretching each other to equal height
+  .row {
+    align-items: flex-start;
+  }
+}
+
+.dates-grants {
+  &__intro {
+    font-size: 1rem;
+    color: $dates-text-body;
+    line-height: 1.65;
+    max-width: 68ch;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+  }
+}
+
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 6. Grant Application notice
+// ─────────────────────────────────────────────────────────────────────────────
+
+.dates-notice {
+  padding: 1.5rem 1.75rem;
+  background-color: #ffffff;
+  border: 1px solid rgba($dates-info-blue, 0.2);
+  border-left: 4px solid $dates-info-blue;
+  border-radius: $dates-card-radius-sm;
+
+  &__heading {
+    color: $dates-accent;
+    font-weight: 700;
+    margin: 0 0 0.6rem;
+  }
+
+  &__body {
+    font-size: 0.9375rem;
+    color: $dates-text-body;
+    line-height: 1.6;
+    margin: 0;
+  }
+}
+
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 7. Budget Allocations sidebar
+// ─────────────────────────────────────────────────────────────────────────────
+
+.dates-budget {
+  align-self: flex-start;   // never stretch to match the notice block
+  padding: 1.25rem 1.5rem;
+  background-color: #ffffff;
+  border-left: 4px solid $dates-accent;
+  border-radius: $dates-card-radius-sm;
+
+  &__heading {
+    color: $dates-accent;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+  }
+
+  &__body {
+    font-size: 0.9rem;
+    color: $dates-text-body;
+    line-height: 1.6;
+    margin: 0;
+  }
+}
+
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 8. Responsive overrides
+// ─────────────────────────────────────────────────────────────────────────────
+
+@media (max-width: 772px) {
+  .dates-hero {
+    &__title { font-size: 2rem; }
+  }
+
+  .dates-planning {
+    position: static;
+    margin-top: 2rem;
+  }
+
+  .dates-budget {
+    margin-top: 1.5rem;
+  }
+
+  // On narrow screens let the table scroll rather than wrapping badly
+  .dates-table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}

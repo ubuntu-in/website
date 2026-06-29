@@ -1,0 +1,162 @@
+/* Accommodations Page Specific Styles */
+
+.accommodations-hero-section {
+  background-color: #fcfcfc;
+  border-bottom: 1px solid #eaeaea;
+  padding: 3.5rem 0;
+}
+
+.accommodations-hero-status {
+  margin-bottom: 1rem;
+  display: inline-block;
+  background-color: rgba(233, 84, 32, 0.08);
+  color: var(--vf-color-brand);
+  border-color: rgba(233, 84, 32, 0.15);
+  font-weight: 700;
+  padding: 0.2rem 0.6rem;
+}
+
+.accommodations-hero-title {
+  color: var(--vf-color-accent);
+  font-weight: 700;
+  font-size: 3rem;
+  line-height: 1.15;
+  margin-bottom: 0.75rem;
+}
+
+.accommodations-hero-lead {
+  color: #555;
+}
+
+.accommodations-hero-icon {
+  font-size: 5rem;
+  color: var(--vf-color-brand);
+  opacity: 0.85;
+  filter: drop-shadow(0 8px 16px rgba(233, 84, 32, 0.15));
+}
+
+.accommodations-list-section {
+  background-color: #ffffff;
+}
+
+.accommodations-section-title {
+  color: var(--vf-color-accent);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.accommodations-list-lead {
+  margin-bottom: 2.5rem;
+}
+
+/* Fix for the grid layout on Accommodations page */
+.accommodations-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.accommodations-card-wrapper {
+  flex: 1 1 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.accommodations-card {
+  height: 100%;
+  background-color: #fcfcfc;
+}
+
+.accommodations-card--premium {
+  border-top: 4px solid var(--vf-color-accent);
+}
+
+.accommodations-card--mid {
+  border-top: 4px solid var(--vf-color-brand);
+}
+
+.accommodations-card--budget {
+  border-top: 4px solid #111111;
+}
+
+.accommodations-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.accommodations-card-title {
+  font-weight: 700;
+}
+
+.accommodations-card-price {
+  padding: 0.1rem 0.5rem;
+}
+
+.accommodations-item {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 1rem;
+}
+
+.accommodations-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.accommodations-item-icon {
+  color: var(--vf-color-brand);
+  margin-right: 0.25rem;
+  vertical-align: middle;
+}
+
+.accommodations-tips-section {
+  background-color: rgba(119, 41, 83, 0.04);
+  border-top: 1px solid rgba(119, 41, 83, 0.1);
+  border-bottom: 1px solid rgba(119, 41, 83, 0.1);
+}
+
+.accommodations-tips-title {
+  color: var(--vf-color-accent);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.accommodations-tips-icon {
+  margin-right: 0.75rem;
+  color: var(--vf-color-brand);
+}
+
+.accommodations-notification {
+  margin-top: 1.5rem;
+  background-color: #ffffff;
+}
+
+.accommodations-notification-title {
+  color: var(--vf-color-accent);
+}
+
+.accommodations-verification-card {
+  border-left: 4px solid var(--vf-color-accent);
+  background-color: #ffffff;
+  height: 100%;
+}
+
+.accommodations-verification-title {
+  font-weight: 700;
+}
+
+.accommodations-verification-icon {
+  color: var(--vf-color-brand);
+  margin-right: 0.25rem;
+  vertical-align: middle;
+}
+
+.accommodations-verification-text {
+  font-size: 0.9rem;
+  margin: 0;
+}

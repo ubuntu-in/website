@@ -1,122 +1,154 @@
-import React from 'react';
-import { ProgramTabs } from '../components/ProgramTabs';
-import { FaClock, FaPlane } from 'react-icons/fa';
+import React from "react";
+import { ProgramTabs } from "../components/ProgramTabs";
+import { FaClock, FaPlane } from "react-icons/fa";
+import "../styles/Dates.scss";
 
-export const ImportantDates: React.FC = () => {
-  return (
-    <main>
-      <section className="p-strip" style={{ backgroundColor: '#fcfcfc', borderBottom: '1px solid #eaeaea', padding: '3.5rem 0' }}>
-        <div className="row u-vertically-center">
-          <div className="col-8 col-medium-5">
-            <span className="p-status-label" style={{ marginBottom: '1rem', display: 'inline-block', backgroundColor: 'rgba(119, 41, 83, 0.08)', color: 'var(--vf-color-accent)', borderColor: 'rgba(119, 41, 83, 0.15)', fontWeight: 700, padding: '0.2rem 0.6rem' }}>
-              Program & Schedule
-            </span>
-            <h1 style={{ color: 'var(--vf-color-accent)', fontWeight: 700, fontSize: '3rem', lineHeight: '1.15', marginBottom: '0.75rem' }}>
-              Important Dates
-            </h1>
-            <p className="p-text--lead u-no-margin" style={{ color: '#555' }}>
-              Make sure to keep track of these milestones for UbuCon India 2026.
+// ─── Data ────────────────────────────────────────────────────────────────────
+
+const MILESTONES = [
+  {
+    label: "Call for Proposals (CFP) Opens",
+    date: "July 1, 2026",
+    status: "next",
+  },
+  {
+    label: "CFP Submission Deadline",
+    date: "September 15, 2026",
+    status: "upcoming",
+  },
+  {
+    label: "Speaker Notification",
+    date: "October 5, 2026",
+    status: "upcoming",
+  },
+  {
+    label: "Schedule Announcement",
+    date: "October 15, 2026",
+    status: "upcoming",
+  },
+  {
+    label: "UbuCon India 2026 Event",
+    date: "November 14–15, 2026",
+    status: "upcoming",
+  },
+] as const;
+
+// ─── Component ───────────────────────────────────────────────────────────────
+
+export const ImportantDates: React.FC = () => (
+  <main>
+    {/* ── Hero ──────────────────────────────────────────────────────────── */}
+    <section className="dates-hero">
+      <div className="row">
+        <div className="col-12">
+          <span className="dates-hero__eyebrow">Program &amp; Schedule</span>
+          <h1 className="dates-hero__title">Important Dates</h1>
+          <p className="dates-hero__lead">
+            Make sure to keep track of these milestones for UbuCon India 2026.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    {/* ── Tab Navigation ────────────────────────────────────────────────── */}
+    <ProgramTabs />
+
+    {/* ── Section 1: Timeline ───────────────────────────────────────────── */}
+    <section className="p-strip dates-timeline-section">
+      <div className="row">
+        {/* Timeline table */}
+        <div className="col-8 col-medium-12">
+          <h3 className="dates-section__heading">
+            <FaClock
+              className="dates-section__heading-icon"
+              aria-hidden="true"
+            />
+            Milestones Timeline
+          </h3>
+
+          <table className="p-table dates-table">
+            <thead>
+              <tr>
+                <th>Milestone</th>
+                <th>Date</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {MILESTONES.map(({ label, date, status }) => (
+                <tr key={label}>
+                  <td>
+                    <strong>{label}</strong>
+                  </td>
+                  <td>{date}</td>
+                  <td>
+                    <span className={`dates-badge dates-badge--${status}`}>
+                      Upcoming
+                    </span>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        {/* Planning Ahead sidebar */}
+        <div className="col-4 col-medium-12">
+          <aside className="dates-planning">
+            <h4 className="dates-planning__heading">Planning Ahead</h4>
+            <hr className="p-rule dates-planning__rule" />
+            <p className="dates-planning__body">
+              If you plan to request a travel grant, please note that travel
+              grant applications will open alongside the speaker submission
+              results.
+            </p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    {/* ── Section 2: Travel Grants ──────────────────────────────────────── */}
+    <section className="dates-grants-section">
+      <div className="row">
+        {/* Travel grants info */}
+        <div className="col-8 col-medium-12">
+          <h3 className="dates-section__heading">
+            <FaPlane
+              className="dates-section__heading-icon"
+              aria-hidden="true"
+            />
+            Travel Grants Info
+          </h3>
+          <p className="dates-grants__intro">
+            UbuCon India is offering limited travel and accommodation grants to
+            community speakers and active contributors. Applications will be
+            reviewed by the organizing committee based on need and contribution
+            history.
+          </p>
+
+          <div className="dates-notice">
+            <h5 className="dates-notice__heading">Grant Application Portal</h5>
+            <p className="dates-notice__body">
+              The link to the travel grant request form will be published on{" "}
+              <strong>October 5, 2026</strong>. Make sure you have your session
+              proposal ID ready if you are applying as a speaker.
             </p>
           </div>
-          <div className="col-4 col-medium-1 u-align--center">
-            <FaClock style={{ fontSize: '5rem', color: 'var(--vf-color-brand)', opacity: 0.85, filter: 'drop-shadow(0 8px 16px rgba(233, 84, 32, 0.15))' }} />
-          </div>
         </div>
-      </section>
 
-      {/* Reusable Tab Navigation */}
-      <ProgramTabs />
-
-      {/* Section 1: Timeline (White Background) */}
-      <section className="p-strip" style={{ backgroundColor: '#ffffff' }}>
-        <div className="row">
-          <div className="col-8 col-medium-5">
-            <h3 style={{ color: 'var(--vf-color-accent)', fontWeight: 700, marginBottom: '1.5rem', display: 'flex', alignItems: 'center' }}>
-              <FaClock style={{ marginRight: '0.75rem', color: 'var(--vf-color-brand)' }} /> Milestones Timeline
-            </h3>
-            
-            <table className="p-table" style={{ width: '100%' }}>
-              <thead>
-                <tr>
-                  <th>Milestone</th>
-                  <th>Date</th>
-                  <th>Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><strong>Call for Proposals (CFP) Opens</strong></td>
-                  <td>July 1, 2026</td>
-                  <td><span className="p-status-label--positive">Upcoming</span></td>
-                </tr>
-                <tr>
-                  <td><strong>CFP Submission Deadline</strong></td>
-                  <td>September 15, 2026</td>
-                  <td><span className="p-status-label" style={{ backgroundColor: '#eaeaea', color: '#555' }}>Upcoming</span></td>
-                </tr>
-                <tr>
-                  <td><strong>Speaker Notification</strong></td>
-                  <td>October 5, 2026</td>
-                  <td><span className="p-status-label" style={{ backgroundColor: '#eaeaea', color: '#555' }}>Upcoming</span></td>
-                </tr>
-                <tr>
-                  <td><strong>Schedule Announcement</strong></td>
-                  <td>October 15, 2026</td>
-                  <td><span className="p-status-label" style={{ backgroundColor: '#eaeaea', color: '#555' }}>Upcoming</span></td>
-                </tr>
-                <tr>
-                  <td><strong>UbuCon India 2026 Event</strong></td>
-                  <td>November 14-15, 2026</td>
-                  <td><span className="p-status-label" style={{ backgroundColor: '#eaeaea', color: '#555' }}>Upcoming</span></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div className="col-4 col-medium-1">
-            <div className="p-card" style={{ backgroundColor: '#fcfcfc' }}>
-              <h4 style={{ color: 'var(--vf-color-accent)', fontWeight: 700 }}>Planning Ahead</h4>
-              <hr className="p-rule" />
-              <p style={{ fontSize: '0.9rem', margin: 0 }}>
-                If you plan to request a travel grant, please note that travel grant applications will open alongside the speaker submission results.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Section 2: Travel Grants & Booking (Light Aubergine Background) */}
-      <section className="p-strip" style={{ backgroundColor: 'rgba(119, 41, 83, 0.04)', borderTop: '1px solid rgba(119, 41, 83, 0.1)', borderBottom: '1px solid rgba(119, 41, 83, 0.1)' }}>
-        <div className="row">
-          <div className="col-8 col-medium-5">
-            <h3 style={{ color: 'var(--vf-color-accent)', fontWeight: 700, display: 'flex', alignItems: 'center', marginBottom: '1.5rem' }}>
-              <FaPlane style={{ marginRight: '0.75rem', color: 'var(--vf-color-brand)' }} /> Travel Grants Info
-            </h3>
-            <p>
-              UbuCon India is offering limited travel and accommodation grants to community speakers and active contributors. 
-              Applications will be reviewed by the organizing committee based on need and contribution history.
+        {/* Budget allocations sidebar */}
+        <div className="col-4 col-medium-12">
+          <aside className="dates-budget">
+            <h5 className="dates-budget__heading">Budget Allocations</h5>
+            <p className="dates-budget__body">
+              Funding is distributed based on sponsors' allocations. We
+              recommend checking early.
             </p>
-            <div className="p-notification--information" style={{ marginTop: '1.5rem', backgroundColor: '#ffffff' }}>
-              <div className="p-notification__content">
-                <h5 className="p-notification__title" style={{ color: 'var(--vf-color-accent)' }}>Grant Application Portal</h5>
-                <p className="p-notification__message">
-                  The link to the travel grant request form will be published on <strong>October 5, 2026</strong>. 
-                  Make sure you have your session proposal ID ready if you are applying as a speaker.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="col-4 col-medium-1 u-vertically-center">
-            <div className="p-card" style={{ borderLeft: '4px solid var(--vf-color-accent)', backgroundColor: '#ffffff', height: '100%' }}>
-              <h5>Budget Allocations</h5>
-              <p style={{ fontSize: '0.9rem', margin: 0 }}>
-                Funding is distributed based on sponsors' allocations. We recommend checking early.
-              </p>
-            </div>
-          </div>
+          </aside>
         </div>
-      </section>
-    </main>
-  );
-};
+      </div>
+    </section>
+  </main>
+);
+
 export default ImportantDates;

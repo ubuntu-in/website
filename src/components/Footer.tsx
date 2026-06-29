@@ -84,7 +84,7 @@ export const Footer: React.FC = () => {
       <div className="row">
         <div className="col-12">
           <hr style={{ border: '0', borderTop: '1px solid #222222', margin: '2.5rem 0 2rem 0' }} />
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1.5rem' }}>
+          <div className="footer-bottom-flex" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1.5rem' }}>
             <p className="u-no-margin--bottom" style={{ fontSize: '0.85rem', color: '#888888', lineHeight: '1.6' }}>
               © 2026 UbuCon India. Organized by the Ubuntu India Community. 
               <br />Ubuntu and Canonical are registered trademarks of Canonical Ltd.

@@ -35,7 +35,7 @@ export const Countdown: React.FC = () => {
   return (
     <div className="p-card" style={{ padding: '1.5rem', borderLeft: '4px solid var(--vf-color-brand)' }}>
       <h4 className="u-align--center u-no-margin--top">Countdown to UbuCon India 2026</h4>
-      <div className="row u-align--center" style={{ display: 'flex', justifyContent: 'center', gap: '1rem', marginTop: '1rem' }}>
+      <div className="u-align--center countdown-timer-container" style={{ display: 'flex', justifyContent: 'center', gap: '1rem', marginTop: '1rem', flexWrap: 'wrap' }}>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', minWidth: '70px' }}>
           <span className="p-heading--1 u-no-margin" style={{ fontWeight: 700, color: 'var(--vf-color-brand)' }}>
             {String(timeRemaining.days).padStart(2, '0')}
