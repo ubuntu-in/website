@@ -9,9 +9,9 @@ export const AboutValuesSection: React.FC = () => {
           <h3 className="about-values-title">Our Values</h3>
         </div>
       </div>
-      <div className="row">
+      <div className="about-values-grid">
         {/* Card 1: Advocacy */}
-        <div className="col-6 about-value-col">
+        <div className="about-value-col">
           <div className="p-card about-value-card">
             <div className="about-value-header">
               <div className="about-value-icon-container">
@@ -26,7 +26,7 @@ export const AboutValuesSection: React.FC = () => {
         </div>
 
         {/* Card 2: Community */}
-        <div className="col-6 about-value-col">
+        <div className="about-value-col">
           <div className="p-card about-value-card">
             <div className="about-value-header">
               <div className="about-value-icon-container">
@@ -41,7 +41,7 @@ export const AboutValuesSection: React.FC = () => {
         </div>
 
         {/* Card 3: Empowerment */}
-        <div className="col-6 about-value-col">
+        <div className="about-value-col">
           <div className="p-card about-value-card">
             <div className="about-value-header">
               <div className="about-value-icon-container">

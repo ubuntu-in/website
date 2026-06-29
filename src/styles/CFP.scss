@@ -3,13 +3,13 @@
 // ── Local tokens (extend / override project vars here if needed) ─────────────
 $cfp-brand:          var(--vf-color-brand);       // Ubuntu orange
 $cfp-accent:         var(--vf-color-accent);       // Deep aubergine
-$cfp-bg-subtle:      #fcfcfc;
-$cfp-bg-tint:        rgba(233, 84, 32, 0.04);
-$cfp-border-subtle:  #ebebeb;
+$cfp-bg-subtle:      var(--bg-dark);
+$cfp-bg-tint:        var(--overlay-orange-light);
+$cfp-border-subtle:  var(--border-main);
 $cfp-border-tint:    rgba(233, 84, 32, 0.1);
-$cfp-text-body:      #444;
-$cfp-text-muted:     #555;
-$cfp-text-faint:     #777;
+$cfp-text-body:      #f7f7f7;
+$cfp-text-muted:     var(--text-muted);
+$cfp-text-faint:     #999999;
 $cfp-info-blue:      #0067ac;
 $cfp-success-green:  #2d7a2d;
 $cfp-card-radius:    6px;
@@ -22,7 +22,7 @@ $cfp-card-radius-sm: 4px;
 
 .cfp-hero {
   background-color: $cfp-bg-subtle;
-  border-bottom: 1px solid #eaeaea;
+  border-bottom: 1px solid var(--border-main);
   padding: 4rem 0 3.5rem;
 
   &__eyebrow {
@@ -32,7 +32,7 @@ $cfp-card-radius-sm: 4px;
     background-color: rgba(119, 41, 83, 0.08);
     border: 1px solid rgba(119, 41, 83, 0.15);
     border-radius: 3px;
-    color: $cfp-accent;
+    color: var(--text-main);
     font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 0.04em;
@@ -40,7 +40,7 @@ $cfp-card-radius-sm: 4px;
   }
 
   &__title {
-    color: $cfp-accent;
+    color: var(--text-main);
     font-size: 2.75rem;
     font-weight: 700;
     line-height: 1.15;
@@ -63,7 +63,7 @@ $cfp-card-radius-sm: 4px;
 
 .cfp-section {
   &__heading {
-    color: $cfp-accent;
+    color: var(--text-main);
     font-weight: 700;
     margin-top: 0;
     margin-bottom: 0.75rem;
@@ -85,12 +85,12 @@ $cfp-card-radius-sm: 4px;
 // ─────────────────────────────────────────────────────────────────────────────
 
 .cfp-tracks-section {
-  background-color: #ffffff;
+  background-color: var(--bg-dark-alt);
 }
 
 .cfp-tracks {
   &__subheading {
-    color: $cfp-brand;
+    color: var(--text-main);
     font-weight: 700;
     margin-top: 0;
     margin-bottom: 1.25rem;
@@ -126,18 +126,18 @@ $cfp-card-radius-sm: 4px;
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: rgba(233, 84, 32, 0.08);
+    background-color: var(--overlay-orange);
   }
 
   &__icon {
     font-size: 1.1rem;
-    color: $cfp-brand;
+    color: var(--text-main);
   }
 
   &__title {
     font-size: 1rem;
     font-weight: 700;
-    color: $cfp-accent;
+    color: var(--text-main);
     line-height: 1.2;
   }
 
@@ -163,7 +163,7 @@ $cfp-card-radius-sm: 4px;
   border-radius: $cfp-card-radius;
 
   &__heading {
-    color: $cfp-accent;
+    color: var(--text-main);
     font-size: 1.05rem;
     font-weight: 700;
     margin-top: 0;
@@ -185,7 +185,7 @@ $cfp-card-radius-sm: 4px;
     align-items: flex-start;
     gap: 0.5rem;
     padding: 0.5rem 0;
-    border-bottom: 1px solid #f0f0f0;
+    border-bottom: 1px solid var(--border-main);
     font-size: 0.9rem;
     color: $cfp-text-body;
     line-height: 1.4;
@@ -198,7 +198,7 @@ $cfp-card-radius-sm: 4px;
   &__check {
     flex-shrink: 0;
     margin-top: 1px;
-    color: $cfp-brand;
+    color: var(--text-main);
     font-weight: 700;
   }
 }
@@ -234,7 +234,7 @@ $cfp-card-radius-sm: 4px;
   display: flex;
   flex-direction: column;
   padding: 1.5rem;
-  background-color: #ffffff;
+  background-color: var(--bg-dark-alt);
   border-left: 4px solid $cfp-brand;
   border-radius: $cfp-card-radius-sm;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
@@ -243,7 +243,7 @@ $cfp-card-radius-sm: 4px;
     display: block;
     margin-bottom: 0.4rem;
     font-size: 1.05rem;
-    color: $cfp-accent;
+    color: var(--text-main);
   }
 
   &__duration {
@@ -263,6 +263,10 @@ $cfp-card-radius-sm: 4px;
     line-height: 1.55;
     margin: 0;
   }
+
+  &:nth-child(2) {
+    border-left-color: $cfp-accent;
+  }
 }
 
 
@@ -272,20 +276,20 @@ $cfp-card-radius-sm: 4px;
 
 .cfp-submit-notice {
   padding: 1.5rem 1.75rem;
-  background-color: #ffffff;
-  border: 1px solid rgba($cfp-info-blue, 0.2);
-  border-left: 4px solid $cfp-info-blue;
+  background-color: var(--bg-dark-alt);
+  border: 1px solid rgba(119, 41, 83, 0.2);
+  border-left: 4px solid $cfp-accent;
   border-radius: $cfp-card-radius-sm;
 
   &__heading {
-    color: $cfp-accent;
+    color: #fff;
     font-weight: 700;
     margin: 0 0 0.6rem;
   }
 
   &__body {
     font-size: 0.9375rem;
-    color: $cfp-text-body;
+    color: $cfp-brand;
     line-height: 1.6;
     margin: 0;
   }
@@ -299,14 +303,14 @@ $cfp-card-radius-sm: 4px;
 .cfp-dates {
   height: 100%;
   padding: 1.5rem 1.75rem;
-  background-color: #ffffff;
+  background-color: var(--bg-dark-alt);
   border-left: 4px solid $cfp-accent;
   border-radius: $cfp-card-radius-sm;
   box-sizing: border-box;
 
   &__heading {
     margin: 0 0 1rem;
-    color: $cfp-accent;
+    color: var(--text-main);
     font-size: 0.95rem;
     font-weight: 700;
     letter-spacing: 0.04em;
@@ -320,7 +324,7 @@ $cfp-card-radius-sm: 4px;
   }
 
   &__row {
-    border-bottom: 1px solid #f0f0f0;
+    border-bottom: 1px solid var(--border-main);
 
     &:last-child {
       border-bottom: none;
@@ -334,7 +338,7 @@ $cfp-card-radius-sm: 4px;
 
   &__value {
     padding: 0.5rem 0;
-    color: $cfp-accent;
+    color: var(--text-main);
     font-weight: 700;
     text-align: right;
   }

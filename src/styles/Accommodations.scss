@@ -1,23 +1,23 @@
 /* Accommodations Page Specific Styles */
 
 .accommodations-hero-section {
-  background-color: #fcfcfc;
-  border-bottom: 1px solid #eaeaea;
+  background-color: var(--bg-dark);
+  border-bottom: 1px solid var(--border-main);
   padding: 3.5rem 0;
 }
 
 .accommodations-hero-status {
   margin-bottom: 1rem;
   display: inline-block;
-  background-color: rgba(233, 84, 32, 0.08);
-  color: var(--vf-color-brand);
-  border-color: rgba(233, 84, 32, 0.15);
+  background-color: var(--overlay-orange);
+  color: var(--text-main);
+  border-color: var(--overlay-orange-strong);
   font-weight: 700;
   padding: 0.2rem 0.6rem;
 }
 
 .accommodations-hero-title {
-  color: var(--vf-color-accent);
+  color: var(--text-main);
   font-weight: 700;
   font-size: 3rem;
   line-height: 1.15;
@@ -25,22 +25,22 @@
 }
 
 .accommodations-hero-lead {
-  color: #555;
+  color: var(--text-muted);
 }
 
 .accommodations-hero-icon {
   font-size: 5rem;
-  color: var(--vf-color-brand);
+  color: var(--text-main);
   opacity: 0.85;
-  filter: drop-shadow(0 8px 16px rgba(233, 84, 32, 0.15));
+  filter: drop-shadow(0 8px 16px var(--overlay-orange-strong));
 }
 
 .accommodations-list-section {
-  background-color: #ffffff;
+  background-color: var(--bg-dark-alt);
 }
 
 .accommodations-section-title {
-  color: var(--vf-color-accent);
+  color: var(--text-main);
   font-weight: 700;
   margin-bottom: 1rem;
 }
@@ -64,7 +64,7 @@
 
 .accommodations-card {
   height: 100%;
-  background-color: #fcfcfc;
+  background-color: var(--bg-dark);
 }
 
 .accommodations-card--premium {
@@ -76,7 +76,7 @@
 }
 
 .accommodations-card--budget {
-  border-top: 4px solid #111111;
+  border-top: 4px solid var(--bg-dark);
 }
 
 .accommodations-card-header {
@@ -96,7 +96,7 @@
 
 .accommodations-item {
   padding-bottom: 1rem;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--border-main);
   margin-bottom: 1rem;
 }
 
@@ -107,7 +107,7 @@
 }
 
 .accommodations-item-icon {
-  color: var(--vf-color-brand);
+  color: var(--text-main);
   margin-right: 0.25rem;
   vertical-align: middle;
 }
@@ -119,7 +119,7 @@
 }
 
 .accommodations-tips-title {
-  color: var(--vf-color-accent);
+  color: var(--text-main);
   font-weight: 700;
   display: flex;
   align-items: center;
@@ -128,21 +128,21 @@
 
 .accommodations-tips-icon {
   margin-right: 0.75rem;
-  color: var(--vf-color-brand);
+  color: var(--text-main);
 }
 
 .accommodations-notification {
   margin-top: 1.5rem;
-  background-color: #ffffff;
+  background-color: var(--bg-dark-alt);
 }
 
 .accommodations-notification-title {
-  color: var(--vf-color-accent);
+  color: var(--text-main);
 }
 
 .accommodations-verification-card {
   border-left: 4px solid var(--vf-color-accent);
-  background-color: #ffffff;
+  background-color: var(--bg-dark-alt);
   height: 100%;
 }
 
@@ -151,7 +151,7 @@
 }
 
 .accommodations-verification-icon {
-  color: var(--vf-color-brand);
+  color: var(--text-main);
   margin-right: 0.25rem;
   vertical-align: middle;
 }

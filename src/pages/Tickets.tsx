@@ -36,56 +36,56 @@ export const Tickets: React.FC = () => {
   if (submitted) {
     return (
       <main>
-        <section className="p-strip" style={{ backgroundColor: '#fcfcfc', borderBottom: '1px solid #eaeaea', padding: '3.5rem 0' }}>
+        <section className="p-strip" style={{ backgroundColor: 'var(--bg-dark)', borderBottom: '1px solid var(--border-main)', padding: '3.5rem 0' }}>
           <div className="row u-vertically-center">
             <div className="col-8 col-medium-5">
-              <span className="p-status-label" style={{ marginBottom: '1rem', display: 'inline-block', backgroundColor: 'rgba(233, 84, 32, 0.08)', color: 'var(--vf-color-brand)', borderColor: 'rgba(233, 84, 32, 0.15)', fontWeight: 700, padding: '0.2rem 0.6rem' }}>
+              <span className="p-status-label" style={{ marginBottom: '1rem', display: 'inline-block', backgroundColor: 'var(--overlay-orange)', color: 'var(--text-main)', borderColor: 'var(--overlay-orange-strong)', fontWeight: 700, padding: '0.2rem 0.6rem' }}>
                 Registration
               </span>
-              <h1 style={{ color: 'var(--vf-color-accent)', fontWeight: 700, fontSize: '3rem', lineHeight: '1.15', marginBottom: '0.75rem' }}>
+              <h1 style={{ color: '#f7f7f7', fontWeight: 700, fontSize: '3rem', lineHeight: '1.15', marginBottom: '0.75rem' }}>
                 Registration Complete!
               </h1>
-              <p className="p-text--lead u-no-margin" style={{ color: '#555' }}>
+              <p className="p-text--lead u-no-margin" style={{ color: 'var(--text-muted)' }}>
                 Your seat has been reserved. See you in New Delhi!
               </p>
             </div>
             <div className="col-4 col-medium-1 u-align--center">
-              <FaTicketAlt style={{ fontSize: '5rem', color: 'var(--vf-color-brand)', opacity: 0.85, filter: 'drop-shadow(0 8px 16px rgba(233, 84, 32, 0.15))' }} />
+              <FaTicketAlt style={{ fontSize: '5rem', color: 'var(--text-main)', opacity: 0.85, filter: 'drop-shadow(0 8px 16px var(--overlay-orange-strong))' }} />
             </div>
           </div>
         </section>
 
-        <section className="p-strip" style={{ backgroundColor: '#ffffff' }}>
+        <section className="p-strip" style={{ backgroundColor: 'var(--bg-dark-alt)' }}>
           <div className="row u-align--center" style={{ display: 'flex', justifyContent: 'center' }}>
             <div className="col-6 col-medium-4">
               <div className="ticket-mockup">
-                <div className="ticket-header" style={{ backgroundColor: 'var(--vf-color-accent)', padding: '1.5rem', borderTopLeftRadius: '8px', borderTopRightRadius: '8px', color: 'white', borderBottom: '2px dashed #ffffff', position: 'relative' }}>
+                <div className="ticket-header" style={{ backgroundColor: 'var(--vf-color-accent)', padding: '1.5rem', borderTopLeftRadius: '8px', borderTopRightRadius: '8px', color: 'white', borderBottom: '2px dashed #1a1a1a', position: 'relative' }}>
                   <h4 style={{ color: 'white', margin: 0, fontWeight: 700 }}>UBUCON INDIA 2026</h4>
                   <small style={{ opacity: 0.8, textTransform: 'uppercase', letterSpacing: '1px' }}>Standard Pass</small>
                 </div>
                 
-                <div className="ticket-body" style={{ backgroundColor: '#fcfcfc', border: '1px solid #eaeaea', borderTop: 'none', borderBottomLeftRadius: '8px', borderBottomRightRadius: '8px', padding: '2rem 1.5rem', position: 'relative' }}>
+                <div className="ticket-body" style={{ backgroundColor: 'var(--bg-dark)', border: '1px solid var(--border-main)', borderTop: 'none', borderBottomLeftRadius: '8px', borderBottomRightRadius: '8px', padding: '2rem 1.5rem', position: 'relative' }}>
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem', marginBottom: '1.5rem' }}>
                     <div>
-                      <small style={{ color: '#777', textTransform: 'uppercase', fontSize: '0.75rem', display: 'block', marginBottom: '0.25rem' }}>Attendee</small>
-                      <strong style={{ fontSize: '1.1rem', color: '#111' }}>{formData.fullName}</strong>
+                      <small style={{ color: '#999', textTransform: 'uppercase', fontSize: '0.75rem', display: 'block', marginBottom: '0.25rem' }}>Attendee</small>
+                      <strong style={{ fontSize: '1.1rem', color: '#f7f7f7' }}>{formData.fullName}</strong>
                     </div>
                     <div>
-                      <small style={{ color: '#777', textTransform: 'uppercase', fontSize: '0.75rem', display: 'block', marginBottom: '0.25rem' }}>Organization</small>
-                      <strong style={{ fontSize: '1.1rem', color: '#111' }}>{formData.org || 'Individual'}</strong>
+                      <small style={{ color: '#999', textTransform: 'uppercase', fontSize: '0.75rem', display: 'block', marginBottom: '0.25rem' }}>Organization</small>
+                      <strong style={{ fontSize: '1.1rem', color: '#f7f7f7' }}>{formData.org || 'Individual'}</strong>
                     </div>
                     <div>
-                      <small style={{ color: '#777', textTransform: 'uppercase', fontSize: '0.75rem', display: 'block', marginBottom: '0.25rem' }}>T-Shirt Size</small>
-                      <strong style={{ fontSize: '1.1rem', color: '#111' }}>{formData.tShirtSize}</strong>
+                      <small style={{ color: '#999', textTransform: 'uppercase', fontSize: '0.75rem', display: 'block', marginBottom: '0.25rem' }}>T-Shirt Size</small>
+                      <strong style={{ fontSize: '1.1rem', color: '#f7f7f7' }}>{formData.tShirtSize}</strong>
                     </div>
                     <div>
-                      <small style={{ color: '#777', textTransform: 'uppercase', fontSize: '0.75rem', display: 'block', marginBottom: '0.25rem' }}>Date</small>
-                      <strong style={{ fontSize: '1.1rem', color: '#111' }}>Nov 14-15, 2026</strong>
+                      <small style={{ color: '#999', textTransform: 'uppercase', fontSize: '0.75rem', display: 'block', marginBottom: '0.25rem' }}>Date</small>
+                      <strong style={{ fontSize: '1.1rem', color: '#f7f7f7' }}>Nov 14-15, 2026</strong>
                     </div>
                   </div>
                   
-                  <div style={{ borderTop: '1px solid #eee', paddingTop: '1.5rem', textAlign: 'center' }}>
-                    <small style={{ display: 'block', color: '#666', fontFamily: 'monospace', letterSpacing: '2px', marginBottom: '0.5rem' }}>
+                  <div style={{ borderTop: '1px solid var(--border-main)', paddingTop: '1.5rem', textAlign: 'center' }}>
+                    <small style={{ display: 'block', color: '#999', fontFamily: 'monospace', letterSpacing: '2px', marginBottom: '0.5rem' }}>
                       *UBU-IND-2026-{(formData.fullName.substring(0,3) + formData.tShirtSize).toUpperCase()}*
                     </small>
                   </div>
@@ -110,31 +110,31 @@ export const Tickets: React.FC = () => {
 
   return (
     <main>
-      <section className="p-strip" style={{ backgroundColor: '#fcfcfc', borderBottom: '1px solid #eaeaea', padding: '3.5rem 0' }}>
+      <section className="p-strip" style={{ backgroundColor: 'var(--bg-dark)', borderBottom: '1px solid var(--border-main)', padding: '3.5rem 0' }}>
         <div className="row u-vertically-center">
           <div className="col-8 col-medium-5">
-            <span className="p-status-label" style={{ marginBottom: '1rem', display: 'inline-block', backgroundColor: 'rgba(233, 84, 32, 0.08)', color: 'var(--vf-color-brand)', borderColor: 'rgba(233, 84, 32, 0.15)', fontWeight: 700, padding: '0.2rem 0.6rem' }}>
+            <span className="p-status-label" style={{ marginBottom: '1rem', display: 'inline-block', backgroundColor: 'var(--overlay-orange)', color: 'var(--text-main)', borderColor: 'var(--overlay-orange-strong)', fontWeight: 700, padding: '0.2rem 0.6rem' }}>
               Registration
             </span>
-            <h1 style={{ color: 'var(--vf-color-accent)', fontWeight: 700, fontSize: '3rem', lineHeight: '1.15', marginBottom: '0.75rem' }}>
+            <h1 style={{ color: '#f7f7f7', fontWeight: 700, fontSize: '3rem', lineHeight: '1.15', marginBottom: '0.75rem' }}>
               Tickets & Passes
             </h1>
-            <p className="p-text--lead u-no-margin" style={{ color: '#555' }}>
+            <p className="p-text--lead u-no-margin" style={{ color: 'var(--text-muted)' }}>
               Register now to secure your spot at UbuCon India 2026 in New Delhi.
             </p>
           </div>
           <div className="col-4 col-medium-1 u-align--center">
-            <FaTicketAlt style={{ fontSize: '5rem', color: 'var(--vf-color-brand)', opacity: 0.85, filter: 'drop-shadow(0 8px 16px rgba(233, 84, 32, 0.15))' }} />
+            <FaTicketAlt style={{ fontSize: '5rem', color: 'var(--text-main)', opacity: 0.85, filter: 'drop-shadow(0 8px 16px var(--overlay-orange-strong))' }} />
           </div>
         </div>
       </section>
 
       {/* Section 1: Registration Form (White Background) */}
-      <section className="p-strip" style={{ backgroundColor: '#ffffff' }}>
+      <section className="p-strip" style={{ backgroundColor: 'var(--bg-dark-alt)' }}>
         <div className="row">
           <div className="col-7 col-medium-4">
-            <h3 style={{ color: 'var(--vf-color-accent)', fontWeight: 700, marginBottom: '1rem' }}>Registration Form</h3>
-            <p className="p-text--lead" style={{ marginBottom: '2rem' }}>
+            <h3 style={{ color: '#f7f7f7', fontWeight: 700, marginBottom: '1rem' }}>Registration Form</h3>
+            <p className="p-text--lead" style={{ marginBottom: '2rem', color: 'var(--text-muted)' }}>
               Registration for UbuCon India 2026 is free, but space is limited. Please register in advance so we can ensure adequate seating and catering.
             </p>
             
@@ -216,8 +216,8 @@ export const Tickets: React.FC = () => {
           </div>
 
           <div className="col-5 col-medium-2">
-            <div className="p-card" style={{ borderLeft: '4px solid var(--vf-color-brand)', backgroundColor: '#fcfcfc' }}>
-              <h4 style={{ color: 'var(--vf-color-accent)', fontWeight: 700 }}>Standard Pass</h4>
+            <div className="p-card" style={{ borderLeft: '4px solid var(--vf-color-brand)', backgroundColor: 'var(--bg-dark)' }}>
+              <h4 style={{ color: '#f7f7f7', fontWeight: 700 }}>Standard Pass</h4>
               <hr className="p-rule" />
               <p>Standard registration is free and grants you:</p>
               <ul className="p-list" style={{ margin: 0 }}>
@@ -228,10 +228,10 @@ export const Tickets: React.FC = () => {
               </ul>
             </div>
             
-            <div className="p-card" style={{ marginTop: '1.5rem', borderLeft: '4px solid var(--vf-color-accent)', backgroundColor: '#fcfcfc' }}>
-              <h4 style={{ color: 'var(--vf-color-accent)', fontWeight: 700 }}>Student Sponsorship</h4>
+            <div className="p-card" style={{ marginTop: '1.5rem', borderLeft: '4px solid var(--vf-color-accent)', backgroundColor: 'var(--bg-dark)' }}>
+              <h4 style={{ color: '#f7f7f7', fontWeight: 700 }}>Student Sponsorship</h4>
               <hr className="p-rule" />
-              <p style={{ fontSize: '0.9rem', margin: 0 }}>
+              <p style={{ fontSize: '0.9rem', margin: 0, color: 'var(--text-muted)' }}>
                 Checking the student option enables you to apply for subsidized student travel grants to help cover railway transit fares to New Delhi. More details will be sent via email.
               </p>
             </div>
@@ -240,17 +240,17 @@ export const Tickets: React.FC = () => {
       </section>
 
       {/* Section 2: Registration Guidelines (Light Orange Background) */}
-      <section className="p-strip" style={{ backgroundColor: 'rgba(233, 84, 32, 0.04)', borderTop: '1px solid rgba(233, 84, 32, 0.1)', borderBottom: '1px solid rgba(233, 84, 32, 0.1)' }}>
+      <section className="p-strip" style={{ backgroundColor: 'var(--overlay-orange-light)', borderTop: '1px solid rgba(233, 84, 32, 0.1)', borderBottom: '1px solid rgba(233, 84, 32, 0.1)' }}>
         <div className="row">
           <div className="col-8 col-medium-5">
-            <h3 style={{ color: 'var(--vf-color-accent)', fontWeight: 700, marginBottom: '1.5rem' }}>Registration Guidelines</h3>
-            <p>
+            <h3 style={{ color: '#f7f7f7', fontWeight: 700, marginBottom: '1.5rem' }}>Registration Guidelines</h3>
+            <p style={{ color: 'var(--text-muted)' }}>
               Please note that tickets are strictly personal and non-transferable. 
               Make sure to register using your correct full name as it appears on your government-issued photo ID (needed for entry security at the venue).
             </p>
-            <div className="p-notification--information" style={{ marginTop: '1.5rem', backgroundColor: '#ffffff' }}>
+            <div className="p-notification--information" style={{ marginTop: '1.5rem', backgroundColor: 'var(--bg-dark)', border: '1px solid var(--border-main)' }}>
               <div className="p-notification__content">
-                <h5 className="p-notification__title" style={{ color: 'var(--vf-color-accent)' }}>Entry Security Check</h5>
+                <h5 className="p-notification__title" style={{ color: '#f7f7f7' }}>Entry Security Check</h5>
                 <p className="p-notification__message">
                   Due to venue safety regulations at the Dr. Ambedkar International Centre, you must present a digital or printed copy of your ticket along with a valid ID card at the reception desks.
                 </p>
@@ -258,9 +258,9 @@ export const Tickets: React.FC = () => {
             </div>
           </div>
           <div className="col-4 col-medium-1 u-vertically-center">
-            <div className="p-card" style={{ borderLeft: '4px solid var(--vf-color-brand)', backgroundColor: '#ffffff', height: '100%' }}>
-              <h5>Need to Cancel?</h5>
-              <p style={{ fontSize: '0.9rem', margin: 0 }}>
+            <div className="p-card" style={{ borderLeft: '4px solid var(--vf-color-brand)', backgroundColor: 'var(--bg-dark)', height: '100%' }}>
+              <h5 style={{ color: '#f7f7f7' }}>Need to Cancel?</h5>
+              <p style={{ fontSize: '0.9rem', margin: 0, color: 'var(--text-muted)' }}>
                 If your plans change and you cannot attend, please email us at <a href="mailto:tickets@ubucon.in">tickets@ubucon.in</a> to release your seat for other waitlisted members.
               </p>
             </div>

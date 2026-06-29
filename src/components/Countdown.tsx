@@ -40,28 +40,28 @@ export const Countdown: React.FC = () => {
           <span className="p-heading--1 u-no-margin" style={{ fontWeight: 700, color: 'var(--vf-color-brand)' }}>
             {String(timeRemaining.days).padStart(2, '0')}
           </span>
-          <span className="u-text--muted" style={{ fontSize: '0.85rem', textTransform: 'uppercase' }}>Days</span>
+          <span style={{ color: 'var(--text-muted)', fontSize: '0.85rem', textTransform: 'uppercase' }}>Days</span>
         </div>
         <div style={{ fontSize: '2rem', fontWeight: 700, alignSelf: 'center', color: '#999' }}>:</div>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', minWidth: '70px' }}>
           <span className="p-heading--1 u-no-margin" style={{ fontWeight: 700, color: 'var(--vf-color-brand)' }}>
             {String(timeRemaining.hours).padStart(2, '0')}
           </span>
-          <span className="u-text--muted" style={{ fontSize: '0.85rem', textTransform: 'uppercase' }}>Hours</span>
+          <span style={{ color: 'var(--text-muted)', fontSize: '0.85rem', textTransform: 'uppercase' }}>Hours</span>
         </div>
         <div style={{ fontSize: '2rem', fontWeight: 700, alignSelf: 'center', color: '#999' }}>:</div>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', minWidth: '70px' }}>
           <span className="p-heading--1 u-no-margin" style={{ fontWeight: 700, color: 'var(--vf-color-brand)' }}>
             {String(timeRemaining.minutes).padStart(2, '0')}
           </span>
-          <span className="u-text--muted" style={{ fontSize: '0.85rem', textTransform: 'uppercase' }}>Mins</span>
+          <span style={{ color: 'var(--text-muted)', fontSize: '0.85rem', textTransform: 'uppercase' }}>Mins</span>
         </div>
         <div style={{ fontSize: '2rem', fontWeight: 700, alignSelf: 'center', color: '#999' }}>:</div>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', minWidth: '70px' }}>
           <span className="p-heading--1 u-no-margin" style={{ fontWeight: 700, color: 'var(--vf-color-brand)' }}>
             {String(timeRemaining.seconds).padStart(2, '0')}
           </span>
-          <span className="u-text--muted" style={{ fontSize: '0.85rem', textTransform: 'uppercase' }}>Secs</span>
+          <span style={{ color: 'var(--text-muted)', fontSize: '0.85rem', textTransform: 'uppercase' }}>Secs</span>
         </div>
       </div>
     </div>

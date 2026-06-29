@@ -57,7 +57,7 @@ export const ImportantDates: React.FC = () => (
     <section className="p-strip dates-timeline-section">
       <div className="row">
         {/* Timeline table */}
-        <div className="col-8 col-medium-12">
+        <div className="col-8 col-medium-6">
           <h3 className="dates-section__heading">
             <FaClock
               className="dates-section__heading-icon"
@@ -93,7 +93,7 @@ export const ImportantDates: React.FC = () => (
         </div>
 
         {/* Planning Ahead sidebar */}
-        <div className="col-4 col-medium-12">
+        <div className="col-4 col-medium-6">
           <aside className="dates-planning">
             <h4 className="dates-planning__heading">Planning Ahead</h4>
             <hr className="p-rule dates-planning__rule" />
@@ -111,7 +111,7 @@ export const ImportantDates: React.FC = () => (
     <section className="dates-grants-section">
       <div className="row">
         {/* Travel grants info */}
-        <div className="col-8 col-medium-12">
+        <div className="col-8 col-medium-6">
           <h3 className="dates-section__heading">
             <FaPlane
               className="dates-section__heading-icon"
@@ -137,7 +137,7 @@ export const ImportantDates: React.FC = () => (
         </div>
 
         {/* Budget allocations sidebar */}
-        <div className="col-4 col-medium-12">
+        <div className="col-4 col-medium-6">
           <aside className="dates-budget">
             <h5 className="dates-budget__heading">Budget Allocations</h5>
             <p className="dates-budget__body">

@@ -5,7 +5,7 @@ export const SponsorsSection: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="p-strip--light home-sponsors-section">
+    <section className="p-strip home-sponsors-section" style={{ backgroundColor: 'var(--bg-dark)' }}>
       <div className="row">
         <h2 className="u-align--center home-sponsors-title">Sponsors & Partners</h2>
       </div>
