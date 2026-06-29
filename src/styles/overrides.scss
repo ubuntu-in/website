@@ -384,13 +384,20 @@ h1, h2, h3, h4, h5, h6,
     // Countdown Timer responsiveness
     .countdown-timer-container {
         gap: 0.25rem !important;
+        flex-wrap: nowrap !important;
         
         > div {
-            min-width: 50px !important;
+            min-width: auto !important;
+            padding: 0 0.2rem;
+        }
+
+        > div:nth-child(even) {
+            font-size: 1.25rem !important;
+            padding: 0;
         }
 
         .p-heading--1 {
-            font-size: 1.5rem !important;
+            font-size: 1.25rem !important;
         }
     }
 }
