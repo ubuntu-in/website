@@ -19,10 +19,21 @@ body {
     font-weight: 400;
 }
 
-h1, h2, h3, h4, h5, h6,
-.p-heading--1, .p-heading--2, .p-heading--3, .p-heading--4, .p-heading--5, .p-heading--6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.p-heading--1,
+.p-heading--2,
+.p-heading--3,
+.p-heading--4,
+.p-heading--5,
+.p-heading--6 {
     font-family: 'Ubuntu', -apple-system, sans-serif;
     font-weight: 700;
+    max-width: none !important;
 }
 
 * {
@@ -31,7 +42,7 @@ h1, h2, h3, h4, h5, h6,
 
 .p-card {
     transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-    
+
     &.is-clickable:hover,
     &:hover {
         transform: translateY(-4px);
@@ -43,10 +54,12 @@ h1, h2, h3, h4, h5, h6,
 .p-button--neutral,
 .p-button {
     transition: all 0.2s ease-in-out;
+
     &:hover {
         transform: translateY(-1px);
         box-shadow: 0 4px 12px rgba(233, 84, 32, 0.15);
     }
+
     &:active {
         transform: translateY(0);
     }
@@ -54,6 +67,7 @@ h1, h2, h3, h4, h5, h6,
 
 .p-navigation__link {
     position: relative;
+
     &::after {
         content: '';
         position: absolute;
@@ -65,6 +79,7 @@ h1, h2, h3, h4, h5, h6,
         transform: scaleX(0);
         transition: transform 0.2s ease;
     }
+
     &:hover::after,
     &.is-active::after {
         transform: scaleX(1);
@@ -76,7 +91,7 @@ h1, h2, h3, h4, h5, h6,
     background: linear-gradient(135deg, #772953 0%, #2c001e 50%, #e95420 100%) !important;
     position: relative;
     overflow: hidden;
-    
+
     &::before {
         content: '';
         position: absolute;
@@ -96,8 +111,8 @@ h1, h2, h3, h4, h5, h6,
     background: #fff;
     position: relative;
     padding: 2rem;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+
     &::before,
     &::after {
         content: '';
@@ -109,12 +124,12 @@ h1, h2, h3, h4, h5, h6,
         border-radius: 50%;
         transform: translateY(-50%);
     }
-    
+
     &::before {
         left: -11px;
         border-right: 2px dashed #e95420;
     }
-    
+
     &::after {
         right: -11px;
         border-left: 2px dashed #e95420;
@@ -122,7 +137,12 @@ h1, h2, h3, h4, h5, h6,
 }
 
 // MODERN BUTTON STYLES (Clean, distinct, high contrast)
-.btn-primary, .btn-secondary, .btn-accent, .btn-outline-primary, .btn-outline-accent, .btn-white-outline {
+.btn-primary,
+.btn-secondary,
+.btn-accent,
+.btn-outline-primary,
+.btn-outline-accent,
+.btn-white-outline {
     display: inline-block;
     padding: 0.75rem 1.75rem;
     font-size: 1rem;
@@ -140,13 +160,13 @@ h1, h2, h3, h4, h5, h6,
     background-color: #e95420;
     color: #ffffff !important;
     box-shadow: 0 4px 6px rgba(233, 84, 32, 0.15);
-    
+
     &:hover {
         background-color: #d14110;
         transform: translateY(-2px);
         box-shadow: 0 8px 18px rgba(233, 84, 32, 0.25);
     }
-    
+
     &:active {
         transform: translateY(0);
         box-shadow: 0 4px 6px rgba(233, 84, 32, 0.15);
@@ -157,30 +177,31 @@ h1, h2, h3, h4, h5, h6,
     background-color: #772953;
     color: #ffffff !important;
     box-shadow: 0 4px 6px rgba(119, 41, 83, 0.15);
-    
+
     &:hover {
         background-color: #5c1e3f;
         transform: translateY(-2px);
         box-shadow: 0 8px 18px rgba(119, 41, 83, 0.25);
     }
-    
+
     &:active {
         transform: translateY(0);
     }
 }
 
-.btn-outline-primary, .btn-secondary {
+.btn-outline-primary,
+.btn-secondary {
     background-color: transparent;
     border-color: #e95420;
     color: #e95420 !important;
-    
+
     &:hover {
         background-color: #e95420;
         color: #ffffff !important;
         transform: translateY(-2px);
         box-shadow: 0 8px 18px rgba(233, 84, 32, 0.15);
     }
-    
+
     &:active {
         transform: translateY(0);
     }
@@ -190,14 +211,14 @@ h1, h2, h3, h4, h5, h6,
     background-color: transparent;
     border-color: #772953;
     color: #772953 !important;
-    
+
     &:hover {
         background-color: #772953;
         color: #ffffff !important;
         transform: translateY(-2px);
         box-shadow: 0 8px 18px rgba(119, 41, 83, 0.15);
     }
-    
+
     &:active {
         transform: translateY(0);
     }
@@ -207,14 +228,14 @@ h1, h2, h3, h4, h5, h6,
     background-color: transparent;
     border-color: #ffffff;
     color: #ffffff !important;
-    
+
     &:hover {
         background-color: #ffffff;
         color: #772953 !important;
         transform: translateY(-2px);
         box-shadow: 0 8px 18px rgba(255, 255, 255, 0.2);
     }
-    
+
     &:active {
         transform: translateY(0);
     }
@@ -223,7 +244,7 @@ h1, h2, h3, h4, h5, h6,
 // Open & Clear Modern Hero
 .p-strip--open-hero {
     background-color: #ffffff !important;
-    background-image: 
+    background-image:
         radial-gradient(circle at 85% 10%, rgba(233, 84, 32, 0.08) 0%, transparent 40%),
         radial-gradient(circle at 15% 90%, rgba(119, 41, 83, 0.06) 0%, transparent 45%);
     border-bottom: 1px solid #eaeaea;
@@ -236,10 +257,10 @@ h1, h2, h3, h4, h5, h6,
     position: relative;
     background-color: #ffffff;
     background-size: 32px 32px;
-    background-image: 
+    background-image:
         linear-gradient(to right, rgba(119, 41, 83, 0.03) 1px, transparent 1px),
         linear-gradient(to bottom, rgba(119, 41, 83, 0.03) 1px, transparent 1px);
-        
+
     &::before {
         content: '';
         position: absolute;
@@ -251,7 +272,7 @@ h1, h2, h3, h4, h5, h6,
         pointer-events: none;
         z-index: 0;
     }
-    
+
     &::after {
         content: '';
         position: absolute;
@@ -302,14 +323,16 @@ h1, h2, h3, h4, h5, h6,
 
 // Mobile Responsiveness Overrides
 @media screen and (max-width: 767px) {
-    .row, .row--50-50 {
+
+    .row,
+    .row--50-50 {
         display: flex !important;
         flex-direction: column !important;
     }
-    
-    .row > [class*="col-"],
-    .row--50-50 > [class*="col-"],
-    .row--50-50 > .col {
+
+    .row>[class*="col-"],
+    .row--50-50>[class*="col-"],
+    .row--50-50>.col {
         width: 100% !important;
         max-width: 100% !important;
         flex: 0 0 100% !important;
@@ -319,17 +342,29 @@ h1, h2, h3, h4, h5, h6,
     }
 
     // Ensure the last column doesn't have excess margin
-    .row > [class*="col-"]:last-child,
-    .row--50-50 > [class*="col-"]:last-child,
-    .row--50-50 > .col:last-child {
+    .row>[class*="col-"]:last-child,
+    .row--50-50>[class*="col-"]:last-child,
+    .row--50-50>.col:last-child {
         margin-bottom: 0 !important;
     }
 
     // Typography scaling
-    h1, .p-heading--1 { font-size: 2.25rem !important; line-height: 1.2 !important; }
-    h2, .p-heading--2 { font-size: 1.75rem !important; }
-    h3, .p-heading--3 { font-size: 1.5rem !important; }
-    
+    h1,
+    .p-heading--1 {
+        font-size: 2.25rem !important;
+        line-height: 1.2 !important;
+    }
+
+    h2,
+    .p-heading--2 {
+        font-size: 1.75rem !important;
+    }
+
+    h3,
+    .p-heading--3 {
+        font-size: 1.5rem !important;
+    }
+
     // Fix inline lists overlapping
     .p-inline-list {
         flex-direction: column;
@@ -338,7 +373,12 @@ h1, h2, h3, h4, h5, h6,
     }
 
     // Fix button layouts on mobile
-    .btn-primary, .btn-secondary, .btn-accent, .btn-outline-primary, .btn-outline-accent, .btn-white-outline {
+    .btn-primary,
+    .btn-secondary,
+    .btn-accent,
+    .btn-outline-primary,
+    .btn-outline-accent,
+    .btn-white-outline {
         width: 100%;
         margin-bottom: 0.75rem;
         display: block;
@@ -349,9 +389,9 @@ h1, h2, h3, h4, h5, h6,
     .p-strip .col-5 img {
         margin-top: 1.5rem !important;
     }
-    
+
     // Ticket Mockup responsiveness
-    .ticket-mockup .ticket-body > div {
+    .ticket-mockup .ticket-body>div {
         grid-template-columns: 1fr !important;
         gap: 1rem !important;
     }
@@ -367,8 +407,8 @@ h1, h2, h3, h4, h5, h6,
     // Countdown Timer responsiveness
     .countdown-timer-container {
         gap: 0.25rem !important;
-        
-        > div {
+
+        >div {
             min-width: 50px !important;
         }
 
