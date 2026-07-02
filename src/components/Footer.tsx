@@ -1,12 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaGithub, FaTelegram } from 'react-icons/fa';
+import '../styles/Footer.scss';
 
 export const Footer: React.FC = () => {
   return (
     <footer style={{ backgroundColor: '#0e0e0e', padding: '5rem 0 3rem 0', marginTop: 'auto', borderTop: '4px solid var(--vf-color-brand)' }}>
       <div className="row">
-        <div className="col-3 col-medium-2" style={{ marginBottom: '2rem' }}>
+        <div className="col-2 col-medium-2" style={{ marginBottom: '2rem' }}>
           <h5 style={{ fontWeight: 700, color: '#ffffff', marginBottom: '1.25rem', fontSize: '1.1rem' }}>About</h5>
           <ul className="p-list--clean" style={{ fontSize: '0.9rem', paddingLeft: 0 }}>
             <li style={{ marginBottom: '0.75rem' }}>
@@ -22,7 +23,7 @@ export const Footer: React.FC = () => {
           </ul>
         </div>
 
-        <div className="col-3 col-medium-2" style={{ marginBottom: '2rem' }}>
+        <div className="col-2 col-medium-2" style={{ marginBottom: '2rem' }}>
           <h5 style={{ fontWeight: 700, color: '#ffffff', marginBottom: '1.25rem', fontSize: '1.1rem' }}>Venue & Travel</h5>
           <ul className="p-list--clean" style={{ fontSize: '0.9rem', paddingLeft: 0 }}>
             <li style={{ marginBottom: '0.75rem' }}>
@@ -43,7 +44,7 @@ export const Footer: React.FC = () => {
           </ul>
         </div>
 
-        <div className="col-3 col-medium-2" style={{ marginBottom: '2rem' }}>
+        <div className="col-2 col-medium-2" style={{ marginBottom: '2rem' }}>
           <h5 style={{ fontWeight: 700, color: '#ffffff', marginBottom: '1.25rem', fontSize: '1.1rem' }}>Programs</h5>
           <ul className="p-list--clean" style={{ fontSize: '0.9rem', paddingLeft: 0 }}>
             <li style={{ marginBottom: '0.75rem' }}>
@@ -59,7 +60,7 @@ export const Footer: React.FC = () => {
           </ul>
         </div>
 
-        <div className="col-3 col-medium-2" style={{ marginBottom: '2rem' }}>
+        <div className="col-2 col-medium-2" style={{ marginBottom: '2rem' }}>
           <h5 style={{ fontWeight: 700, color: '#ffffff', marginBottom: '1.25rem', fontSize: '1.1rem' }}>Community</h5>
           <ul className="p-list--clean" style={{ fontSize: '0.9rem', paddingLeft: 0 }}>
             <li style={{ marginBottom: '0.75rem' }}>
@@ -78,6 +79,18 @@ export const Footer: React.FC = () => {
               </a>
             </li>
           </ul>
+        </div>
+
+        <div className="col-4 col-medium-4" style={{ marginBottom: '2rem' }}>
+          <h5 style={{ fontWeight: 700, color: '#ffffff', marginBottom: '1.25rem', fontSize: '1.1rem' }}>Venue Location</h5>
+          <div className="footer-map-container">
+            <iframe
+              title="Venue location"
+              src="https://maps.google.com/maps?q=Dr.%20Ambedkar%20International%20Centre,%2015,%20Janpath%20Rd,%20Windsor%20Place,%20New%20Delhi,%20Delhi%20110001&t=&z=15&ie=UTF8&iwloc=&output=embed"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
         </div>
       </div>
 
