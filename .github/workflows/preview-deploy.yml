@@ -1,0 +1,44 @@
+name: Preview Deployment — Build
+
+on:
+  pull_request:
+    branches: [ubucon-india-2026, main]
+
+permissions:
+  contents: read
+
+jobs:
+  build-preview:
+    name: Build PR Preview
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 26
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build project
+        run: npm run build
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: pr-preview-${{ github.event.pull_request.number }}
+          path: dist/
+          retention-days: 3
+
+      - name: Save PR number
+        run: echo "${{ github.event.pull_request.number }}" > pr-number.txt
+
+      - name: Upload PR number
+        uses: actions/upload-artifact@v7
+        with:
+          name: pr-number-${{ github.event.pull_request.number }}
+          path: pr-number.txt
+          retention-days: 3
