@@ -37,7 +37,7 @@ export const Navigation: React.FC = () => {
           <div className="p-navigation__tagged-logo">
             <Link className="p-navigation__link" to="/" onClick={handleNavClick}>
               <div className="p-navigation__logo-tag">
-                <img className="p-navigation__logo-icon" src="/tag.png" alt="Ubuntu Logo" />
+                <img className="p-navigation__logo-icon" src="/ubuntu-logo-white.svg" alt="Ubuntu Logo" />
               </div>
               <span className="p-navigation__logo-title" style={{ fontWeight: 700 }}>UbuCon India 2026</span>
             </Link>
