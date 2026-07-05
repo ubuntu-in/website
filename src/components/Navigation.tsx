@@ -34,12 +34,10 @@ export const Navigation: React.FC = () => {
     <header id="navigation" className={`p-navigation is-dark ${mobileMenuOpen ? 'has-menu-open' : ''}`} style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.1)' }}>
       <div className="p-navigation__row--25-75">
         <div className="p-navigation__banner">
-          <div className="p-navigation__tagged-logo">
-            <Link className="p-navigation__link" to="/" onClick={handleNavClick}>
-              <div className="p-navigation__logo-tag">
-                <img className="p-navigation__logo-icon" src="/tag.png" alt="Ubuntu Logo" />
-              </div>
-              <span className="p-navigation__logo-title" style={{ fontWeight: 700 }}>UbuCon India 2026</span>
+          <div className="p-navigation__logo">
+            <Link className="p-navigation__link" to="/" onClick={handleNavClick} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+              <img src="/logo.png" alt="UbuCon India Logo" style={{ height: '50px', width: 'auto', objectFit: 'contain', borderRadius: '8px' }} />
+              <span className="p-navigation__logo-title" style={{ fontWeight: 700, margin: 0, fontSize: '1.35rem' }}>UbuCon India 2026</span>
             </Link>
           </div>
           {!mobileMenuOpen ? (
