@@ -7,20 +7,21 @@ interface TimeRemaining {
   seconds: number;
 }
 
-export const Countdown: React.FC = () => {
-  const targetDate = new Date('2026-11-14T09:00:00+05:30'); // UbuCon India 2026 date (Target Date: Nov 14, 2026)
+const targetDate = new Date('2026-11-14T09:00:00+05:30'); // UbuCon India 2026 date (Target Date: Nov 14, 2026)
 
-  const calculateTimeRemaining = (): TimeRemaining => {
-    const total = targetDate.getTime() - new Date().getTime();
-    if (total <= 0) {
-      return { days: 0, hours: 0, minutes: 0, seconds: 0 };
-    }
-    const seconds = Math.floor((total / 1000) % 60);
-    const minutes = Math.floor((total / 1000 / 60) % 60);
-    const hours = Math.floor((total / (1000 * 60 * 60)) % 24);
-    const days = Math.floor(total / (1000 * 60 * 60 * 24));
-    return { days, hours, minutes, seconds };
-  };
+const calculateTimeRemaining = (): TimeRemaining => {
+  const total = targetDate.getTime() - new Date().getTime();
+  if (total <= 0) {
+    return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+  }
+  const seconds = Math.floor((total / 1000) % 60);
+  const minutes = Math.floor((total / 1000 / 60) % 60);
+  const hours = Math.floor((total / (1000 * 60 * 60)) % 24);
+  const days = Math.floor(total / (1000 * 60 * 60 * 24));
+  return { days, hours, minutes, seconds };
+};
+
+export const Countdown: React.FC = () => {
 
   const [timeRemaining, setTimeRemaining] = useState<TimeRemaining>(calculateTimeRemaining());
 
