@@ -12,7 +12,7 @@ export const HeroSection: React.FC = () => {
           <span className="p-status-label--positive home-hero-status">
             Registration Open
           </span>
-          <h1 className="p-hero__title home-hero-title">
+          <h1 className="p-hero__title home-hero-title" style={{ color: 'var(--vf-color-brand)' }}>
             UbuCon India 2026
           </h1>
           
