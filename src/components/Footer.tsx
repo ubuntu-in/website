@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaGithub, FaTelegram } from 'react-icons/fa';
+import { FaGithub, FaTelegram, FaLinkedin, FaMastodon } from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6';
 
 export const Footer: React.FC = () => {
   return (
@@ -8,7 +9,7 @@ export const Footer: React.FC = () => {
       <div className="row">
         <div className="col-3 col-medium-2" style={{ marginBottom: '2rem' }}>
           <h5 style={{ fontWeight: 700, color: '#ffffff', marginBottom: '1.25rem', fontSize: '1.1rem' }}>About</h5>
-          <ul className="p-list--clean" style={{ fontSize: '0.9rem', paddingLeft: 0 }}>
+          <ul className="p-list--clean" style={{ fontSize: '0.9rem', padding: 0, margin: 0, listStyleType: 'none' }}>
             <li style={{ marginBottom: '0.75rem' }}>
               <Link to="/about" style={{ color: '#b3b3b3', textDecoration: 'none', transition: 'color 0.2s ease' }} onMouseEnter={(e) => e.currentTarget.style.color = '#e95420'} onMouseLeave={(e) => e.currentTarget.style.color = '#b3b3b3'}>
                 About UbuCon India
@@ -24,7 +25,7 @@ export const Footer: React.FC = () => {
 
         <div className="col-3 col-medium-2" style={{ marginBottom: '2rem' }}>
           <h5 style={{ fontWeight: 700, color: '#ffffff', marginBottom: '1.25rem', fontSize: '1.1rem' }}>Venue & Travel</h5>
-          <ul className="p-list--clean" style={{ fontSize: '0.9rem', paddingLeft: 0 }}>
+          <ul className="p-list--clean" style={{ fontSize: '0.9rem', padding: 0, margin: 0, listStyleType: 'none' }}>
             <li style={{ marginBottom: '0.75rem' }}>
               <Link to="/venue" style={{ color: '#b3b3b3', textDecoration: 'none', transition: 'color 0.2s ease' }} onMouseEnter={(e) => e.currentTarget.style.color = '#e95420'} onMouseLeave={(e) => e.currentTarget.style.color = '#b3b3b3'}>
                 Venue & Safety
@@ -45,7 +46,7 @@ export const Footer: React.FC = () => {
 
         <div className="col-3 col-medium-2" style={{ marginBottom: '2rem' }}>
           <h5 style={{ fontWeight: 700, color: '#ffffff', marginBottom: '1.25rem', fontSize: '1.1rem' }}>Programs</h5>
-          <ul className="p-list--clean" style={{ fontSize: '0.9rem', paddingLeft: 0 }}>
+          <ul className="p-list--clean" style={{ fontSize: '0.9rem', padding: 0, margin: 0, listStyleType: 'none' }}>
             <li style={{ marginBottom: '0.75rem' }}>
               <Link to="/cfp" style={{ color: '#b3b3b3', textDecoration: 'none', transition: 'color 0.2s ease' }} onMouseEnter={(e) => e.currentTarget.style.color = '#e95420'} onMouseLeave={(e) => e.currentTarget.style.color = '#b3b3b3'}>
                 Call for Proposals
@@ -61,7 +62,7 @@ export const Footer: React.FC = () => {
 
         <div className="col-3 col-medium-2" style={{ marginBottom: '2rem' }}>
           <h5 style={{ fontWeight: 700, color: '#ffffff', marginBottom: '1.25rem', fontSize: '1.1rem' }}>Community</h5>
-          <ul className="p-list--clean" style={{ fontSize: '0.9rem', paddingLeft: 0 }}>
+          <ul className="p-list--clean" style={{ fontSize: '0.9rem', padding: 0, margin: 0, listStyleType: 'none' }}>
             <li style={{ marginBottom: '0.75rem' }}>
               <a href="https://blog.ubucon.asia/" target="_blank" rel="noopener noreferrer" style={{ color: '#b3b3b3', textDecoration: 'none', transition: 'color 0.2s ease' }} onMouseEnter={(e) => e.currentTarget.style.color = '#e95420'} onMouseLeave={(e) => e.currentTarget.style.color = '#b3b3b3'}>
                 UbuCon Asia Blog
@@ -86,29 +87,59 @@ export const Footer: React.FC = () => {
           <hr style={{ border: '0', borderTop: '1px solid #222222', margin: '2.5rem 0 2rem 0' }} />
           <div className="footer-bottom-flex" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1.5rem' }}>
             <p className="u-no-margin--bottom" style={{ fontSize: '0.85rem', color: '#888888', lineHeight: '1.6' }}>
-              © 2026 UbuCon India. Organized by the Ubuntu India Community. 
+              © 2026 UbuCon India. Organized by the Ubuntu India Community.
               <br />Ubuntu and Canonical are registered trademarks of Canonical Ltd.
             </p>
-            <div style={{ display: 'flex', gap: '1.5rem' }}>
-              <a 
-                href="https://github.com" 
-                target="_blank" 
-                rel="noopener noreferrer" 
+            <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
+              <a
+                href="https://github.com/ubuntu-in"
+                target="_blank"
+                rel="noopener noreferrer"
                 style={{ color: '#b3b3b3', display: 'flex', alignItems: 'center', gap: '0.5rem', textDecoration: 'none', fontWeight: 600, transition: 'color 0.2s ease' }}
-                onMouseEnter={(e) => e.currentTarget.style.color = '#e95420'} 
+                onMouseEnter={(e) => e.currentTarget.style.color = '#e95420'}
                 onMouseLeave={(e) => e.currentTarget.style.color = '#b3b3b3'}
               >
-                <FaGithub style={{ fontSize: '1.25rem' }} /> GitHub
+                <FaGithub style={{ fontSize: '1.25rem' }} />
               </a>
-              <a 
-                href="https://telegram.org" 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <a
+                href="https://t.me/ubuntuin01"
+                target="_blank"
+                rel="noopener noreferrer"
                 style={{ color: '#b3b3b3', display: 'flex', alignItems: 'center', gap: '0.5rem', textDecoration: 'none', fontWeight: 600, transition: 'color 0.2s ease' }}
-                onMouseEnter={(e) => e.currentTarget.style.color = '#e95420'} 
+                onMouseEnter={(e) => e.currentTarget.style.color = '#e95420'}
                 onMouseLeave={(e) => e.currentTarget.style.color = '#b3b3b3'}
               >
-                <FaTelegram style={{ fontSize: '1.25rem' }} /> Telegram
+                <FaTelegram style={{ fontSize: '1.25rem' }} />
+              </a>
+              <a
+                href="https://www.linkedin.com/company/ubuntu-in/"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: '#b3b3b3', display: 'flex', alignItems: 'center', gap: '0.5rem', textDecoration: 'none', fontWeight: 600, transition: 'color 0.2s ease' }}
+                onMouseEnter={(e) => e.currentTarget.style.color = '#e95420'}
+                onMouseLeave={(e) => e.currentTarget.style.color = '#b3b3b3'}
+              >
+                <FaLinkedin style={{ fontSize: '1.25rem' }} />
+              </a>
+              <a
+                href="https://ubuntu.social/@ubuntu"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: '#b3b3b3', display: 'flex', alignItems: 'center', gap: '0.5rem', textDecoration: 'none', fontWeight: 600, transition: 'color 0.2s ease' }}
+                onMouseEnter={(e) => e.currentTarget.style.color = '#e95420'}
+                onMouseLeave={(e) => e.currentTarget.style.color = '#b3b3b3'}
+              >
+                <FaMastodon style={{ fontSize: '1.25rem' }} />
+              </a>
+              <a
+                href="https://x.com/ubuntu"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: '#b3b3b3', display: 'flex', alignItems: 'center', gap: '0.5rem', textDecoration: 'none', fontWeight: 600, transition: 'color 0.2s ease' }}
+                onMouseEnter={(e) => e.currentTarget.style.color = '#e95420'}
+                onMouseLeave={(e) => e.currentTarget.style.color = '#b3b3b3'}
+              >
+                <FaXTwitter style={{ fontSize: '1.25rem' }} />
               </a>
             </div>
           </div>
