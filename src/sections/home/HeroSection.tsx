@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaCalendarAlt, FaMapMarkerAlt, FaTicketAlt } from 'react-icons/fa';
+import { eventConfig } from '../../config/eventConfig';
 
 export const HeroSection: React.FC = () => {
   const navigate = useNavigate();
@@ -13,7 +14,7 @@ export const HeroSection: React.FC = () => {
             Registration Open
           </span>
           <h1 className="p-hero__title home-hero-title">
-            UbuCon India 2026
+            UbuCon India {eventConfig.year}
           </h1>
           
           <div className="home-hero-list-container">
@@ -24,7 +25,7 @@ export const HeroSection: React.FC = () => {
               </li>
               <li className="home-hero-list-item">
                 <FaMapMarkerAlt className="home-hero-list-icon" />
-                <span>DAIC, New Delhi</span>
+                <span>{eventConfig.venue.shortName}, {eventConfig.venue.city}</span>
               </li>
               <li className="home-hero-list-item">
                 <FaTicketAlt className="home-hero-list-icon" />
