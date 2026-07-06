@@ -1,6 +1,7 @@
 import React from 'react';
 import { VenueTabs } from '../components/VenueTabs';
 import { FaUniversalAccess, FaMapMarkedAlt } from 'react-icons/fa';
+import { eventConfig } from '../config/eventConfig';
 
 export const Venue: React.FC = () => {
   return (
@@ -31,14 +32,13 @@ export const Venue: React.FC = () => {
       <section className="p-strip" style={{ backgroundColor: '#ffffff' }}>
         <div className="row">
           <div className="col-8 col-medium-5">
-            <h3 style={{ color: 'var(--vf-color-accent)', fontWeight: 700 }}>Dr. Ambedkar International Centre (DAIC)</h3>
+            <h3 style={{ color: 'var(--vf-color-accent)', fontWeight: 700 }}>{eventConfig.venue.name}</h3>
             <p className="p-text--lead">
-              UbuCon India 2026 will take place in the state-of-the-art conference facilities of the 
-              <strong> Dr. Ambedkar International Centre</strong>, located in the heart of India's capital city, New Delhi.
+              UbuCon India {eventConfig.year} will take place in the premier facilities of the{" "}
+              <strong>{eventConfig.venue.name}</strong>, located in **{eventConfig.venue.city}**.
             </p>
             <p>
-              DAIC is a modern building designed to host national and international conventions. 
-              It features fully air-conditioned auditoriums, multiple discussion halls, an exhibition gallery, and high-speed Wi-Fi connectivity throughout.
+              The venue features fully air-conditioned auditoriums, seminar halls, an exhibition gallery, and high-speed Wi-Fi connectivity throughout.
             </p>
           </div>
 
@@ -47,10 +47,9 @@ export const Venue: React.FC = () => {
               <h4 style={{ color: 'var(--vf-color-accent)', fontWeight: 700 }}>Venue Highlights</h4>
               <hr className="p-rule" />
               <ul className="p-list">
-                <li>Modern Auditorium</li>
-                <li>Catering Areas</li>
-                <li>Sponsor Exhibition Hall</li>
-                <li>Janpath Metro Connectivity</li>
+                {eventConfig.venue.highlights.map((highlight, index) => (
+                  <li key={index}>{highlight}</li>
+                ))}
               </ul>
             </div>
           </div>
@@ -74,8 +73,9 @@ export const Venue: React.FC = () => {
             <div className="p-card" style={{ borderLeft: '4px solid var(--vf-color-brand)', backgroundColor: '#ffffff', height: '100%' }}>
               <h5 style={{ fontWeight: 700 }}>Address</h5>
               <p style={{ fontSize: '0.9rem', margin: 0 }}>
-                15, Janpath Rd, Windsor Place, 
-                <br />New Delhi, Delhi 110001, India
+                {eventConfig.venue.name}
+                <br />
+                {eventConfig.venue.address}
               </p>
             </div>
           </div>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FaTicketAlt } from 'react-icons/fa';
+import { eventConfig } from '../config/eventConfig';
 
 export const Tickets: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -252,7 +253,7 @@ export const Tickets: React.FC = () => {
               <div className="p-notification__content">
                 <h5 className="p-notification__title" style={{ color: 'var(--vf-color-accent)' }}>Entry Security Check</h5>
                 <p className="p-notification__message">
-                  Due to venue safety regulations at the Dr. Ambedkar International Centre, you must present a digital or printed copy of your ticket along with a valid ID card at the reception desks.
+                  Due to venue safety regulations at {eventConfig.venue.name}, you must present a digital or printed copy of your ticket along with a valid ID card at the reception desks.
                 </p>
               </div>
             </div>

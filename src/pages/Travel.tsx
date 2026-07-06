@@ -1,6 +1,7 @@
 import React from 'react';
 import { VenueTabs } from '../components/VenueTabs';
 import { FaPlane, FaSubway, FaPassport } from 'react-icons/fa';
+import { eventConfig } from '../config/eventConfig';
 
 export const Travel: React.FC = () => {
   return (
@@ -15,7 +16,7 @@ export const Travel: React.FC = () => {
               Travel & Visa Information
             </h1>
             <p className="p-text--lead u-no-margin" style={{ color: '#555' }}>
-              Transit details and requirements for reaching New Delhi.
+              Transit details and requirements for reaching {eventConfig.venue.city}.
             </p>
           </div>
           <div className="col-4 col-medium-1 u-align--center">
@@ -33,24 +34,24 @@ export const Travel: React.FC = () => {
           <div className="col-8 col-medium-5">
             <h3 style={{ color: 'var(--vf-color-accent)', fontWeight: 700, marginBottom: '1.5rem' }}>Transit Guidelines</h3>
             <p className="p-text--lead">
-              New Delhi is highly connected both domestically and internationally. 
-              Below is the travel and transit guidance for UbuCon India 2026.
+              {eventConfig.venue.city} is highly connected both domestically and internationally. 
+              Below is the travel and transit guidance for UbuCon India {eventConfig.year}.
             </p>
 
             <h4 style={{ display: 'flex', alignItems: 'center', color: 'var(--vf-color-brand)', fontWeight: 700 }}>
               <FaPlane style={{ marginRight: '0.75rem' }} /> Arriving by Air
             </h4>
             <p>
-              <strong>Indira Gandhi International Airport (DEL)</strong> is the primary international and domestic hub for New Delhi. 
-              The airport is located about 16 km from the venue. You can easily take the high-speed <strong>Delhi Airport Metro Express (Orange Line)</strong> from Terminal 3 to New Delhi Metro Station, and switch lines to reach Janpath.
+              <strong>{eventConfig.travel.airportName} ({eventConfig.travel.airportCode})</strong> is the primary international and domestic hub for {eventConfig.venue.city}. 
+              The airport is located about {eventConfig.travel.airportDistance} from the venue. You can take the air-conditioned Volvo airport buses (Vayu Vajra) or app-based cabs (Uber/Ola) to reach Basavanagudi.
             </p>
 
             <h4 style={{ display: 'flex', alignItems: 'center', color: 'var(--vf-color-brand)', fontWeight: 700 }}>
-              <FaSubway style={{ marginRight: '0.75rem' }} /> Local Public Transport (Delhi Metro)
+              <FaSubway style={{ marginRight: '0.75rem' }} /> Local Public Transport (Metro)
             </h4>
             <p>
-              The Delhi Metro is the fastest and most convenient way to travel within the city. 
-              The venue is adjacent to the <strong>Janpath Metro Station (Violet Line)</strong> and is only a short walk from <strong>Patel Chowk Metro Station (Yellow Line)</strong>.
+              The Namma Metro is the fastest and most convenient way to travel within the city. 
+              The venue is located close to the <strong>{eventConfig.travel.metroStation}</strong>.
             </p>
           </div>
 
@@ -59,8 +60,8 @@ export const Travel: React.FC = () => {
               <h4 style={{ color: 'var(--vf-color-accent)', fontWeight: 700 }}>Quick Stats</h4>
               <hr className="p-rule" />
               <ul className="p-list">
-                <li><strong>Airport Code:</strong> DEL</li>
-                <li><strong>Nearest Metro:</strong> Janpath (Violet)</li>
+                <li><strong>Airport Code:</strong> {eventConfig.travel.airportCode}</li>
+                <li><strong>Nearest Metro:</strong> {eventConfig.travel.metroStation}</li>
                 <li><strong>Uber/Ola:</strong> Fully Available</li>
               </ul>
             </div>

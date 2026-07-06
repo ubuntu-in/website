@@ -2,8 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaGithub, FaTelegram } from 'react-icons/fa';
 import '../styles/Footer.scss';
+import { eventConfig } from '../config/eventConfig';
 
 export const Footer: React.FC = () => {
+  const mapUrl = `https://maps.google.com/maps?q=${encodeURIComponent(eventConfig.venue.googleMapsPlace)}&t=&z=15&ie=UTF8&iwloc=&output=embed`;
+
   return (
     <footer style={{ backgroundColor: '#0e0e0e', padding: '5rem 0 3rem 0', marginTop: 'auto', borderTop: '4px solid var(--vf-color-brand)' }}>
       <div className="row">
@@ -86,7 +89,7 @@ export const Footer: React.FC = () => {
           <div className="footer-map-container">
             <iframe
               title="Venue location"
-              src="https://maps.google.com/maps?q=Dr.%20Ambedkar%20International%20Centre,%2015,%20Janpath%20Rd,%20Windsor%20Place,%20New%20Delhi,%20Delhi%20110001&t=&z=15&ie=UTF8&iwloc=&output=embed"
+              src={mapUrl}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             ></iframe>
@@ -99,7 +102,7 @@ export const Footer: React.FC = () => {
           <hr style={{ border: '0', borderTop: '1px solid #222222', margin: '2.5rem 0 2rem 0' }} />
           <div className="footer-bottom-flex" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1.5rem' }}>
             <p className="u-no-margin--bottom" style={{ fontSize: '0.85rem', color: '#888888', lineHeight: '1.6' }}>
-              © 2026 UbuCon India. Organized by the Ubuntu India Community. 
+              © {eventConfig.year} UbuCon India. Organized by the Ubuntu India Community. 
               <br />Ubuntu and Canonical are registered trademarks of Canonical Ltd.
             </p>
             <div style={{ display: 'flex', gap: '1.5rem' }}>
