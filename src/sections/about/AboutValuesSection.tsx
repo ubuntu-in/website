@@ -35,7 +35,7 @@ export const AboutValuesSection: React.FC = () => {
               <h4 className="p-card__title about-value-title">Inclusive Community</h4>
             </div>
             <p className="p-card__content about-value-desc">
-              We believe in building a welcoming, inclusive, and harassment-free environment for everyone, guided by our Code of Conduct.
+              We believe in building a welcoming, inclusive, and harassment-free environment for everyone, guided by our <a href="https://ubuntu.com/community/docs/ethos/code-of-conduct" target="_blank" rel="noopener noreferrer">Code of Conduct</a>.
             </p>
           </div>
         </div>

@@ -15,9 +15,9 @@ export const Footer: React.FC = () => {
               </Link>
             </li>
             <li style={{ marginBottom: '0.75rem' }}>
-              <Link to="/code-of-conduct" style={{ color: '#b3b3b3', textDecoration: 'none', transition: 'color 0.2s ease' }} onMouseEnter={(e) => e.currentTarget.style.color = '#e95420'} onMouseLeave={(e) => e.currentTarget.style.color = '#b3b3b3'}>
+              <a href="https://ubuntu.com/community/docs/ethos/code-of-conduct" target="_blank" rel="noopener noreferrer" style={{ color: '#b3b3b3', textDecoration: 'none', transition: 'color 0.2s ease' }} onMouseEnter={(e) => e.currentTarget.style.color = '#e95420'} onMouseLeave={(e) => e.currentTarget.style.color = '#b3b3b3'}>
                 Code of Conduct
-              </Link>
+              </a>
             </li>
           </ul>
         </div>

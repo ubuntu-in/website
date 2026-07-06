@@ -23,7 +23,7 @@ export const Navigation: React.FC = () => {
   };
 
   const isParentActive = (type: 'about' | 'venue' | 'programs' | 'sponsors') => {
-    if (type === 'about') return currentPath === '/about' || currentPath === '/code-of-conduct';
+    if (type === 'about') return currentPath === '/about';
     if (type === 'venue') return currentPath === '/venue' || currentPath === '/travel-and-visas' || currentPath === '/accommodations';
     if (type === 'programs') return currentPath === '/cfp' || currentPath === '/important-dates';
     if (type === 'sponsors') return currentPath === '/sponsors' || currentPath === '/our-sponsors';
@@ -87,13 +87,15 @@ export const Navigation: React.FC = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link 
-                    to="/code-of-conduct" 
-                    className={`p-navigation__dropdown-item ${currentPath === '/code-of-conduct' ? 'is-active' : ''}`} 
+                  <a 
+                    href="https://ubuntu.com/community/docs/ethos/code-of-conduct" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="p-navigation__dropdown-item" 
                     onClick={handleNavClick}
                   >
                     Code of Conduct
-                  </Link>
+                  </a>
                 </li>
               </ul>
             </li>
