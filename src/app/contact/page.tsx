@@ -1,7 +1,13 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { SiLinkedin, SiMatrix, SiTelegram, SiGmail } from "react-icons/si";
+import { SiMatrix, SiTelegram, SiGmail } from "react-icons/si";
+import { FaLinkedin } from "react-icons/fa";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
+
+const iconCircleStyle = {
+  display: "inline-flex",
+  padding: "1rem",
+  borderRadius: "50%",
+  background: "hsla(15, 90%, 50%, 0.1)",
+};
 
 const contactMethods = [
   {
@@ -26,7 +32,7 @@ const contactMethods = [
     href: "https://t.me/ubuntuin01",
   },
   {
-    icon: SiLinkedin,
+    icon: FaLinkedin,
     title: "LinkedIn",
     description: "Professional updates & networking.",
     contact: "Ubuntu India",
@@ -36,42 +42,47 @@ const contactMethods = [
 
 export default function ContactPage() {
   return (
-    <div className="container mx-auto max-w-6xl py-16 px-4 sm:px-6 lg:px-8">
-      <div className="text-center mb-16">
-        <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl font-headline text-primary">
-          Get in Touch
-        </h1>
-        <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
-          Join us on your favorite platform — whether for quick chats, updates, or formal communication.
-        </p>
-      </div>
+    <>
+      <section className="p-strip">
+        <div className="row">
+          <div className="col-8 col-start-large-3">
+            <h1 className="p-heading--1 u-align--center">Get in Touch</h1>
+            <p className="p-heading--5 u-align--center">
+              Join us on your favorite platform — whether for quick chats,
+              updates, or formal communication.
+            </p>
+          </div>
+        </div>
+      </section>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-        {contactMethods.map((method) => {
-          const Icon = method.icon;
-          return (
-            <Card
-              key={method.title}
-              className="flex flex-col items-center text-center p-6 hover:shadow-xl hover:scale-105 transition-all duration-300"
-            >
-              <CardHeader className="flex flex-col items-center">
-                <div className="p-4 rounded-full bg-primary/10 mb-4">
-                  <Icon className="h-10 w-10 text-primary" />
-                </div>
-                <CardTitle className="text-xl">{method.title}</CardTitle>
-              </CardHeader>
-              <CardContent className="flex flex-col items-center gap-4">
-                <p className="text-sm text-muted-foreground">{method.description}</p>
-                <Button asChild className="w-full">
-                  <Link href={method.href} target="_blank" rel="noopener noreferrer">
+      <section className="p-strip">
+        <div className="row">
+          {contactMethods.map((method) => {
+            const Icon = method.icon;
+            return (
+              <div className="col-3" key={method.title}>
+                <div className="p-card">
+                  <div className="u-align--center">
+                    <div style={iconCircleStyle}>
+                      <Icon size={40} color="#E95420" />
+                    </div>
+                    <h3 className="p-card__title">{method.title}</h3>
+                  </div>
+                  <p className="u-align--center">{method.description}</p>
+                  <Link
+                    href={method.href}
+                    className="p-button--positive"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     {method.contact}
                   </Link>
-                </Button>
-              </CardContent>
-            </Card>
-          );
-        })}
-      </div>
-    </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+    </>
   );
 }

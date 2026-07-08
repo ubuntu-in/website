@@ -1,20 +1,16 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { CheckCircle2, XCircle, Star, Info } from "lucide-react";
+import { CheckCircle2, XCircle, Star } from "lucide-react";
 
 import Breadcrumb from "@/components/breadcrumb";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { events } from "@/lib/events";
 
 export default async function EventSponsorsPage({
-    params
-  }: {
-    params: Promise<{ id: string }>;
-  }) {
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
   const { id } = await params;
   const event = events.find((e) => e.id === id);
 
@@ -22,178 +18,271 @@ export default async function EventSponsorsPage({
     notFound();
   }
 
-  const { sponsorShipTiers, alaCarteSponsorships, pastSponsors, sponsorTncs } = event;
+  const { sponsorShipTiers, alaCarteSponsorships, pastSponsors, sponsorTncs } =
+    event;
 
   return (
-    <div className="container mx-auto max-w-6xl py-12 px-4 sm:px-6 lg:px-8">
-      <div className="mb-8">
-        <Breadcrumb />
-      </div>
-      <div className="text-center mb-12">
-        <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl font-headline text-primary">
-          Sponsor: {event.name}
-        </h1>
-        <p className="mt-4 max-w-3xl mx-auto text-xl text-muted-foreground">
-          Partner with us to support the community and gain visibility with a passionate audience of developers, designers, and tech enthusiasts.
-        </p>
-      </div>
+    <>
+      <section className="p-strip">
+        <div className="row">
+          <div className="col-12">
+            <Breadcrumb />
+          </div>
+        </div>
+      </section>
+
+      <section className="p-strip" style={{ paddingTop: 0 }}>
+        <div className="row">
+          <div className="col-8 col-start-large-3">
+            <h1 className="p-heading--1 u-align--center">
+              Sponsor: {event.name}
+            </h1>
+            <p className="p-heading--5 u-align--center">
+              Partner with us to support the community and gain visibility with
+              a passionate audience of developers, designers, and tech
+              enthusiasts.
+            </p>
+          </div>
+        </div>
+      </section>
 
       {pastSponsors && pastSponsors.length > 0 && (
-        <div className="mb-16">
-          <h2 className="text-3xl font-bold text-center mb-8">
-            Our Valued Past Sponsors
-          </h2>
-          <TooltipProvider>
-            <div className="flex flex-wrap justify-center items-center gap-8">
-              {pastSponsors.map((sponsor, i) => {
-                if (!sponsor) {
-                  console.warn("Undefined sponsor at index:", i, event);
-                  return null;
-                }
-                return (
-                  <Tooltip key={sponsor.name}>
-                    <TooltipTrigger asChild>
-                      <Link
-                        href={sponsor.url ?? "#"}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="transition-all duration-300 ease-in-out"
-                      >
-                        <Image
-                          src={sponsor.logoUrl ?? "/logos/fallback.png"}
-                          alt={`${sponsor.name ?? "Unknown"} logo`}
-                          width={160}
-                          height={80}
-                          className="object-contain"
-                        />
-                      </Link>
-                    </TooltipTrigger>
-                    <TooltipContent>
-                      <p>{sponsor.name ?? "Unknown sponsor"}</p>
-                    </TooltipContent>
-                  </Tooltip>
-                );
-              })}
+        <section className="p-strip" style={{ paddingTop: 0 }}>
+          <div className="row">
+            <div className="col-12">
+              <h2 className="p-heading--2 u-align--center">
+                Our Valued Past Sponsors
+              </h2>
             </div>
-          </TooltipProvider>
-        </div>
+          </div>
+          <div className="row">
+            <div className="col-12">
+              <div
+                style={{
+                  display: "flex",
+                  flexWrap: "wrap",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  gap: "2rem",
+                }}
+              >
+                {pastSponsors.map((sponsor, i) => {
+                  if (!sponsor) {
+                    console.warn("Undefined sponsor at index:", i, event);
+                    return null;
+                  }
+                  return (
+                    <Link
+                      key={sponsor.name}
+                      href={sponsor.url ?? "#"}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title={sponsor.name ?? "Unknown sponsor"}
+                    >
+                      <Image
+                        src={sponsor.logoUrl ?? "/logos/fallback.png"}
+                        alt={`${sponsor.name ?? "Unknown"} logo`}
+                        width={160}
+                        height={80}
+                        style={{ objectFit: "contain" }}
+                      />
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </section>
       )}
 
-      {/* --- Sponsorship Tiers Table Section (Updated) --- */}
       {sponsorShipTiers && sponsorShipTiers.length > 0 && (
-        <Card className="mb-16">
-          <CardHeader>
-            <CardTitle className="text-center text-3xl">Sponsorship Tiers</CardTitle>
-          </CardHeader>
-          <CardContent className="p-0">
-            <div className="overflow-x-auto">
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead className="w-1/4 font-bold text-lg">Benefit</TableHead>
-                    {sponsorShipTiers.map(tier => (
-                      <TableHead key={tier.tier} className="text-center w-1/4 font-bold text-lg">{tier.tier}</TableHead>
-                    ))}
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {/* Safely access benefits from the first tier to create rows */}
-                  {sponsorShipTiers[0]?.benefits.map((benefit, index) => (
-                    <TableRow key={index}>
-                      <TableCell className="font-medium">{benefit.text}</TableCell>
-                      {sponsorShipTiers.map(tier => (
-                        <TableCell key={tier.tier} className="text-center">
-                          {typeof tier.benefits[index]?.value === 'boolean' ? (
-                            tier.benefits[index].value ? (
-                              <CheckCircle2 className="h-6 w-6 text-green-500 mx-auto" />
-                            ) : (
-                              <XCircle className="h-6 w-6 text-red-500 mx-auto" />
-                            )
-                          ) : (
-                            <span className="font-medium text-foreground">{String(tier.benefits[index]?.value ?? 'N/A')}</span>
-                          )}
-                        </TableCell>
-                      ))}
-                    </TableRow>
-                  ))}
-                  <TableRow>
-                    <TableHead className="font-bold text-lg">Price</TableHead>
-                    {sponsorShipTiers.map(tier => (
-                      <TableCell key={tier.tier} className="text-center font-bold text-xl text-primary">
-                        <div>{tier.price}</div>
-                        <div className="text-sm font-medium text-muted-foreground">{tier.priceUSD}</div>
-                      </TableCell>
-                    ))}
-                  </TableRow>
-                </TableBody>
-              </Table>
+        <section className="p-strip" style={{ paddingTop: 0 }}>
+          <div className="row">
+            <div className="col-12">
+              <h2 className="p-heading--2 u-align--center">
+                Sponsorship Tiers
+              </h2>
             </div>
-          </CardContent>
-        </Card>
+          </div>
+          <div className="row">
+            <div className="col-12">
+              <div style={{ overflowX: "auto" }}>
+                <table className="p-table" role="grid">
+                  <thead>
+                    <tr>
+                      <th>Benefit</th>
+                      {sponsorShipTiers.map((tier) => (
+                        <th key={tier.tier} className="u-align--center">
+                          {tier.tier}
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {sponsorShipTiers[0]?.benefits.map((benefit, index) => (
+                      <tr key={index}>
+                        <td>{benefit.text}</td>
+                        {sponsorShipTiers.map((tier) => (
+                          <td key={tier.tier} className="u-align--center">
+                            {typeof tier.benefits[index]?.value ===
+                            "boolean" ? (
+                              tier.benefits[index].value ? (
+                                <CheckCircle2
+                                  size={24}
+                                  color="#0E8420"
+                                  style={{ display: "inline" }}
+                                />
+                              ) : (
+                                <XCircle
+                                  size={24}
+                                  color="#C7162B"
+                                  style={{ display: "inline" }}
+                                />
+                              )
+                            ) : (
+                              <span>
+                                {String(
+                                  tier.benefits[index]?.value ?? "N/A"
+                                )}
+                              </span>
+                            )}
+                          </td>
+                        ))}
+                      </tr>
+                    ))}
+                    <tr>
+                      <th>Price</th>
+                      {sponsorShipTiers.map((tier) => (
+                        <td
+                          key={tier.tier}
+                          className="u-align--center"
+                          style={{
+                            color: "#E95420",
+                            fontWeight: "bold",
+                          }}
+                        >
+                          <div>{tier.price}</div>
+                          <div
+                            style={{
+                              fontWeight: "normal",
+                              fontSize: "0.875rem",
+                            }}
+                          >
+                            {tier.priceUSD}
+                          </div>
+                        </td>
+                      ))}
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
       )}
 
-      {/* --- A La Carte Section (Updated) --- */}
       {alaCarteSponsorships && alaCarteSponsorships.length > 0 && (
-        <div className="mt-16">
-          <h2 className="text-3xl font-bold text-center mb-8">A La Carte Sponsorships</h2>
-          <div className="grid md:grid-cols-3 gap-8">
+        <section className="p-strip" style={{ paddingTop: 0 }}>
+          <div className="row">
+            <div className="col-12">
+              <h2 className="p-heading--2 u-align--center">
+                A La Carte Sponsorships
+              </h2>
+            </div>
+          </div>
+          <div className="row">
             {alaCarteSponsorships.map((option) => (
-              <Card key={option.tier} className="flex flex-col">
-                <CardHeader>
-                  {/* Use 'tier' instead of 'title' */}
-                  <CardTitle>{option.tier}</CardTitle>
-                </CardHeader>
-                <CardContent className="flex-grow">
-                  <div className="font-bold text-xl text-primary mb-4">
+              <div className="col-4" key={option.tier}>
+                <div className="p-card--highlighted">
+                  <h3 className="p-card__title">{option.tier}</h3>
+                  <div
+                    style={{
+                      color: "#E95420",
+                      fontWeight: "bold",
+                      marginBottom: "1rem",
+                    }}
+                  >
                     <div>{option.price}</div>
-                    <div className="text-sm font-medium text-muted-foreground">{option.priceUSD}</div>
+                    <div
+                      style={{
+                        fontWeight: "normal",
+                        fontSize: "0.875rem",
+                      }}
+                    >
+                      {option.priceUSD}
+                    </div>
                   </div>
-                  <ul className="space-y-2 text-muted-foreground">
-                    {/* Map through benefits array of objects, using benefit.text */}
+                  <ul className="p-list">
                     {option.benefits.map((benefit, i) => (
-                      <li key={i} className="flex items-start">
-                        <Star className="h-5 w-5 text-amber-500 mr-2 shrink-0 mt-0.5" />
-                        <span>{benefit.text}</span>
+                      <li key={i} className="p-list__item">
+                        <Star
+                          size={20}
+                          color="#F99B11"
+                          style={{
+                            display: "inline",
+                            marginRight: "0.5rem",
+                            verticalAlign: "middle",
+                          }}
+                        />
+                        {benefit.text}
                       </li>
                     ))}
                   </ul>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
             ))}
           </div>
-        </div>
+        </section>
       )}
 
-      <div className="mt-16">
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center text-2xl">
-              <Info className="mr-3 h-6 w-6 text-primary" />
-              Terms & Conditions
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <ul className="space-y-2 text-muted-foreground list-disc list-inside">
-              {sponsorTncs && sponsorTncs.map((term, i) => (
-                <li key={i}>{term}</li>
-              ))}
-            </ul>
-          </CardContent>
-        </Card>
-      </div>
-
-      <div className="text-center mt-16">
-        <h2 className="text-3xl font-bold tracking-tight">Ready to Partner With Us?</h2>
-        <p className="mt-2 text-lg text-muted-foreground">Download our prospectus or contact us directly to discuss opportunities.</p>
-        <div className="mt-6 flex justify-center gap-4">
-          <Button size="lg" asChild>
-            <Link href={event.prospectusUrl}>Download Prospectus</Link>
-          </Button>
-          <Button size="lg" variant="secondary" asChild>
-            <Link href="/contact">Contact Us</Link>
-          </Button>
+      <section className="p-strip" style={{ paddingTop: 0 }}>
+        <div className="row">
+          <div className="col-12">
+            <div className="p-card">
+              <h3 className="p-card__title">Terms &amp; Conditions</h3>
+              <ul className="p-list">
+                {sponsorTncs &&
+                  sponsorTncs.map((term, i) => (
+                    <li key={i} className="p-list__item">
+                      {term}
+                    </li>
+                  ))}
+              </ul>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+      </section>
+
+      <section className="p-strip">
+        <div className="row">
+          <div className="col-8 col-start-large-3">
+            <h2 className="p-heading--2 u-align--center">
+              Ready to Partner With Us?
+            </h2>
+            <p className="u-align--center">
+              Download our prospectus or contact us directly to discuss
+              opportunities.
+            </p>
+            <div
+              style={{
+                display: "flex",
+                gap: "1rem",
+                justifyContent: "center",
+              }}
+            >
+              <Link
+                href={event.prospectusUrl}
+                className="p-button--positive"
+              >
+                Download Prospectus
+              </Link>
+              <Link href="/contact" className="p-button">
+                Contact Us
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }

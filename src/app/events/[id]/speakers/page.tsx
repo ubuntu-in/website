@@ -1,17 +1,16 @@
-
 import Image from "next/image";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { events } from "@/lib/events";
-import { SiLinkedin, SiX } from "react-icons/si";
+import { SiX } from "react-icons/si";
+import { FaLinkedin } from "react-icons/fa";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Breadcrumb from "@/components/breadcrumb";
 
 export default async function EventSpeakersPage({
-    params
-  }: {
-    params: Promise<{ id: string }>;
-  }) {
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
   const { id } = await params;
   const event = events.find((e) => e.id === id);
 
@@ -22,55 +21,94 @@ export default async function EventSpeakersPage({
   const { speakers } = event;
 
   return (
-    <div className="container mx-auto max-w-6xl py-12 px-4 sm:px-6 lg:px-8">
-      <div className="mb-8">
-        <Breadcrumb />
-      </div>
-      <div className="text-center mb-12">
-        <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl font-headline text-primary">
-          Speakers for {event.name}
-        </h1>
-        <p className="mt-4 max-w-2xl mx-auto text-xl text-muted-foreground">
-          Learn from the best in the industry. Our speakers are passionate experts and innovators.
-        </p>
-      </div>
+    <>
+      <section className="p-strip">
+        <div className="row">
+          <div className="col-12">
+            <Breadcrumb />
+          </div>
+        </div>
+      </section>
 
-      {speakers && speakers.length > 0 ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {speakers.map((speaker) => (
-            <Card key={speaker.id} className="text-center hover:shadow-lg transition-shadow">
-              <CardHeader className="items-center">
-                <div className="relative w-32 h-32 rounded-full overflow-hidden border-4 border-primary/20">
-                  <Image
-                    src={speaker.imageUrl}
-                    alt={speaker.name}
-                    fill
-                    className="object-cover"
-                    data-ai-hint={speaker.imageHint}
-                  />
-                </div>
-                <CardTitle className="mt-4">{speaker.name}</CardTitle>
-                <p className="text-sm text-primary font-medium">{speaker.title}</p>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground text-sm mb-4">{speaker.bio}</p>
-                <div className="flex justify-center gap-4">
-                  <Link href={speaker.twitterUrl} target="_blank" rel="noopener noreferrer">
-                    <SiX className="h-5 w-5 text-muted-foreground hover:text-primary transition-colors" />
-                  </Link>
-                  <Link href={speaker.linkedinUrl} target="_blank" rel="noopener noreferrer">
-                    <SiLinkedin className="h-5 w-5 text-muted-foreground hover:text-primary transition-colors" />
-                  </Link>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+      <section className="p-strip" style={{ paddingTop: 0 }}>
+        <div className="row">
+          <div className="col-8 col-start-large-3">
+            <h1 className="p-heading--1 u-align--center">
+              Speakers for {event.name}
+            </h1>
+            <p className="p-heading--5 u-align--center">
+              Learn from the best in the industry. Our speakers are passionate
+              experts and innovators.
+            </p>
+          </div>
         </div>
-      ) : (
-        <div className="text-center py-10">
-            <p className="text-muted-foreground text-lg">Speakers for this event will be announced soon!</p>
+      </section>
+
+      <section className="p-strip" style={{ paddingTop: 0 }}>
+        <div className="row">
+          {speakers && speakers.length > 0 ? (
+            speakers.map((speaker) => (
+              <div className="col-4" key={speaker.id}>
+                <div className="p-card--highlighted u-align--center">
+                  <div
+                    style={{
+                      position: "relative",
+                      width: "128px",
+                      height: "128px",
+                      borderRadius: "50%",
+                      overflow: "hidden",
+                      border: "4px solid hsla(15, 90%, 50%, 0.2)",
+                      margin: "0 auto",
+                    }}
+                  >
+                    <Image
+                      src={speaker.imageUrl}
+                      alt={speaker.name}
+                      fill
+                      style={{ objectFit: "cover" }}
+                      data-ai-hint={speaker.imageHint}
+                      sizes="128px"
+                    />
+                  </div>
+                  <h4>{speaker.name}</h4>
+                  <p style={{ color: "#E95420", fontWeight: 500 }}>
+                    {speaker.title}
+                  </p>
+                  <p>{speaker.bio}</p>
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      gap: "1rem",
+                    }}
+                  >
+                    <Link
+                      href={speaker.twitterUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <SiX size={20} />
+                    </Link>
+                    <Link
+                      href={speaker.linkedinUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <FaLinkedin size={20} />
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            ))
+          ) : (
+            <div className="col-12">
+              <p className="u-align--center">
+                Speakers for this event will be announced soon!
+              </p>
+            </div>
+          )}
         </div>
-      )}
-    </div>
+      </section>
+    </>
   );
 }
