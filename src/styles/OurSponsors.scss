@@ -7,8 +7,8 @@ $os-brand:            var(--vf-color-brand);
 $os-accent:           var(--vf-color-accent);
 
 .os-hero {
-  background-color: #fcfcfc;
-  border-bottom: 1px solid #eaeaea;
+  background-color: var(--bg-dark);
+  border-bottom: 1px solid var(--border-main);
   padding: 4rem 0 3.5rem;
 
   &__eyebrow {
@@ -18,15 +18,21 @@ $os-accent:           var(--vf-color-accent);
     background-color: rgba(119, 41, 83, 0.08);
     border: 1px solid rgba(119, 41, 83, 0.15);
     border-radius: 3px;
-    color: $os-accent;
+    color: var(--text-main);
     font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 0.04em;
     text-transform: uppercase;
   }
 
+  &__content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
   &__title {
-    color: $os-accent;
+    color: var(--text-main);
     font-size: 2.75rem;
     font-weight: 700;
     line-height: 1.15;
@@ -35,16 +41,17 @@ $os-accent:           var(--vf-color-accent);
   }
 
   &__lead {
-    color: #555;
+    color: var(--text-muted);
     font-size: 1.125rem;
     max-width: 52ch;
-    margin: 0 auto; // Center it
+    margin: 0 auto;
   }
 }
 
 .os-tier-header {
   text-align: center;
   margin-bottom: 2.5rem;
+  padding: 0 1.5rem;
 
   &__label {
     display: inline-block;
@@ -58,7 +65,7 @@ $os-accent:           var(--vf-color-accent);
 
     &--principal {
       background-color: rgba(119, 41, 83, 0.06);
-      color: $os-accent;
+      color: var(--text-main);
       border: 1px solid rgba(119, 41, 83, 0.2);
     }
 
@@ -70,14 +77,15 @@ $os-accent:           var(--vf-color-accent);
   }
 
   &__heading {
-    color: $os-accent;
+    color: var(--text-main);
     font-weight: 700;
-    margin-top: 0;
-    margin-bottom: 0.5rem;
+    margin: 0 auto 0.5rem;
+    max-width: none !important;
+    text-align: center !important;
   }
 
   &__sub {
-    color: #555;
+    color: var(--text-muted);
     font-size: 0.9375rem;
     max-width: 56ch;
     margin: 0 auto;
@@ -86,22 +94,24 @@ $os-accent:           var(--vf-color-accent);
 }
 
 .os-principal-section {
-  background-color: #ffffff;
+  background-color: var(--bg-dark-alt);
   padding: 4rem 0;
 }
 
 .os-gold-section {
-  background-color: rgba(233, 84, 32, 0.04);
+  background-color: var(--overlay-orange-light);
   border-top: 1px solid rgba(233, 84, 32, 0.1);
   border-bottom: 1px solid rgba(233, 84, 32, 0.1);
   padding: 4rem 0;
 }
 
-/* Flexbox Tier Layout matching Home Screen */
+/* Flexbox Tier Layout — no Vanilla .row needed */
 .os-tier-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0 1.5rem;
+  box-sizing: border-box;
 }
 
 .os-logos-grid {
@@ -124,8 +134,8 @@ $os-accent:           var(--vf-color-accent);
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #ffffff;
-  border: 1px solid #eaeaea;
+  background-color: var(--bg-dark-alt);
+  border: 1px solid var(--border-main);
   border-radius: 6px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.02);
   cursor: default;
@@ -145,7 +155,7 @@ $os-accent:           var(--vf-color-accent);
 
   &:hover {
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-    border-color: #d0d0d0;
+    border-color: #555;
     transform: translateY(-4px);
 
     .os-logo-card__img {

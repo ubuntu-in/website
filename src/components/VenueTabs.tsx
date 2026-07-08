@@ -13,7 +13,7 @@ export const VenueTabs: React.FC = () => {
       padding: '0.75rem 0',
       fontWeight: isActive ? 'bold' : 'normal',
       borderBottom: isActive ? '3px solid var(--vf-color-brand)' : 'none',
-      color: isActive ? 'var(--vf-color-brand)' : '#666',
+      color: isActive ? 'var(--vf-color-brand)' : '#999',
       textDecoration: 'none'
     };
   };
@@ -23,7 +23,7 @@ export const VenueTabs: React.FC = () => {
       <div className="row">
         {/* Desktop Tabs */}
         <nav className="p-tabs u-hide--small">
-          <ul className="p-tabs__list" style={{ borderBottom: '1px solid #d9d9d9', display: 'flex', gap: '2rem', paddingLeft: 0 }}>
+          <ul className="p-tabs__list" style={{ borderBottom: '1px solid var(--border-main)', display: 'flex', gap: '2rem', paddingLeft: 0 }}>
             <li className="p-tabs__item" style={{ listStyle: 'none' }}>
               <Link to="/venue" className="p-tabs__link" style={getStyle('/venue')}>
                 Venue & Safety

@@ -1,8 +1,8 @@
 /* About Page Specific Styles */
 
 .about-hero-section {
-  background-color: #fcfcfc;
-  border-bottom: 1px solid #eaeaea;
+  background-color: var(--bg-dark);
+  border-bottom: 1px solid var(--border-main);
   padding: 3.5rem 0;
 }
 
@@ -10,14 +10,14 @@
   margin-bottom: 1rem;
   display: inline-block;
   background-color: rgba(119, 41, 83, 0.08);
-  color: var(--vf-color-accent);
+  color: var(--text-main);
   border-color: rgba(119, 41, 83, 0.15);
   font-weight: 700;
   padding: 0.2rem 0.6rem;
 }
 
 .about-hero-title {
-  color: var(--vf-color-accent);
+  color: var(--text-main);
   font-weight: 700;
   font-size: 3rem;
   line-height: 1.15;
@@ -25,45 +25,58 @@
 }
 
 .about-hero-lead {
-  color: #555;
+  color: var(--text-muted);
 }
 
 .about-hero-icon {
   font-size: 5rem;
-  color: var(--vf-color-brand);
+  color: var(--text-main);
   opacity: 0.85;
-  filter: drop-shadow(0 8px 16px rgba(233, 84, 32, 0.15));
+  filter: drop-shadow(0 8px 16px var(--overlay-orange-strong));
 }
 
 .about-intro-section {
-  background-color: #ffffff;
+  background-color: var(--bg-dark-alt);
 }
 
 .about-section-title {
-  color: var(--vf-color-accent);
+  color: var(--text-main);
   font-weight: 700;
 }
 
 .about-values-section {
-  background-color: rgba(233, 84, 32, 0.04);
+  background-color: var(--overlay-orange-light);
   border-top: 1px solid rgba(233, 84, 32, 0.1);
   border-bottom: 1px solid rgba(233, 84, 32, 0.1);
   padding: 4rem 0;
 }
 
 .about-values-title {
-  color: var(--vf-color-accent);
+  color: var(--text-main);
   font-weight: 700;
   margin-bottom: 2.5rem;
 }
 
+.about-values-grid {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 .about-value-col {
-  margin-bottom: 2rem;
+  flex: 1 1 280px;
+  max-width: 380px;
+  display: flex;
+  flex-direction: column;
 }
 
 .about-value-card {
   height: 100%;
-  background-color: #ffffff;
+  background-color: var(--bg-dark-alt);
   display: flex;
   flex-direction: column;
   padding: 2rem 1.5rem;
@@ -86,18 +99,18 @@
   width: 52px;
   height: 52px;
   border-radius: 50%;
-  background-color: rgba(233, 84, 32, 0.08);
+  background-color: var(--overlay-orange);
   flex-shrink: 0;
 }
 
 .about-value-icon {
   font-size: 1.35rem;
-  color: var(--vf-color-brand);
+  color: var(--text-main);
 }
 
 .about-value-title {
   margin: 0;
-  color: var(--vf-color-accent);
+  color: var(--text-main);
   font-weight: 700;
   font-size: 1.2rem;
 }
@@ -105,6 +118,6 @@
 .about-value-desc {
   margin: 0;
   font-size: 0.9rem;
-  color: #555;
+  color: var(--text-muted);
   line-height: 1.6;
 }

@@ -2,27 +2,27 @@
 // ── Local tokens ─────────────────────────────────────────────────────────────
 $sp-brand:            var(--vf-color-brand);       // Ubuntu orange
 $sp-accent:           var(--vf-color-accent);       // Deep aubergine
-$sp-bg-subtle:        #fcfcfc;
-$sp-bg-tint-orange:   rgba(233, 84, 32, 0.04);
+$sp-bg-subtle:        var(--bg-dark);
+$sp-bg-tint-orange:   var(--overlay-orange-light);
 $sp-bg-tint-aubergine:rgba(119, 41, 83, 0.04);
-$sp-border-default:   #eaeaea;
-$sp-border-subtle:    #ebebeb;
+$sp-border-default:   var(--border-main);
+$sp-border-subtle:    var(--border-main);
 $sp-border-orange:    rgba(233, 84, 32, 0.1);
 $sp-border-aubergine: rgba(119, 41, 83, 0.1);
-$sp-text-body:        #444;
-$sp-text-muted:       #555;
-$sp-text-faint:       #777;
+$sp-text-body:        #f7f7f7;
+$sp-text-muted:       var(--text-muted);
+$sp-text-faint:       #999999;
 $sp-info-blue:        #0067ac;
 
 // Tier colours
 $sp-gold:             #c9960c;   // darker than #ffd700 — legible on white
-$sp-gold-bg:          #fffbef;
+$sp-gold-bg:          rgba(201, 150, 12, 0.1);
 $sp-gold-border:      #ffd700;
 $sp-silver:           #7a7a8a;
-$sp-silver-bg:        #f7f7f9;
+$sp-silver-bg:        rgba(122, 122, 138, 0.1);
 $sp-silver-border:    #c0c0c0;
 $sp-bronze:           #a0522d;
-$sp-bronze-bg:        #fdf6f1;
+$sp-bronze-bg:        rgba(160, 82, 45, 0.1);
 $sp-bronze-border:    #cd7f32;
 
 $sp-card-radius:      8px;
@@ -45,7 +45,7 @@ $sp-card-radius-sm:   4px;
     background-color: rgba(119, 41, 83, 0.08);
     border: 1px solid rgba(119, 41, 83, 0.15);
     border-radius: 3px;
-    color: $sp-accent;
+    color: var(--text-main);
     font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 0.04em;
@@ -53,7 +53,7 @@ $sp-card-radius-sm:   4px;
   }
 
   &__title {
-    color: $sp-accent;
+    color: var(--text-main);
     font-size: 2.75rem;
     font-weight: 700;
     line-height: 1.15;
@@ -76,7 +76,7 @@ $sp-card-radius-sm:   4px;
 
 .sp-section {
   &__heading {
-    color: $sp-accent;
+    color: var(--text-main);
     font-weight: 700;
     margin-top: 0;
     margin-bottom: 1.25rem;
@@ -89,7 +89,7 @@ $sp-card-radius-sm:   4px;
 // ─────────────────────────────────────────────────────────────────────────────
 
 .sp-why-section {
-  background-color: #ffffff;
+  background-color: var(--bg-dark-alt);
 
   // Keep columns from stretching to match each other
   .row {
@@ -138,7 +138,7 @@ $sp-card-radius-sm:   4px;
   &__value {
     font-size: 1.75rem;
     font-weight: 700;
-    color: $sp-brand;
+    color: var(--text-main);
     line-height: 1;
     min-width: 4rem;
   }
@@ -191,7 +191,7 @@ $sp-card-radius-sm:   4px;
   flex-direction: column;
   height: 100%;
   padding: 1.75rem;
-  background-color: #ffffff;
+  background-color: var(--bg-dark-alt);
   border: 1px solid $sp-border-subtle;
   border-top: 4px solid transparent;
   border-radius: $sp-card-radius;
@@ -236,7 +236,7 @@ $sp-card-radius-sm:   4px;
     padding: 0.15rem 0.6rem;
     background-color: $sp-gold;
     border-radius: 0 0 4px 4px;
-    color: #ffffff;
+    color: var(--bg-dark-alt);
     font-size: 0.7rem;
     font-weight: 700;
     letter-spacing: 0.05em;
@@ -290,7 +290,7 @@ $sp-card-radius-sm:   4px;
     align-items: flex-start;
     gap: 0.5rem;
     padding: 0.45rem 0;
-    border-bottom: 1px solid #f2f2f2;
+    border-bottom: 1px solid var(--border-main);
     font-size: 0.875rem;
     color: $sp-text-body;
     line-height: 1.4;
@@ -344,13 +344,13 @@ $sp-card-radius-sm:   4px;
 
 .sp-notice {
   padding: 1.5rem 1.75rem;
-  background-color: #ffffff;
+  background-color: var(--bg-dark-alt);
   border: 1px solid rgba($sp-info-blue, 0.2);
   border-left: 4px solid $sp-info-blue;
   border-radius: $sp-card-radius-sm;
 
   &__heading {
-    color: $sp-accent;
+    color: var(--text-main);
     font-weight: 700;
     margin: 0 0 0.6rem;
   }
@@ -381,12 +381,12 @@ $sp-card-radius-sm:   4px;
 .sp-custom {
   align-self: flex-start;   // never stretch to match the notice block
   padding: 1.5rem;
-  background-color: #ffffff;
+  background-color: var(--bg-dark-alt);
   border-left: 4px solid $sp-accent;
   border-radius: $sp-card-radius-sm;
 
   &__heading {
-    color: $sp-accent;
+    color: var(--text-main);
     font-weight: 700;
     margin-top: 0;
     margin-bottom: 0.5rem;

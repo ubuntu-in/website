@@ -31,13 +31,13 @@ export const Navigation: React.FC = () => {
   };
 
   return (
-    <header id="navigation" className={`p-navigation is-dark ${mobileMenuOpen ? 'has-menu-open' : ''}`} style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.1)' }}>
+    <header id="navigation" className={`p-navigation is-dark ${mobileMenuOpen ? 'has-menu-open' : ''}`} style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.1)', position: 'sticky', top: 0, zIndex: 1000, backgroundColor: 'rgba(17, 17, 17, 0.75)', backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)' }}>
       <div className="p-navigation__row--25-75">
         <div className="p-navigation__banner">
           <div className="p-navigation__tagged-logo">
             <Link className="p-navigation__link" to="/" onClick={handleNavClick}>
               <div className="p-navigation__logo-tag">
-                <img className="p-navigation__logo-icon" src="/tag.png" alt="Ubuntu Logo" />
+                <img className="p-navigation__logo-icon" src="https://assets.ubuntu.com/v1/82818827-CoF_white.svg" alt="Ubuntu Logo" />
               </div>
               <span className="p-navigation__logo-title" style={{ fontWeight: 700 }}>UbuCon India 2026</span>
             </Link>

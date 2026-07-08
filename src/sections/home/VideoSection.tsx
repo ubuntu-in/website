@@ -2,7 +2,7 @@ import React from 'react';
 
 export const VideoSection: React.FC = () => {
   return (
-    <section className="p-strip--light">
+    <section className="p-strip" style={{ backgroundColor: 'var(--bg-dark)' }}>
       <div className="row--50-50">
         <div className="col">
           <h2 className="home-section-title">Experience the Community Spirit</h2>
@@ -10,7 +10,7 @@ export const VideoSection: React.FC = () => {
             UbuCon is not just about technology—it is about the community. Watch the recap of the global 
             UbuCon events to see the energy, camaraderie, and collaboration that you will experience in New Delhi this November!
           </p>
-          <p className="u-text--muted">
+          <p style={{ color: '#E95420' }}>
             Get ready for inspiring keynotes, hands-on workshops, lightning talks, and the famous social event where you can connect with speakers and fellow participants.
           </p>
         </div>

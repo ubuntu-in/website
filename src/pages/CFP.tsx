@@ -93,7 +93,7 @@ export const CFP: React.FC = () => (
         </div>
 
         {/* Tracks grid */}
-        <div className="col-8 col-medium-12">
+        <div className="col-8 col-medium-6">
           <h4 className="cfp-tracks__subheading">Suggested Tracks</h4>
 
           <div className="cfp-tracks__grid">
@@ -112,7 +112,7 @@ export const CFP: React.FC = () => (
         </div>
 
         {/* Speaker Benefits sidebar */}
-        <div className="col-4 col-medium-12">
+        <div className="col-4 col-medium-6">
           <aside className="cfp-benefits">
             <h4 className="cfp-benefits__heading">Speaker Benefits</h4>
             <hr className="p-rule cfp-benefits__rule" />
@@ -153,7 +153,7 @@ export const CFP: React.FC = () => (
         </div>
 
         {/* How to submit */}
-        <div className="col-8 col-medium-12">
+        <div className="col-8 col-medium-6">
           <div className="cfp-submit-notice">
             <h5 className="cfp-submit-notice__heading">How to Submit</h5>
             <p className="cfp-submit-notice__body">
@@ -166,7 +166,7 @@ export const CFP: React.FC = () => (
         </div>
 
         {/* Important dates */}
-        <div className="col-4 col-medium-12">
+        <div className="col-4 col-medium-6">
           <div className="cfp-dates">
             <h5 className="cfp-dates__heading">Important Dates</h5>
             <table className="cfp-dates__table">

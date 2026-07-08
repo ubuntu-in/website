@@ -2,14 +2,14 @@
 // ── Local tokens ─────────────────────────────────────────────────────────────
 $dates-brand:         var(--vf-color-brand);       // Ubuntu orange
 $dates-accent:        var(--vf-color-accent);       // Deep aubergine
-$dates-bg-subtle:     #fcfcfc;
+$dates-bg-subtle:     var(--bg-dark);
 $dates-bg-tint:       rgba(119, 41, 83, 0.04);      // Light aubergine wash
-$dates-border-default:#eaeaea;
-$dates-border-subtle: #ebebeb;
+$dates-border-default:var(--border-main);
+$dates-border-subtle: var(--border-main);
 $dates-border-tint:   rgba(119, 41, 83, 0.1);
-$dates-text-body:     #444;
-$dates-text-muted:    #555;
-$dates-text-faint:    #777;
+$dates-text-body:     #f7f7f7;
+$dates-text-muted:    var(--text-muted);
+$dates-text-faint:    #999999;
 $dates-info-blue:     #0067ac;
 $dates-card-radius:   6px;
 $dates-card-radius-sm:4px;
@@ -31,7 +31,7 @@ $dates-card-radius-sm:4px;
     background-color: rgba(119, 41, 83, 0.08);
     border: 1px solid rgba(119, 41, 83, 0.15);
     border-radius: 3px;
-    color: $dates-accent;
+    color: var(--text-main);
     font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 0.04em;
@@ -39,7 +39,7 @@ $dates-card-radius-sm:4px;
   }
 
   &__title {
-    color: $dates-accent;
+    color: var(--text-main);
     font-size: 2.75rem;
     font-weight: 700;
     line-height: 1.15;
@@ -65,7 +65,7 @@ $dates-card-radius-sm:4px;
     display: flex;
     align-items: center;
     gap: 0.65rem;
-    color: $dates-accent;
+    color: var(--text-main);
     font-weight: 700;
     margin-top: 0;
     margin-bottom: 1.5rem;
@@ -74,7 +74,7 @@ $dates-card-radius-sm:4px;
   &__heading-icon {
     flex-shrink: 0;
     font-size: 1.1rem;
-    color: $dates-brand;
+    color: var(--text-main);
   }
 }
 
@@ -84,7 +84,7 @@ $dates-card-radius-sm:4px;
 // ─────────────────────────────────────────────────────────────────────────────
 
 .dates-timeline-section {
-  background-color: #ffffff;
+  background-color: var(--bg-dark-alt);
 }
 
 // Table — let Vanilla's p-table handle borders/padding,
@@ -116,7 +116,7 @@ $dates-card-radius-sm:4px;
 
   // All other upcoming milestones — neutral
   &--upcoming {
-    background-color: #eaeaea;
+    background-color: var(--border-main);
     color: $dates-text-muted;
   }
 }
@@ -135,7 +135,7 @@ $dates-card-radius-sm:4px;
   border-radius: $dates-card-radius;
 
   &__heading {
-    color: $dates-accent;
+    color: var(--text-main);
     font-weight: 700;
     margin-top: 0;
     margin-bottom: 1rem;
@@ -188,20 +188,20 @@ $dates-card-radius-sm:4px;
 
 .dates-notice {
   padding: 1.5rem 1.75rem;
-  background-color: #ffffff;
-  border: 1px solid rgba($dates-info-blue, 0.2);
-  border-left: 4px solid $dates-info-blue;
+  background-color: var(--bg-dark-alt);
+  border: 1px solid rgba(119, 41, 83, 0.2);
+  border-left: 4px solid $dates-accent;
   border-radius: $dates-card-radius-sm;
 
   &__heading {
-    color: $dates-accent;
+    color: #fff;
     font-weight: 700;
     margin: 0 0 0.6rem;
   }
 
   &__body {
     font-size: 0.9375rem;
-    color: $dates-text-body;
+    color: $dates-brand;
     line-height: 1.6;
     margin: 0;
   }
@@ -215,12 +215,12 @@ $dates-card-radius-sm:4px;
 .dates-budget {
   align-self: flex-start;   // never stretch to match the notice block
   padding: 1.25rem 1.5rem;
-  background-color: #ffffff;
+  background-color: var(--bg-dark-alt);
   border-left: 4px solid $dates-accent;
   border-radius: $dates-card-radius-sm;
 
   &__heading {
-    color: $dates-accent;
+    color: var(--text-main);
     font-weight: 700;
     margin-top: 0;
     margin-bottom: 0.5rem;

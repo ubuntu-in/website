@@ -71,7 +71,7 @@ export const Sponsors: React.FC = () => (
     <section className="p-strip sp-why-section">
       <div className="row">
         {/* Copy */}
-        <div className="col-7 col-medium-12">
+        <div className="col-7 col-medium-6">
           <h3 className="sp-section__heading">
             Why Sponsor UbuCon India 2026?
           </h3>
@@ -88,7 +88,7 @@ export const Sponsors: React.FC = () => (
         </div>
 
         {/* Stats sidebar */}
-        <div className="col-5 col-medium-12">
+        <div className="col-5 col-medium-6">
           <aside className="sp-stats">
             {WHY_STATS.map(({ value, label }) => (
               <div key={label} className="sp-stats__item">
@@ -121,7 +121,7 @@ export const Sponsors: React.FC = () => (
 
       <div className="row sp-tiers__grid">
         {TIERS.map(({ id, label, featured, perks }) => (
-          <div key={id} className={`col-4 col-medium-12`}>
+          <div key={id} className={`col-4 col-medium-6`}>
             <div
               className={`sp-tier-card sp-tier-card--${id}${featured ? " sp-tier-card--featured" : ""}`}
             >
@@ -153,7 +153,7 @@ export const Sponsors: React.FC = () => (
     <section className="sp-specialized-section">
       <div className="row">
         {/* Info + notice */}
-        <div className="col-8 col-medium-12">
+        <div className="col-8 col-medium-6">
           <h3 className="sp-section__heading">Specialized Sponsorships</h3>
           <p className="sp-specialized__body">
             We also offer targeted options — sponsor the social dinner, coffee
@@ -175,7 +175,7 @@ export const Sponsors: React.FC = () => (
         </div>
 
         {/* Custom packages sidebar */}
-        <div className="col-4 col-medium-12">
+        <div className="col-4 col-medium-6">
           <aside className="sp-custom">
             <h5 className="sp-custom__heading">Custom Packages</h5>
             <p className="sp-custom__body">

@@ -13,10 +13,10 @@ export const AccommodationsTipsSection: React.FC = () => {
             New Delhi is a major travel destination and hotels in central locations (especially near Connaught Place and Janpath) fill up quickly. 
             We highly recommend booking your hotel room at least 3-4 weeks in advance.
           </p>
-          <div className="p-notification--information accommodations-notification">
+          <div className="p-notification--information accommodations-notification" style={{ borderColor: '#772953' }}>
             <div className="p-notification__content">
-              <h5 className="p-notification__title accommodations-notification-title">Metro Commuter Tip</h5>
-              <p className="p-notification__message">
+              <h5 className="p-notification__title accommodations-notification-title" style={{ color: '#fff' }}>Metro Commuter Tip</h5>
+              <p className="p-notification__message" style={{ color: '#E95420' }}>
                 If central Delhi accommodations exceed your budget, consider staying near any Metro station along the <strong>Violet Line</strong> or <strong>Yellow Line</strong>. 
                 Commuting to the venue via Metro is fast, affordable, and bypasses local traffic entirely.
               </p>
