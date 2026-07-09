@@ -1,0 +1,94 @@
+@import '@/styles/variables';
+@import '@/styles/mixins';
+
+.donateContainer {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.headerArea {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: $primary;
+  margin-bottom: 1rem;
+
+  @include media-sm {
+    font-size: 3rem;
+  }
+  @include media-md {
+    font-size: 3.5rem;
+  }
+}
+
+.subtitle {
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.25rem;
+  color: $muted-foreground;
+  line-height: 1.5;
+}
+
+.donateGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+
+  @include media-md {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.donateCard {
+  transition: box-shadow 0.3s ease;
+  height: 100%;
+
+  &:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+  }
+}
+
+.cardHeaderContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.iconWrapper {
+  padding: 1rem;
+  border-radius: 50%;
+  background-color: rgba(233, 84, 32, 0.1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.cardTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.description {
+  color: $muted-foreground;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}

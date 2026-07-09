@@ -1,0 +1,94 @@
+@import '@/styles/variables';
+@import '@/styles/mixins';
+
+.contactContainer {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.headerArea {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: $primary;
+  margin-bottom: 1rem;
+
+  @include media-sm {
+    font-size: 3rem;
+  }
+}
+
+.subtitle {
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.125rem;
+  color: $muted-foreground;
+  line-height: 1.5;
+}
+
+.contactGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+
+  @include media-sm {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include media-md {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.contactCard {
+  transition: all 0.3s ease;
+  height: 100%;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+  }
+}
+
+.cardHeaderContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.iconWrapper {
+  padding: 1rem;
+  border-radius: 50%;
+  background-color: rgba(233, 84, 32, 0.1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.cardTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.description {
+  font-size: 0.875rem;
+  color: $muted-foreground;
+  text-align: center;
+  min-height: 2.5rem;
+}

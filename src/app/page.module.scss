@@ -1,0 +1,123 @@
+@import '@/styles/variables';
+@import '@/styles/mixins';
+
+.homeContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.heroSection {
+  width: 100%;
+  padding: 5rem 1rem;
+  background-color: $card;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include media-md {
+    padding: 8rem 2rem;
+  }
+
+  @include media-lg {
+    padding: 10rem 2rem;
+  }
+}
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.heroTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: $primary;
+  margin-bottom: 1rem;
+
+  @include media-sm {
+    font-size: 3rem;
+  }
+  @include media-md {
+    font-size: 3.5rem;
+  }
+}
+
+.heroDescription {
+  max-width: 600px;
+  color: $muted-foreground;
+  font-size: 1.125rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+
+  @include media-md {
+    font-size: 1.25rem;
+  }
+}
+
+.buttonGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+
+  @media (min-width: 400px) {
+    flex-direction: row;
+  }
+}
+
+.nextEventCard {
+  border: 2px solid rgba(233, 84, 32, 0.2) !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+  border-radius: $radius;
+}
+
+.gridSection {
+  width: 100%;
+  padding: 3rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include media-md {
+    padding: 6rem 2rem;
+  }
+}
+
+.featureCard {
+  transition: box-shadow 0.3s ease;
+  height: 100%;
+
+  &:hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+  }
+}
+
+.featuresGrid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr;
+
+  @include media-md {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.heroRow {
+  display: grid;
+  gap: 1.5rem;
+  align-items: center;
+
+  @include media-lg {
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 3rem;
+  }
+}
+
+.cardHeaderFlex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}

@@ -1,0 +1,26 @@
+@import 'variables';
+@import 'mixins';
+
+.container-custom {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  max-width: 1200px;
+
+  @include media-sm {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  @include media-lg {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.min-h-dvh {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
