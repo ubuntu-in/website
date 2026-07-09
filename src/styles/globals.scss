@@ -1,3 +1,6 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
 // 1. Settings overrides for Vanilla Framework
 $color-brand: #e95420;
 $font-family: 'Ubuntu Sans', sans-serif;
@@ -7,9 +10,6 @@ $font-family: 'Ubuntu Sans', sans-serif;
 
 // 3. Include Vanilla Framework compiled classes
 @include vanilla;
-
-// 4. Custom design tokens and partials
-@import 'variables';
 
 :root {
   // Light Theme
@@ -56,7 +56,6 @@ $font-family: 'Ubuntu Sans', sans-serif;
   --ring-color: hsl(20, 83%, 53%);
 }
 
-@import 'mixins';
 @import 'typography';
 @import 'layout';
 @import 'utilities';
