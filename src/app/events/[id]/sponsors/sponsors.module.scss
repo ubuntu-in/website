@@ -2,25 +2,29 @@
 @use '@/styles/mixins' as *;
 
 .sponsorsContainer {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+  padding-top: 0;
+  padding-bottom: 5rem;
 }
 
 .breadcrumbWrapper {
   margin-bottom: 2rem;
+  padding-top: 2rem;
 }
 
 .headerArea {
   text-align: center;
-  margin-bottom: 3rem;
+  padding: 5rem 1rem;
+  background: linear-gradient(135deg, #77216f 0%, #2c001e 100%);
+  color: #ffffff;
+  margin-bottom: 4rem;
 }
 
 .title {
   font-size: 2.5rem;
   font-weight: 800;
   line-height: 1.2;
-  color: $primary;
-  margin-bottom: 1rem;
+  color: #ffffff;
+  margin-bottom: 1.25rem;
 
   @include media-sm {
     font-size: 3rem;
@@ -31,12 +35,12 @@
 }
 
 .subtitle {
-  max-width: 48rem;
+  max-width: 46rem;
   margin-left: auto;
   margin-right: auto;
   font-size: 1.25rem;
-  color: $muted-foreground;
-  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.6;
 }
 
 .sectionTitle {
@@ -45,6 +49,7 @@
   text-align: center;
   margin-top: 3rem;
   margin-bottom: 2rem;
+  color: #77216f;
 }
 
 .pastSponsorsWrapper {
@@ -52,7 +57,7 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
+  gap: 2.5rem;
   margin-bottom: 4rem;
 }
 
@@ -71,13 +76,20 @@
 }
 
 .tableCard {
+  border-top: 3px solid #77216f !important;
   margin-bottom: 4rem;
+  
+  :global(.p-card__content) {
+    padding: 0 !important;
+  }
 }
 
 .tableHeaderTitle {
   font-size: 1.75rem;
   font-weight: 700;
   text-align: center;
+  color: #77216f;
+  margin: 0.5rem 0;
 }
 
 .responsiveTableWrapper {
@@ -96,12 +108,21 @@
   }
 }
 
+.alaCarteGrid > div {
+  border-top: 3px solid #77216f !important;
+  background-color: #ffffff;
+  
+  &:nth-child(even) {
+    border-top-color: #e95420 !important;
+  }
+}
+
 .benefitItem {
   display: flex;
   align-items: start;
   gap: 0.5rem;
   margin-bottom: 0.5rem;
-  font-size: 0.875rem;
+  font-size: 0.9rem;
   color: $muted-foreground;
 
   &:last-child {
@@ -111,8 +132,8 @@
 
 .priceWrapper {
   font-weight: 700;
-  font-size: 1.25rem;
-  color: $primary;
+  font-size: 1.35rem;
+  color: #77216f;
   margin-bottom: 1rem;
 }
 
@@ -123,6 +144,7 @@
 }
 
 .termsCard {
+  border-top: 3px solid #e95420 !important;
   margin-bottom: 4rem;
 }
 
@@ -131,6 +153,7 @@
   font-weight: 700;
   display: flex;
   align-items: center;
+  color: #e95420;
 }
 
 .termsList {
@@ -151,11 +174,15 @@
 .ctaArea {
   text-align: center;
   margin-top: 4rem;
+  padding: 3rem 1.5rem;
+  background-color: #f7f7f7;
+  border-radius: $radius;
 }
 
 .ctaTitle {
   font-size: 1.75rem;
   font-weight: 700;
+  color: #77216f;
 }
 
 .ctaDescription {
