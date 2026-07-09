@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, Calendar, Info, Heart } from "lucide-react";
+import { ArrowRight, Calendar, Info, Heart, MapPin } from "lucide-react";
 import { Button, Card } from "@canonical/react-components";
 import styles from "./page.module.scss";
 
@@ -25,7 +25,7 @@ export default function Home() {
                   Explore Events
                   <ArrowRight className="ml-2 h-5 w-5 inline-block" style={{ verticalAlign: 'middle' }} />
                 </Button>
-                <Button element={Link} href="/about" className="font-semibold">
+                <Button element={Link} href="/about" className={`${styles.heroBtnNeutral} font-semibold`}>
                   Learn More
                 </Button>
               </div>
@@ -34,14 +34,26 @@ export default function Home() {
               <div className="w-full max-w-md">
                 <Card
                   className={styles.nextEventCard}
-                  title={<span className="text-primary">Next Up: UbuCon India 2025</span>}
+                  title={<span className={styles.nextEventCardTitle}>Next Up: UbuCon India 2025</span>}
                 >
-                  <p className="text-muted-foreground mb-4">Join us for our biggest event of the year, featuring talks from industry leaders, hands-on workshops, and networking opportunities.</p>
-                  <div className="flex items-center text-sm font-medium text-foreground">
-                    <Calendar className="mr-2 h-4 w-4 text-primary" style={{ verticalAlign: 'middle' }} />
-                    <span>November 15-16, 2025</span>
+                  <p className={styles.nextEventCardText}>
+                    Join us for our biggest event of the year, featuring talks from industry leaders, hands-on workshops, and networking opportunities.
+                  </p>
+                  
+                  <div className={styles.nextEventCardInfoBox}>
+                    <div className={styles.nextEventInfoRow}>
+                      <Calendar className="mr-2 h-4 w-4" style={{ verticalAlign: 'middle' }} />
+                      <span className={styles.infoLabel}>Date:</span>
+                      <span className={styles.infoValue}>November 15-16, 2025</span>
+                    </div>
+                    <div className={styles.nextEventInfoRow}>
+                      <MapPin className="mr-2 h-4 w-4" style={{ verticalAlign: 'middle' }} />
+                      <span className={styles.infoLabel}>Venue:</span>
+                      <span className={styles.infoValue}>Delhi, India</span>
+                    </div>
                   </div>
-                  <Button element={Link} href="/events/ubucon-india-2025" appearance="brand" style={{ marginTop: '1rem', width: '100%' }}>
+                  
+                  <Button element={Link} href="/events/ubucon-india-2025" appearance="brand" className={styles.nextEventButton}>
                     View Event Details
                   </Button>
                 </Card>
