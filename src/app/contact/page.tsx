@@ -39,48 +39,52 @@ const contactMethods = [
 
 export default function ContactPage() {
   return (
-    <div className={`container-custom ${styles.contactContainer}`}>
+    <div className={styles.contactContainer}>
       <div className={styles.headerArea}>
-        <h1 className={styles.title}>
-          Get in Touch
-        </h1>
-        <p className={styles.subtitle}>
-          Join us on your favorite platform — whether for quick chats, updates, or formal communication.
-        </p>
+        <div className="container-custom">
+          <h1 className={styles.title}>
+            Get in Touch
+          </h1>
+          <p className={styles.subtitle}>
+            Join us on your favorite platform — whether for quick chats, updates, or formal communication.
+          </p>
+        </div>
       </div>
 
-      <div className={styles.contactGrid}>
-        {contactMethods.map((method) => {
-          const Icon = method.icon;
-          return (
-            <Card
-              key={method.title}
-              className={styles.contactCard}
-              title={
-                <div className={styles.cardHeaderContent}>
-                  <div className={styles.iconWrapper}>
-                    <Icon className="h-10 w-10 text-primary" />
+      <div className="container-custom">
+        <div className={styles.contactGrid}>
+          {contactMethods.map((method) => {
+            const Icon = method.icon;
+            return (
+              <Card
+                key={method.title}
+                className={styles.contactCard}
+                title={
+                  <div className={styles.cardHeaderContent}>
+                    <div className={styles.iconWrapper}>
+                      <Icon className="h-10 w-10 text-primary" />
+                    </div>
+                    <span className={styles.cardTitle}>{method.title}</span>
                   </div>
-                  <span className={styles.cardTitle}>{method.title}</span>
+                }
+              >
+                <div className={styles.cardBody}>
+                  <p className={styles.description}>{method.description}</p>
+                  <Button
+                    element={Link}
+                    href={method.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    appearance="brand"
+                    style={{ width: '100%' }}
+                  >
+                    {method.contact}
+                  </Button>
                 </div>
-              }
-            >
-              <div className={styles.cardBody}>
-                <p className={styles.description}>{method.description}</p>
-                <Button
-                  element={Link}
-                  href={method.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  appearance="brand"
-                  style={{ width: '100%' }}
-                >
-                  {method.contact}
-                </Button>
-              </div>
-            </Card>
-          );
-        })}
+              </Card>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
