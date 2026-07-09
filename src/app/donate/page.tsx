@@ -31,48 +31,52 @@ const donationOptions = [
 
 export default function DonationPage() {
   return (
-    <div className={`container-custom ${styles.donateContainer}`}>
+    <div className={styles.donateContainer}>
       <div className={styles.headerArea}>
-        <h1 className={styles.title}>
-          Support Our Community
-        </h1>
-        <p className={styles.subtitle}>
-          Your support enables us to continue our work, host events, and build a better platform for everyone.
-        </p>
+        <div className="container-custom">
+          <h1 className={styles.title}>
+            Support Our Community
+          </h1>
+          <p className={styles.subtitle}>
+            Your support enables us to continue our work, host events, and build a better platform for everyone.
+          </p>
+        </div>
       </div>
 
-      <div className={styles.donateGrid}>
-        {donationOptions.map((option) => {
-          const Icon = option.icon;
-          return (
-            <Card
-              key={option.title}
-              className={styles.donateCard}
-              title={
-                <div className={styles.cardHeaderContent}>
-                  <div className={styles.iconWrapper}>
-                    <Icon className="h-10 w-10 text-primary" />
+      <div className="container-custom">
+        <div className={styles.donateGrid}>
+          {donationOptions.map((option) => {
+            const Icon = option.icon;
+            return (
+              <Card
+                key={option.title}
+                className={styles.donateCard}
+                title={
+                  <div className={styles.cardHeaderContent}>
+                    <div className={styles.iconWrapper}>
+                      <Icon className="h-10 w-10 text-primary" />
+                    </div>
+                    <span className={styles.cardTitle}>{option.title}</span>
                   </div>
-                  <span className={styles.cardTitle}>{option.title}</span>
+                }
+              >
+                <div className={styles.cardBody}>
+                  <p className={styles.description}>{option.description}</p>
+                  <Button
+                    element={Link}
+                    href={option.href}
+                    target={option.href.startsWith('http') ? '_blank' : '_self'}
+                    rel="noopener noreferrer"
+                    appearance="brand"
+                    style={{ width: '100%' }}
+                  >
+                    {option.buttonText}
+                  </Button>
                 </div>
-              }
-            >
-              <div className={styles.cardBody}>
-                <p className={styles.description}>{option.description}</p>
-                <Button
-                  element={Link}
-                  href={option.href}
-                  target={option.href.startsWith('http') ? '_blank' : '_self'}
-                  rel="noopener noreferrer"
-                  appearance="brand"
-                  style={{ width: '100%' }}
-                >
-                  {option.buttonText}
-                </Button>
-              </div>
-            </Card>
-          );
-        })}
+              </Card>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
