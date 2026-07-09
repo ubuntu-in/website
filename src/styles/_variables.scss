@@ -2,52 +2,6 @@
 $primary-color: #e95420; // Classic Ubuntu Orange
 $primary-foreground-color: #ffffff;
 
-// Theme Colors (mapped to custom properties for Next-Themes light/dark compatibility)
-:root {
-  // Light Theme
-  --background-color: hsl(300, 27%, 95%);
-  --foreground-color: hsl(317, 40%, 10%);
-  --card-color: hsl(0, 0%, 100%);
-  --card-foreground-color: hsl(317, 40%, 10%);
-  --popover-color: hsl(0, 0%, 100%);
-  --popover-foreground-color: hsl(317, 40%, 10%);
-  --primary-color-raw: 20, 83%, 53%;
-  --primary-color: hsl(var(--primary-color-raw));
-  --primary-foreground-color: hsl(0, 0%, 100%);
-  --secondary-color: hsl(300, 15%, 90%);
-  --secondary-foreground-color: hsl(317, 40%, 10%);
-  --muted-color: hsl(300, 15%, 90%);
-  --muted-foreground-color: hsl(317, 40%, 40%);
-  --accent-color: hsl(317, 40%, 26%);
-  --accent-foreground-color: hsl(0, 0%, 100%);
-  --border-color: hsl(300, 10%, 88%);
-  --input-color: hsl(300, 10%, 88%);
-  --ring-color: hsl(20, 83%, 53%);
-  --radius-value: 0.5rem;
-}
-
-:root[class~="dark"], .dark {
-  // Dark Theme
-  --background-color: hsl(317, 10%, 10%);
-  --foreground-color: hsl(300, 27%, 95%);
-  --card-color: hsl(317, 10%, 12%);
-  --card-foreground-color: hsl(300, 27%, 95%);
-  --popover-color: hsl(317, 10%, 12%);
-  --popover-foreground-color: hsl(300, 27%, 95%);
-  --primary-color-raw: 20, 83%, 53%;
-  --primary-color: hsl(var(--primary-color-raw));
-  --primary-foreground-color: hsl(0, 0%, 100%);
-  --secondary-color: hsl(317, 10%, 15%);
-  --secondary-foreground-color: hsl(300, 27%, 95%);
-  --muted-color: hsl(317, 10%, 15%);
-  --muted-foreground-color: hsl(300, 27%, 60%);
-  --accent-color: hsl(317, 40%, 36%);
-  --accent-foreground-color: hsl(0, 0%, 100%);
-  --border-color: hsl(317, 10%, 20%);
-  --input-color: hsl(317, 10%, 20%);
-  --ring-color: hsl(20, 83%, 53%);
-}
-
 // SCSS shortcuts mapping to CSS custom properties
 $background: var(--background-color);
 $foreground: var(--foreground-color);
