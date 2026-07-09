@@ -1,8 +1,6 @@
 import type { Metadata } from 'next';
-import { ThemeProvider as NextThemesProvider } from 'next-themes';
-import './globals.css';
+import '@/styles/globals.scss';
 import { Header } from '@/components/header';
-import { Toaster } from '@/components/ui/toaster';
 
 const siteUrl = 'https://ubuntu-in.netlify.app';
 const defaultOgImage = `${siteUrl}/ubuntu-in-logo.png`;
@@ -76,7 +74,6 @@ export default function RootLayout({
           <Header />
           <main className="flex-1">{children}</main>
         </div>
-        <Toaster />
       </body>
     </html>
   );
