@@ -51,23 +51,16 @@ export default function EventsPage() {
           <MapPin className="mr-2 h-4 w-4" style={{ verticalAlign: 'middle' }} />
           <span>{event.location}</span>
         </div>
-        
-        <p className={styles.description}>{event.description}</p>
-        
-        <div className={styles.cardFooter}>
-          <Button element={Link} href={`/events/${event.id}`} appearance="brand" style={{ flex: 1, textAlign: 'center' }}>
-            View Details <ArrowRight className="ml-2 h-4 w-4 inline-block" style={{ verticalAlign: 'middle' }} />
-          </Button>
 
-          {event.ticketUrl && (
-            <Button
-              element={Link}
-              href={event.ticketUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ flex: 1, textAlign: 'center' }}
-            >
-              <Ticket className="mr-2 h-4 w-4 inline-block" style={{ verticalAlign: 'middle' }} /> Get Tickets
+        <p className={styles.description}>{event.description}</p>
+
+        <div className={styles.cardFooter}>
+          <Button element={Link} href={`/events/${event.id}`} appearance="brand" style={{ flex: 1 }}>
+            Details
+          </Button>
+          {event.ticketUrl && !event.isPast && (
+            <Button element={Link} href={event.ticketUrl} style={{ flex: 1 }}>
+              <Ticket className="mr-1.5 h-4 w-4 inline-block" style={{ verticalAlign: 'middle' }} /> Tickets
             </Button>
           )}
         </div>
@@ -76,58 +69,66 @@ export default function EventsPage() {
   );
 
   return (
-    <div className={`container-custom ${styles.eventsContainer}`}>
+    <div className={styles.eventsContainer}>
       <div className={styles.headerArea}>
-        <h1 className={styles.title}>
-          Our Events
-        </h1>
-        <p className={styles.subtitle}>
-          Join us for meetups, workshops, and conferences.
-        </p>
+        <div className="container-custom">
+          <h1 className={styles.title}>
+            Ubuntu India Events
+          </h1>
+          <p className={styles.subtitle}>
+            Join us for meetups, workshops, and conferences.
+          </p>
+        </div>
       </div>
 
-      <div className={styles.tabsContainer}>
-        <Tabs
-          links={[
-            {
-              label: "Upcoming",
-              active: activeTab === "upcoming",
-              onClick: (e: React.MouseEvent<HTMLElement>) => {
-                e.preventDefault();
-                setActiveTab("upcoming");
-              },
-            } as any,
-            {
-              label: "Past",
-              active: activeTab === "past",
-              onClick: (e: React.MouseEvent<HTMLElement>) => {
-                e.preventDefault();
-                setActiveTab("past");
-              },
-            } as any,
-          ]}
-        />
-      </div>
+      <div className="container-custom">
+        <div className={styles.tabsContainer}>
+          <Tabs
+            links={[
+              {
+                label: "Upcoming",
+                active: activeTab === "upcoming",
+                onClick: (e: React.MouseEvent<HTMLElement>) => {
+                  e.preventDefault();
+                  setActiveTab("upcoming");
+                },
+              } as any,
+              {
+                label: "Past",
+                active: activeTab === "past",
+                onClick: (e: React.MouseEvent<HTMLElement>) => {
+                  e.preventDefault();
+                  setActiveTab("past");
+                },
+              } as any,
+            ]}
+          />
+        </div>
 
-      {activeTab === "upcoming" ? (
-        upcomingEvents.length > 0 ? (
+        {activeTab === "upcoming" ? (
+          upcomingEvents.length > 0 ? (
+            <div className={styles.eventsGrid}>
+              {upcomingEvents.map((event) => (
+                <EventCard key={event.id} event={event} />
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-12">
+              <p className="text-muted-foreground text-lg">No upcoming events scheduled. Check back soon!</p>
+            </div>
+          )
+        ) : pastEvents.length > 0 ? (
           <div className={styles.eventsGrid}>
-            {upcomingEvents.map((event) => (
+            {pastEvents.map((event) => (
               <EventCard key={event.id} event={event} />
             ))}
           </div>
         ) : (
-          <p className="text-center text-muted-foreground py-10">No upcoming events scheduled. Check back soon!</p>
-        )
-      ) : pastEvents.length > 0 ? (
-        <div className={styles.eventsGrid}>
-          {pastEvents.map((event) => (
-            <EventCard key={event.id} event={event} />
-          ))}
-        </div>
-      ) : (
-        <p className="text-center text-muted-foreground py-10">No past events to show.</p>
-      )}
+          <div className="text-center py-12">
+            <p className="text-muted-foreground text-lg">No past events found.</p>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

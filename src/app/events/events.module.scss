@@ -2,21 +2,24 @@
 @use '@/styles/mixins' as *;
 
 .eventsContainer {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+  padding-top: 0;
+  padding-bottom: 5rem;
 }
 
 .headerArea {
   text-align: center;
-  margin-bottom: 3rem;
+  padding: 5rem 1rem;
+  background: linear-gradient(135deg, #77216f 0%, #2c001e 100%);
+  color: #ffffff;
+  margin-bottom: 4rem;
 }
 
 .title {
   font-size: 2.5rem;
   font-weight: 800;
   line-height: 1.2;
-  color: $primary;
-  margin-bottom: 1rem;
+  color: #ffffff;
+  margin-bottom: 1.25rem;
 
   @include media-sm {
     font-size: 3rem;
@@ -27,25 +30,49 @@
 }
 
 .subtitle {
-  max-width: 42rem;
+  max-width: 44rem;
   margin-left: auto;
   margin-right: auto;
   font-size: 1.25rem;
-  color: $muted-foreground;
-  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.6;
 }
 
 .tabsContainer {
   width: 100%;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
   display: flex;
   justify-content: center;
+
+  // Make the tabs look like standard Vanilla tabs
+  :global(.p-tabs) {
+    border-bottom: 1px solid $border;
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  :global(.p-tabs__link) {
+    color: $muted-foreground;
+    font-weight: 600;
+    padding: 0.75rem 1rem;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s ease;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+
+  :global(.p-tabs__link--active) {
+    color: #e95420 !important;
+    border-bottom-color: #e95420 !important;
+  }
 }
 
 .eventsGrid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2rem;
+  gap: 2.5rem;
 
   @include media-sm {
     grid-template-columns: repeat(2, 1fr);
@@ -57,15 +84,17 @@
 }
 
 .eventCard {
+  border-top: 3px solid #77216f !important;
+  background-color: #ffffff;
   display: flex;
   flex-direction: column;
   height: 100%;
   overflow: hidden;
-  transition: box-shadow 0.3s ease;
-  border-radius: $radius;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 
   &:hover {
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+    transform: translateY(-4px);
+    box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.08) !important;
   }
 }
 
@@ -99,19 +128,20 @@
 }
 
 .cardHeaderArea {
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
 }
 
 .cardTitle {
-  font-size: 1.35rem;
+  font-size: 1.4rem;
   font-weight: 700;
   margin: 0 0 0.5rem 0;
+  color: #77216f;
 }
 
 .cardDate {
   display: flex;
   align-items: center;
-  font-size: 0.875rem;
+  font-size: 0.9rem;
   color: $muted-foreground;
 }
 
@@ -125,8 +155,9 @@
 .cardLocation {
   display: flex;
   align-items: center;
-  font-size: 0.875rem;
+  font-size: 0.9rem;
   color: $muted-foreground;
+  margin-bottom: 0.25rem;
 }
 
 .description {
@@ -144,8 +175,8 @@
 
 .cardFooter {
   display: flex;
-  gap: 0.5rem;
-  margin-top: 1.5rem;
+  gap: 1rem;
+  margin-top: auto;
   border-top: 1px solid $border;
-  padding-top: 1rem;
+  padding-top: 1.25rem;
 }
