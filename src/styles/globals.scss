@@ -2,7 +2,7 @@
 @use 'mixins' as *;
 
 // 1. Settings overrides for Vanilla Framework
-$color-brand: #e95420;
+$color-brand: #77216f; // Main brand is Aubergine
 $font-family: 'Ubuntu Sans', sans-serif;
 
 // 2. Import Vanilla Framework
@@ -13,47 +13,47 @@ $font-family: 'Ubuntu Sans', sans-serif;
 
 :root {
   // Light Theme
-  --background-color: hsl(300, 27%, 95%);
-  --foreground-color: hsl(317, 40%, 10%);
-  --card-color: hsl(0, 0%, 100%);
-  --card-foreground-color: hsl(317, 40%, 10%);
-  --popover-color: hsl(0, 0%, 100%);
-  --popover-foreground-color: hsl(317, 40%, 10%);
-  --primary-color-raw: 20, 83%, 53%;
-  --primary-color: hsl(var(--primary-color-raw));
-  --primary-foreground-color: hsl(0, 0%, 100%);
-  --secondary-color: hsl(300, 15%, 90%);
-  --secondary-foreground-color: hsl(317, 40%, 10%);
-  --muted-color: hsl(300, 15%, 90%);
-  --muted-foreground-color: hsl(317, 40%, 40%);
-  --accent-color: hsl(317, 40%, 26%);
-  --accent-foreground-color: hsl(0, 0%, 100%);
-  --border-color: hsl(300, 10%, 88%);
-  --input-color: hsl(300, 10%, 88%);
-  --ring-color: hsl(20, 83%, 53%);
-  --radius-value: 0.5rem;
+  --background-color: #ffffff;
+  --foreground-color: #111111;
+  --card-color: #ffffff;
+  --card-foreground-color: #111111;
+  --popover-color: #ffffff;
+  --popover-foreground-color: #111111;
+  --primary-color-raw: 320, 54%, 28%;
+  --primary-color: #77216f; // Canonical Aubergine
+  --primary-foreground-color: #ffffff;
+  --secondary-color: #f7f7f7;
+  --secondary-foreground-color: #111111;
+  --muted-color: #f7f7f7;
+  --muted-foreground-color: #666666;
+  --accent-color: #e95420; // Ubuntu Orange
+  --accent-foreground-color: #ffffff;
+  --border-color: #dbdbdb;
+  --input-color: #ffffff;
+  --ring-color: #e95420;
+  --radius-value: 0.25rem;
 }
 
 :root[class~="dark"], .dark {
   // Dark Theme
-  --background-color: hsl(317, 10%, 10%);
-  --foreground-color: hsl(300, 27%, 95%);
-  --card-color: hsl(317, 10%, 12%);
-  --card-foreground-color: hsl(300, 27%, 95%);
-  --popover-color: hsl(317, 10%, 12%);
-  --popover-foreground-color: hsl(300, 27%, 95%);
-  --primary-color-raw: 20, 83%, 53%;
-  --primary-color: hsl(var(--primary-color-raw));
-  --primary-foreground-color: hsl(0, 0%, 100%);
-  --secondary-color: hsl(317, 10%, 15%);
-  --secondary-foreground-color: hsl(300, 27%, 95%);
-  --muted-color: hsl(317, 10%, 15%);
-  --muted-foreground-color: hsl(300, 27%, 60%);
-  --accent-color: hsl(317, 40%, 36%);
-  --accent-foreground-color: hsl(0, 0%, 100%);
-  --border-color: hsl(317, 10%, 20%);
-  --input-color: hsl(317, 10%, 20%);
-  --ring-color: hsl(20, 83%, 53%);
+  --background-color: #111111;
+  --foreground-color: #f7f7f7;
+  --card-color: #1e1e1e;
+  --card-foreground-color: #f7f7f7;
+  --popover-color: #1e1e1e;
+  --popover-foreground-color: #f7f7f7;
+  --primary-color-raw: 320, 54%, 28%;
+  --primary-color: #ae3f7b; // Soft aubergine
+  --primary-foreground-color: #ffffff;
+  --secondary-color: #1e1e1e;
+  --secondary-foreground-color: #f7f7f7;
+  --muted-color: #262626;
+  --muted-foreground-color: #a3a3a3;
+  --accent-color: #e95420;
+  --accent-foreground-color: #ffffff;
+  --border-color: #2d2d2d;
+  --input-color: #1e1e1e;
+  --ring-color: #e95420;
 }
 
 @import 'typography';
@@ -73,10 +73,113 @@ body {
   min-height: 100vh;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  color: $foreground;
+}
+
+p, span, li, td, th {
+  color: $foreground;
+}
+
+a {
+  color: $primary;
+  
+  &:hover {
+    color: $accent;
+  }
+}
+
 header.p-navigation {
   position: sticky;
   top: 0;
   z-index: 100;
   background-color: $background;
   border-bottom: 1px solid $border;
+
+  .p-navigation__row {
+    width: 90%;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .p-navigation__link,
+  .p-navigation__item a,
+  .p-navigation__toggle {
+    color: $foreground !important;
+    
+    &:hover {
+      color: $primary !important;
+    }
+  }
+
+  .p-navigation__item--active a {
+    color: $primary !important;
+  }
+}
+
+// Global visual helpers matching Canonical theme
+.bg-suru {
+  background: linear-gradient(135deg, #77216f 0%, #2c001e 100%);
+  color: #ffffff;
+  
+  h1, h2, h3, h4, h5, h6, p, span {
+    color: #ffffff !important;
+  }
+}
+
+.bg-aubergine {
+  background-color: #77216f;
+  color: #ffffff;
+
+  h1, h2, h3, h4, h5, h6, p, span {
+    color: #ffffff !important;
+  }
+}
+
+.bg-orange {
+  background-color: #e95420;
+  color: #ffffff;
+
+  h1, h2, h3, h4, h5, h6, p, span {
+    color: #ffffff !important;
+  }
+}
+
+// Ensure Vanilla cards and button shapes align with Canonical's look
+.p-card {
+  border-top: 3px solid $primary;
+  border-radius: $radius;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  background-color: $card;
+  color: $card-foreground;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  h1, h2, h3, h4, h5, h6 {
+    color: $card-foreground !important;
+  }
+
+  p, span, li {
+    color: $card-foreground;
+  }
+
+  &:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+  }
+}
+
+.p-card--highlighted {
+  border-top: 3px solid $accent;
+}
+
+.p-button--brand {
+  background-color: #e95420;
+  border-color: #e95420;
+  color: #ffffff;
+
+  &:hover {
+    background-color: #d84315;
+    border-color: #d84315;
+  }
 }

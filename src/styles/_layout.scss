@@ -1,11 +1,11 @@
 
 .container-custom {
-  width: 100%;
+  width: 90%;
+  max-width: 1600px;
   margin-left: auto;
   margin-right: auto;
   padding-left: 1rem;
   padding-right: 1rem;
-  max-width: 1200px;
 
   @include media-sm {
     padding-left: 1.5rem;
