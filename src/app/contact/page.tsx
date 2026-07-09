@@ -1,3 +1,5 @@
+"use client";
+
 import { Card, Button } from "@canonical/react-components";
 import { SiMatrix, SiTelegram, SiGmail } from "react-icons/si";
 import { FaLinkedin } from "react-icons/fa";
