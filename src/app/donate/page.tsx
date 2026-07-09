@@ -1,3 +1,5 @@
+"use client";
+
 import { Card, Button } from "@canonical/react-components";
 import { FaHeart, FaIndianRupeeSign, FaGithub } from "react-icons/fa6";
 import Link from "next/link";
