@@ -26,60 +26,66 @@ export default function EventSpeakersPage({
   const { speakers } = event;
 
   return (
-    <div className={`container-custom ${styles.speakersContainer}`}>
-      <div className={styles.breadcrumbWrapper}>
-        <Breadcrumb />
+    <div className={styles.speakersContainer}>
+      <div className="container-custom">
+        <div className={styles.breadcrumbWrapper}>
+          <Breadcrumb />
+        </div>
       </div>
       <div className={styles.headerArea}>
-        <h1 className={styles.title}>
-          Speakers for {event.name}
-        </h1>
-        <p className={styles.subtitle}>
-          Learn from the best in the industry. Our speakers are passionate experts and innovators.
-        </p>
+        <div className="container-custom">
+          <h1 className={styles.title}>
+            Speakers for {event.name}
+          </h1>
+          <p className={styles.subtitle}>
+            Learn from the best in the industry. Our speakers are passionate experts and innovators.
+          </p>
+        </div>
       </div>
 
-      {speakers && speakers.length > 0 ? (
-        <div className={styles.speakersGrid}>
-          {speakers.map((speaker) => (
-            <Card
-              key={speaker.id}
-              className={styles.speakerCard}
-              title={
-                <div className={styles.cardHeaderArea}>
-                  <div className={styles.avatarWrapper}>
-                    <Image
-                      src={speaker.imageUrl}
-                      alt={speaker.name}
-                      fill
-                      className={styles.avatarImage}
-                      data-ai-hint={speaker.imageHint}
-                    />
+      <div className="container-custom">
+        {speakers && speakers.length > 0 ? (
+          <div className={styles.speakersGrid}>
+            {speakers.map((speaker) => (
+              <Card
+                key={speaker.id}
+                className={styles.speakerCard}
+                title={
+                  <div className={styles.cardHeaderArea}>
+                    <div className={styles.avatarWrapper}>
+                      <Image
+                        src={speaker.imageUrl}
+                        alt={speaker.name}
+                        fill
+                        className={styles.avatarImage}
+                        data-ai-hint={speaker.imageHint}
+                      />
+                    </div>
+                    <h3 className={styles.speakerName}>{speaker.name}</h3>
+                    <p className={styles.speakerTitle}>{speaker.title}</p>
                   </div>
-                  <h3 className={styles.speakerName}>{speaker.name}</h3>
-                  <p className={styles.speakerTitle}>{speaker.title}</p>
+                }
+              >
+                <div>
+                  <p className={styles.speakerBio}>{speaker.bio}</p>
+                  <div className={styles.socialLinks}>
+                    <Link href={speaker.twitterUrl} target="_blank" rel="noopener noreferrer">
+                      <FaXTwitter className={styles.socialIcon} />
+                    </Link>
+                    <Link href={speaker.linkedinUrl} target="_blank" rel="noopener noreferrer">
+                      <FaLinkedin className={styles.socialIcon} />
+                    </Link>
+                  </div>
                 </div>
-              }
-            >
-              <div>
-                <p className={styles.speakerBio}>{speaker.bio}</p>
-                <div className={styles.socialLinks}>
-                  <Link href={speaker.twitterUrl} target="_blank" rel="noopener noreferrer">
-                    <FaXTwitter className={styles.socialIcon} />
-                  </Link>
-                  <Link href={speaker.linkedinUrl} target="_blank" rel="noopener noreferrer">
-                    <FaLinkedin className={styles.socialIcon} />
-                  </Link>
-                </div>
-              </div>
-            </Card>
-          ))}
-        </div>
-      ) : (
-        <div className={styles.noSpeakers}>
-          <p>Speakers for this event will be announced soon!</p>
-        </div>
-      )}
+              </Card>
+            ))}
+          </div>
+        ) : (
+          <div className={styles.noSpeakers}>
+            <p>Speakers for this event will be announced soon!</p>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
