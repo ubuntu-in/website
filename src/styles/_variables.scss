@@ -1,0 +1,30 @@
+// Brand Colors
+$primary-color: #e95420; // Classic Ubuntu Orange
+$primary-foreground-color: #ffffff;
+
+// SCSS shortcuts mapping to CSS custom properties
+$background: var(--background-color);
+$foreground: var(--foreground-color);
+$card: var(--card-color);
+$card-foreground: var(--card-foreground-color);
+$popover: var(--popover-color);
+$popover-foreground: var(--popover-foreground-color);
+$primary: var(--primary-color);
+$primary-foreground: var(--primary-foreground-color);
+$secondary: var(--secondary-color);
+$secondary-foreground: var(--secondary-foreground-color);
+$muted: var(--muted-color);
+$muted-foreground: var(--muted-foreground-color);
+$accent: var(--accent-color);
+$accent-foreground: var(--accent-foreground-color);
+$border: var(--border-color);
+$input: var(--input-color);
+$ring: var(--ring-color);
+$radius: var(--radius-value);
+
+// Breakpoints matching Tailwind
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+$breakpoint-2xl: 1536px;

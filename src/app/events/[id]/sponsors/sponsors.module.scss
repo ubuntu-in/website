@@ -1,0 +1,198 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.sponsorsContainer {
+  padding-top: 0;
+  padding-bottom: 5rem;
+}
+
+.breadcrumbWrapper {
+  margin-bottom: 2rem;
+  padding-top: 2rem;
+}
+
+.headerArea {
+  text-align: center;
+  padding: 5rem 1rem;
+  background: linear-gradient(135deg, #77216f 0%, #2c001e 100%);
+  color: #ffffff;
+  margin-bottom: 4rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: #ffffff;
+  margin-bottom: 1.25rem;
+
+  @include media-sm {
+    font-size: 3rem;
+  }
+  @include media-md {
+    font-size: 3.5rem;
+  }
+}
+
+.subtitle {
+  max-width: 46rem;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.6;
+}
+
+.sectionTitle {
+  font-size: 1.75rem;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  color: #77216f;
+}
+
+.pastSponsorsWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+  margin-bottom: 4rem;
+}
+
+.sponsorLogoLink {
+  display: inline-block;
+  transition: transform 0.2s ease;
+  
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.sponsorLogo {
+  object-fit: contain;
+  max-width: 100%;
+}
+
+.tableCard {
+  border-top: 3px solid #77216f !important;
+  margin-bottom: 4rem;
+  
+  :global(.p-card__content) {
+    padding: 0 !important;
+  }
+}
+
+.tableHeaderTitle {
+  font-size: 1.75rem;
+  font-weight: 700;
+  text-align: center;
+  color: #77216f;
+  margin: 0.5rem 0;
+}
+
+.responsiveTableWrapper {
+  overflow-x: auto;
+  width: 100%;
+}
+
+.alaCarteGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-bottom: 4rem;
+
+  @include media-md {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.alaCarteGrid > div {
+  border-top: 3px solid #77216f !important;
+  background-color: #ffffff;
+  
+  &:nth-child(even) {
+    border-top-color: #e95420 !important;
+  }
+}
+
+.benefitItem {
+  display: flex;
+  align-items: start;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: $muted-foreground;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.priceWrapper {
+  font-weight: 700;
+  font-size: 1.35rem;
+  color: #77216f;
+  margin-bottom: 1rem;
+}
+
+.priceUSD {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: $muted-foreground;
+}
+
+.termsCard {
+  border-top: 3px solid #e95420 !important;
+  margin-bottom: 4rem;
+}
+
+.termsTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  color: #e95420;
+}
+
+.termsList {
+  list-style-type: disc;
+  list-style-position: inside;
+  color: $muted-foreground;
+  padding: 0;
+  margin: 0;
+
+  li {
+    margin-bottom: 0.5rem;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.ctaArea {
+  text-align: center;
+  margin-top: 4rem;
+  padding: 3rem 1.5rem;
+  background-color: #f7f7f7;
+  border-radius: $radius;
+}
+
+.ctaTitle {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #77216f;
+}
+
+.ctaDescription {
+  color: $muted-foreground;
+  font-size: 1.125rem;
+  margin-bottom: 1.5rem;
+}
+
+.ctaButtonGroup {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}

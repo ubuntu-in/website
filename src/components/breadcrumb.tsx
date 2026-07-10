@@ -3,7 +3,6 @@
 import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { ChevronRight, Home } from 'lucide-react';
 import { events } from '@/lib/events';
 
 const Breadcrumb = () => {
@@ -30,36 +29,24 @@ const Breadcrumb = () => {
     const isLast = index === pathSegments.length - 1;
 
     return (
-      <React.Fragment key={href}>
-        <li>
-          <div className="flex items-center">
-            <ChevronRight className="h-5 w-5 shrink-0 text-muted-foreground" />
-            <Link
-              href={href}
-              className={`ml-4 text-sm font-medium ${isLast ? 'text-foreground' : 'text-muted-foreground hover:text-foreground'}`}
-              aria-current={isLast ? 'page' : undefined}
-            >
-              {label}
-            </Link>
-          </div>
-        </li>
-      </React.Fragment>
+      <li key={href} className="p-breadcrumbs__item">
+        {isLast ? (
+          <span aria-current="page">{label}</span>
+        ) : (
+          <Link href={href}>{label}</Link>
+        )}
+      </li>
     );
   });
 
   return (
-    <nav className="flex" aria-label="Breadcrumb">
-      <ol role="list" className="flex items-center space-x-4">
-        <li>
-          <div>
-            <Link href="/" className="text-muted-foreground hover:text-foreground">
-              <Home className="h-5 w-5 shrink-0" aria-hidden="true" />
-              <span className="sr-only">Home</span>
-            </Link>
-          </div>
+    <nav className="p-breadcrumbs" aria-label="Breadcrumb">
+      <ul className="p-breadcrumbs__items">
+        <li className="p-breadcrumbs__item">
+          <Link href="/">Home</Link>
         </li>
         {breadcrumbs}
-      </ol>
+      </ul>
     </nav>
   );
 };

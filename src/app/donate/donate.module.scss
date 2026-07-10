@@ -1,0 +1,150 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.donateContainer {
+  padding-top: 0;
+  padding-bottom: 5rem;
+}
+
+.headerArea {
+  text-align: center;
+  padding: 5rem 1rem;
+  background: linear-gradient(135deg, #77216f 0%, #2c001e 100%);
+  color: #ffffff;
+  margin-bottom: 4rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: #ffffff;
+  margin-bottom: 1.25rem;
+
+  @include media-sm {
+    font-size: 3rem;
+  }
+  @include media-md {
+    font-size: 3.5rem;
+  }
+}
+
+.subtitle {
+  max-width: 44rem;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.6;
+}
+
+.donateGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+
+  @include media-md {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.donateCard {
+  border-top: 3px solid #77216f !important;
+  background-color: #ffffff;
+  height: 100%;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:nth-child(2) {
+    border-top-color: #e95420 !important;
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.08) !important;
+  }
+}
+
+.cardHeaderContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.iconWrapper {
+  padding: 1.25rem;
+  border-radius: 50%;
+  background-color: rgba(119, 33, 111, 0.06);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.75rem;
+
+  .donateCard:nth-child(2) & {
+    background-color: rgba(233, 84, 32, 0.06);
+  }
+
+  svg {
+    color: #77216f !important;
+  }
+
+  .donateCard:nth-child(2) & svg {
+    color: #e95420 !important;
+  }
+}
+
+.cardTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #77216f;
+  margin-top: 0.5rem;
+
+  .donateCard:nth-child(2) & {
+    color: #e95420;
+  }
+}
+
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.description {
+  color: $muted-foreground;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.donateCard button {
+  font-weight: 600;
+}
+
+.donateCard:nth-child(even) :global(.p-button--brand) {
+  background-color: #e95420 !important;
+  border-color: #e95420 !important;
+  color: #ffffff !important;
+
+  &:hover {
+    background-color: #d84315 !important;
+    border-color: #d84315 !important;
+  }
+}
+
+.donateCard:nth-child(odd) :global(.p-button--brand) {
+  background-color: #77216f !important;
+  border-color: #77216f !important;
+  color: #ffffff !important;
+
+  &:hover {
+    background-color: #5e2750 !important;
+    border-color: #5e2750 !important;
+  }
+}

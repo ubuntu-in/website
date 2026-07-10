@@ -13,6 +13,14 @@ out/
 build/
 dist/
 
+# Lockfiles — let each contributor use their own package manager
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+bun.lockb
+bun.lock
+
+
 # Environment variables
 .env.local
 .env
@@ -88,3 +96,4 @@ coverage/
 
 # Backup files
 *.bak
+pull_request.md

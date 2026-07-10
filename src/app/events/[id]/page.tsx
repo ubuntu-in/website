@@ -1,4 +1,6 @@
+"use client";
 
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -15,17 +17,16 @@ import {
   Clock,
 } from "lucide-react";
 import { events } from "@/lib/events";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { Button, Card, Chip } from "@canonical/react-components";
 import Breadcrumb from "@/components/breadcrumb";
+import styles from "./event-detail.module.scss";
 
-export default async function IndividualEventPage({
+export default function IndividualEventPage({
     params
   }: {
     params: Promise<{ id: string }>;
   }) {
-  const { id } = await params;
+  const { id } = React.use(params);
   const event = events.find((e) => e.id === id);
 
   if (!event) {
@@ -33,139 +34,161 @@ export default async function IndividualEventPage({
   }
 
   return (
-    <div className="container mx-auto max-w-6xl py-12 px-4 sm:px-6 lg:px-8">
-      <div className="mb-8">
-        <Breadcrumb />
+    <div className={styles.detailContainer}>
+      <div className="container-custom">
+        <div className={styles.breadcrumbWrapper}>
+          <Breadcrumb />
+        </div>
       </div>
-      <div className="relative w-full h-64 md:h-96 rounded-lg overflow-hidden mb-8 shadow-lg">
+      
+      <div className={styles.heroBanner}>
         <Image
           src={event.imageUrl}
           alt={event.name}
           fill
-          className="object-cover"
+          className={styles.bannerImage}
           data-ai-hint={event.imageHint}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-        <div className="absolute bottom-0 left-0 p-8">
-          <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl text-white font-headline">
-            {event.name}
-          </h1>
+        <div className={styles.bannerOverlay} />
+        <div className="container-custom" style={{ position: 'relative', height: '100%' }}>
+          <div className={styles.bannerTitleWrapper}>
+            <h1 className={styles.bannerTitle}>
+              {event.name}
+            </h1>
+          </div>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <div className="lg:col-span-2 space-y-8">
-          <Card>
-            <CardContent className="p-6">
-              <h2 className="text-2xl font-bold mb-4">About this Event</h2>
-              <p className="text-muted-foreground leading-relaxed">
+      <div className="container-custom">
+        <div className={styles.contentLayout}>
+          <div className={styles.leftColumn}>
+            <Card
+              title={
+                <span className={styles.cardHeaderTitle}>About this Event</span>
+              }
+            >
+              <p className={styles.cardBodyText}>
                 {event.longDescription}
               </p>
-            </CardContent>
-          </Card>
-
-          {event.tracks && (
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center text-2xl"><Tag className="mr-3 h-6 w-6 text-primary"/>Event Tracks</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                {event.tracks.map((track) => (
-                  <div key={track.name}>
-                    <h3 className="font-semibold text-lg">{track.name}</h3>
-                    <p className="text-muted-foreground mt-1">{track.description}</p>
-                  </div>
-                ))}
-              </CardContent>
             </Card>
-          )}
-        </div>
 
-        <div className="space-y-6">
-          <Card>
-            <CardHeader>
-              <CardTitle>Event Details</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4 text-sm">
-              <div className="flex items-center">
-                <Calendar className="mr-3 h-5 w-5 text-primary" />
-                <span className="font-medium text-foreground">{event.date} {event.isTentative && <span className="text-muted-foreground/80">(Tentative)</span>}</span>
-              </div>
-              <div className="flex items-center">
-                <MapPin className="mr-3 h-5 w-5 text-primary" />
-                <span className="font-medium text-foreground">{event.location}</span>
-              </div>
-              <div className="flex items-center">
-                <Ticket className="mr-3 h-5 w-5 text-primary" />
-                <span className="font-medium text-foreground">{event.ticketPrice}</span>
-              </div>
-            </CardContent>
-            <CardContent className="border-t pt-4">
-                 <div className="flex flex-col space-y-2">
-                    <Button asChild variant="ghost" className="justify-start">
-                        <Link href={`/events/${event.id}/speakers`}>
-                            <Users className="mr-2 h-5 w-5" /> View Speakers
-                        </Link>
-                    </Button>
+            {event.tracks && (
+              <Card
+                title={
+                  <span className={styles.cardHeaderTitle}>
+                    <Tag className="mr-3 h-6 w-6 text-primary" style={{ verticalAlign: 'middle' }} />
+                    Event Tracks
+                  </span>
+                }
+              >
+                <div>
+                  {event.tracks.map((track) => (
+                    <div key={track.name} className={styles.trackItem}>
+                      <h3 className={styles.trackName}>{track.name}</h3>
+                      <p className={styles.cardBodyText}>{track.description}</p>
+                    </div>
+                  ))}
                 </div>
-            </CardContent>
-          </Card>
-
-          {event.talkFormats && (
-            <Card>
-               <CardHeader>
-                <CardTitle className="flex items-center text-2xl"><Clock className="mr-3 h-6 w-6 text-primary"/>Talk Formats</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ul className="list-disc list-inside text-muted-foreground space-y-1">
-                  {event.talkFormats.map(format => <li key={format.id}>{format.name} ({format.length})</li>)}
-                </ul>
-              </CardContent>
-            </Card>
-          )}
-
-          <div className="flex flex-col space-y-2">
-            {event.ticketUrl && (
-              <Button size="lg" asChild>
-                <Link href={event.ticketUrl}>
-                  <Ticket className="mr-2 h-5 w-5" /> Get Tickets
-                </Link>
-              </Button>
+              </Card>
             )}
-            <Button size="lg" asChild>
-              <Link href={`/events/${event.id}/sponsors`}>
-                <Building className="mr-2 h-5 w-5" /> Sponsor Us
-              </Link>
-            </Button>
-            <Button size="lg" variant="outline" asChild>
-              <Link href={event.prospectusUrl}>
-                <FileText className="mr-2 h-5 w-5" /> View Prospectus
-              </Link>
-            </Button>
-            <Button size="lg" variant="outline" asChild>
-              <Link href={event.cfpUrl}>
-                <Code className="mr-2 h-5 w-5" /> Submit a proposal
-              </Link>
-            </Button>
           </div>
 
-          {event.sponsors.length > 0 && (
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center">
-                  <Handshake className="mr-3 h-5 w-5 text-primary" />
-                  Our Sponsors
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="flex flex-wrap gap-2">
-                {event.sponsors.map((sponsor) => (
-                  <Link href={sponsor.url} key={sponsor.name} target="_blank" rel="noopener noreferrer">
-                     <Badge variant="secondary" className="text-sm py-1 px-3 hover:bg-primary/20 transition-colors">{sponsor.name}</Badge>
-                  </Link>
-                ))}
-              </CardContent>
+          <div className={styles.rightColumn}>
+            <Card
+              title={
+                <span className={styles.cardHeaderTitle}>Event Details</span>
+              }
+            >
+              <div>
+                <div className={styles.detailRow}>
+                  <Calendar className="text-primary h-5 w-5" style={{ flexShrink: 0 }} />
+                  <span>
+                    {event.date} {event.isTentative && <span className="text-muted-foreground/80">(Tentative)</span>}
+                  </span>
+                </div>
+                <div className={styles.detailRow}>
+                  <MapPin className="text-primary h-5 w-5" style={{ flexShrink: 0 }} />
+                  <span>{event.location}</span>
+                </div>
+                <div className={styles.detailRow}>
+                  <Ticket className="text-primary h-5 w-5" style={{ flexShrink: 0 }} />
+                  <span>{event.ticketPrice}</span>
+                </div>
+                
+                <div className={styles.cardDividerContent}>
+                  <Button
+                    element={Link}
+                    href={`/events/${event.id}/speakers`}
+                    appearance="base"
+                    style={{ width: '100%', justifyContent: 'flex-start' }}
+                  >
+                    <Users className="mr-2 h-5 w-5 inline-block" style={{ verticalAlign: 'middle' }} /> View Speakers
+                  </Button>
+                </div>
+              </div>
             </Card>
-          )}
+
+            {event.talkFormats && (
+              <Card
+                title={
+                  <span className={styles.cardHeaderTitle}>
+                    <Clock className="mr-3 h-6 w-6 text-primary" style={{ verticalAlign: 'middle' }} />
+                    Talk Formats
+                  </span>
+                }
+              >
+                <ul className={styles.formatsList}>
+                  {event.talkFormats.map((format) => (
+                    <li key={format.id}>
+                      {format.name} ({format.length})
+                    </li>
+                  ))}
+                </ul>
+              </Card>
+            )}
+
+            <div className={styles.buttonStack}>
+              {event.ticketUrl && !event.isPast && (
+                <Button element={Link} href={event.ticketUrl} appearance="brand" style={{ width: '100%' }}>
+                  <Ticket className="mr-2 h-5 w-5 inline-block" style={{ verticalAlign: 'middle' }} /> Get Tickets
+                </Button>
+              )}
+              <Button element={Link} href={`/events/${event.id}/sponsors`} appearance="brand" style={{ width: '100%' }}>
+                <Building className="mr-2 h-5 w-5 inline-block" style={{ verticalAlign: 'middle' }} /> Sponsor Us
+              </Button>
+              <Button element={Link} href={event.prospectusUrl} style={{ width: '100%' }}>
+                <FileText className="mr-2 h-5 w-5 inline-block" style={{ verticalAlign: 'middle' }} /> View Prospectus
+              </Button>
+              <Button element={Link} href={event.cfpUrl} style={{ width: '100%' }}>
+                <Code className="mr-2 h-5 w-5 inline-block" style={{ verticalAlign: 'middle' }} /> Submit a proposal
+              </Button>
+            </div>
+
+            {event.sponsors && event.sponsors.length > 0 && (
+              <Card
+                title={
+                  <span className={styles.cardHeaderTitle}>
+                    <Handshake className="mr-3 h-5 w-5 text-primary" style={{ verticalAlign: 'middle' }} />
+                    Our Sponsors
+                  </span>
+                }
+              >
+                <div className={styles.sponsorsWrapper}>
+                  {event.sponsors.map((sponsor) => (
+                    <Link
+                      href={sponsor.url}
+                      key={sponsor.name}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ textDecoration: 'none' }}
+                    >
+                      <Chip value={sponsor.name} isReadOnly />
+                    </Link>
+                  ))}
+                </div>
+              </Card>
+            )}
+          </div>
         </div>
       </div>
     </div>

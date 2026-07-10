@@ -1,0 +1,138 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.contactContainer {
+  padding-top: 0;
+  padding-bottom: 5rem;
+}
+
+.headerArea {
+  text-align: center;
+  padding: 5rem 1rem;
+  background: linear-gradient(135deg, #77216f 0%, #2c001e 100%);
+  color: #ffffff;
+  margin-bottom: 4rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: #ffffff;
+  margin-bottom: 1.25rem;
+
+  @include media-sm {
+    font-size: 3rem;
+  }
+}
+
+.subtitle {
+  max-width: 44rem;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.6;
+}
+
+.contactGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+
+  @include media-sm {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include media-md {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.contactCard {
+  border-top: 3px solid #77216f !important;
+  background-color: #ffffff;
+  height: 100%;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:nth-child(even) {
+    border-top-color: #e95420 !important;
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.08) !important;
+  }
+}
+
+.cardHeaderContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.iconWrapper {
+  padding: 1.25rem;
+  border-radius: 50%;
+  background-color: rgba(119, 33, 111, 0.06);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.75rem;
+
+  .contactCard:nth-child(even) & {
+    background-color: rgba(233, 84, 32, 0.06);
+  }
+
+  svg {
+    color: #77216f !important;
+  }
+
+  .contactCard:nth-child(even) & svg {
+    color: #e95420 !important;
+  }
+}
+
+.cardTitle {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #77216f;
+
+  .contactCard:nth-child(even) & {
+    color: #e95420;
+  }
+}
+
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  width: 100%;
+}
+
+.description {
+  font-size: 0.9rem;
+  color: $muted-foreground;
+  text-align: center;
+  min-height: 2.5rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.contactCard button {
+  font-weight: 600;
+}
+
+.contactCard:nth-child(odd) :global(.p-button--brand) {
+  background-color: #77216f !important;
+  border-color: #77216f !important;
+  color: #ffffff !important;
+
+  &:hover {
+    background-color: #5e2750 !important;
+    border-color: #5e2750 !important;
+  }
+}

@@ -1,0 +1,113 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.aboutContainer {
+  padding-top: 0;
+  padding-bottom: 4rem;
+}
+
+.headerArea {
+  text-align: center;
+  padding: 5rem 1rem;
+  background: linear-gradient(135deg, #77216f 0%, #5e2750 100%);
+  color: #ffffff;
+  margin-bottom: 4rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: #ffffff;
+  margin-bottom: 1.25rem;
+
+  @include media-sm {
+    font-size: 3rem;
+  }
+  @include media-md {
+    font-size: 3.5rem;
+  }
+}
+
+.subtitle {
+  max-width: 46rem;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.6;
+}
+
+.aboutGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+
+  @include media-md {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.aboutCard {
+  border-top: 3px solid #77216f !important;
+  background-color: #ffffff;
+  height: 100%;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:nth-child(2) {
+    border-top-color: #e95420 !important;
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.08) !important;
+  }
+}
+
+.cardHeaderContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.iconWrapper {
+  padding: 1rem;
+  border-radius: 50%;
+  background-color: rgba(119, 33, 111, 0.08);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+  transition: background-color 0.2s ease;
+
+  svg {
+    color: #77216f !important;
+  }
+
+  .aboutCard:nth-child(2) & {
+    background-color: rgba(233, 84, 32, 0.08);
+
+    svg {
+      color: #e95420 !important;
+    }
+  }
+}
+
+.cardTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #77216f;
+  margin-top: 0.75rem;
+
+  .aboutCard:nth-child(2) & {
+    color: #e95420;
+  }
+}
+
+.cardContentText {
+  text-align: center;
+  color: $muted-foreground;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
